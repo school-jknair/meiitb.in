@@ -3297,6 +3297,7 @@
         = There are also several emerging memory technologies
             - RRAM (Resistive Random Access Memory)
             - PCM (Phase Change Memory)
+    <img src="images/21.2.memorytypesproperties.jpg" alt="" width="69%" height="9%">
     # Semiconductor technology is the foundation for modern memory devices. Memory devices such as SRAM, DRAM, ROM, NOR Flash, NAND Flash, EEPROM, MRAM, and PRAM are all based on semiconductor 
       technology. A semiconductor material is a material whose electrical conductivity lies between that of a conductor and that of an insulator. They can be manipulated to create electronic devices 
       such as transistors, which are the building blocks of memory devices. 
@@ -3342,6 +3343,7 @@
         = NOR gate: A NOR gate produces a high output only when all of its inputs are low. To construct a NOR gate using transistors, an OR gate can be followed by a NOT gate. The inputs of the NOR 
           gate are connected to the inputs of the OR gate, and the output of the NOR gate is taken from the output of the NOT gate. When any input signal to the OR gate is high, the output of the OR 
           gate will be high, which will cause the NOT gate to produce a low output, resulting in a low output for the NOR gate.
+    # Gates, which are basic building blocks of digital circuits, are used in the construction of various types of memory including DRAM, SRAM, NAND, NOR, and EEPROM.   
     # SRAM uses a flip-flop circuit that is made up of 6 transistors to store a single bit of data. 
         = To read a bit of data from an SRAM cell, the following steps are typically taken:
             - The address of the memory location to be read is presented to the SRAM.            
@@ -3389,7 +3391,8 @@
               <a href="https://youtu.be/sPCQA1_T1sI" target="_blank" rel="noopener noreferrer">explain the read operation of ROM</a>
     # In a NOR memory array, the memory cells are arranged in a grid-like pattern with a row and column address for each cell. Both random access and sequential access are possible. Each memory 
       cell in NOR flash memory has a unique address, which can be used to directly access any memory location. This allows random access to data in NOR flash memory, similar to how data can be 
-      accessed in a RAM. This makes NOR flash memory suitable for applications where fast random access is required, such as storing firmware or executing code.
+      accessed in a RAM. Each memory cell is composed of a single transistor and a floating gate. The floating gate stores the memory bit as a charge that is trapped within the gate, and can be 
+      read and written through the control gate. This makes NOR flash memory suitable for applications where fast random access is required, such as storing firmware or executing code.
         = To read data from a NOR memory cell, the following steps are typically taken:
             - Address input: The row and column address of the memory cell to be read is provided to the NOR memory chip's address input pins.    
             - Row and column decoding: The NOR memory chip's row and column decoder circuitry decodes the address and activates the corresponding row and column lines in the memory array.    
@@ -3411,7 +3414,8 @@
             - Word line deactivation: The word line for the selected memory cell is deactivated, which turns off the access transistors and isolates the storage transistor.
     # NAND memory cells are commonly used in flash memory devices, which are non-volatile memory devices that can retain their data even when power is turned off. In a typical NAND flash memory 
       chip, the memory cells are arranged in a two-dimensional array, with rows and columns of cells. Each row of cells is referred to as a page, and each page is identified by a unique page 
-      address. The page size in NAND flash memory can vary depending on the manufacturer and the specific product. Common page sizes include 2KB, 4KB, 8KB, and 16KB.
+      address. The page size in NAND flash memory can vary depending on the manufacturer and the specific product. Common page sizes include 2KB, 4KB, 8KB, and 16KB. Each memory cell is composed 
+      of a single transistor and a floating gate. The floating gate stores the memory bit as a charge that is trapped within the gate, and can be read and written through the control gate.    
         = The read operations of NAND memory cells are as follows:        
             - Address input: The page address and the column address of the memory cell to be read are provided to the NAND memory chip's address input pins.            
             - Row and column decoding: The NAND memory chip's row and column decoder circuitry decodes the address and activates the corresponding row and column lines in the memory array.            
@@ -3429,7 +3433,8 @@
             - Verification: The data is verified by reading it back from the selected memory cell and comparing it with the original data.            
             - Erase: If needed, the data can be erased from the memory cell by applying a high voltage to the word line and a low voltage to the bit line, which causes the electrons to tunnel back 
               out of the floating gate and into the substrate. This restores the threshold voltage of the storage transistor to its original value. 
-    # EEPROM (Electrically Erasable Programmable Read-Only Memory)
+    # EEPROM (Electrically Erasable Programmable Read-Only Memory). EEPROM memory cells are similar to those in NAND and NOR flash memory, but with additional circuitry that allows individual 
+      memory cells to be electrically erased and reprogrammed.
         = The read operations of EEPROM memory cells are as follows:   
             - The microcontroller sends the read command to the EEPROM, along with the memory cell address that contains the data to be read.    
             - The EEPROM controller decodes the command and addresses the memory cells.    
