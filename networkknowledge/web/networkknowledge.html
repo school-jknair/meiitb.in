@@ -1,0 +1,270 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset='utf-8'>
+<meta http-equiv='x-ua-compatible' content='ie=edge'>
+<link rel="shortcut icon" href="images/formyreference.png" type="image/x-icon">
+<title>Computer Network for your reference</title>
+</head>
+
+<body>
+<pre>
+  <a href="" rel="noopener noreferrer">Introduction to Network</a>                                                                                                                                  <cite>ജയകുമാർ നായർ തയ്യാറാക്കിയത്</cite>
+  <hr>
+  <table border="0" width="100%">
+      <tr>
+          <td align="middle"><img src="images/computernetworking.jpg" alt="" width="79%" height="60%"></td>
+          <td>  
+            <b><a href="#id_expansion_cards_details" style="color: rgb(0, 0, 0); text-decoration: none;">x-----------------------------x</a></b><b><a href="#id_cooling_system_details" style="color: rgb(0, 0, 0); text-decoration: none;"> | x-----------------------------x</a></b>
+            <b>x-----------------------------x</b>
+          </td>
+      </tr>
+  </table>
+<hr>
+<b id="id_expansion_cards_details">draft writing started on 3-Apr-2023</b>
+<b>network</b> means a group
+<b>computer network</b> means 2 or more connected computers can share resources like data and application, office machines or an internet connection
+these computer interact with each other using a computer Language called <b>binary code</b> which consists of lot of 0 and 1 in a <b>specific order</b> 
+<b>LAN</b>(Local Area Network)
+<img src="images/1.1.landiagram.jpg" alt="" width="29%" height="60%">
+This network span only a particular geographical location like an office building
+In general, modern LANs can support hundreds or even thousands of devices, but the actual number of devices that can be connected will depend on the specific network configuration and the hardware and 
+software used
+It is best to split a big LAN into smaller logical zones known as <b>workgroups</b> to make administration easier 
+In a typical business environment, it's good idea to arrange LAN's workgroups along department divisions; like for 
+workgroup for Accounting 
+workgroup for Sales 
+workgroup for Marketing
+workgroups can be interconnected using a device named <b>router</b>
+common network components
+workstations, a powerful computer that have resources to share 
+Servers, a powerful computer that have specialized software for managing networks like network operating system. Some of the dedicated server for single tasks are:
+  file server
+  mail server
+  print server 
+Hosts, those machines with a identification number
+A virtual local area network (VLAN) is a virtualized connection that connects multiple devices and network nodes from different LANs into one logical network. VLAN stands for Virtual Local Area Network, and 
+it is a technique used in computer networking to create logical subnetworks within a physical local area network (LAN). The purpose of VLAN is to improve network efficiency, security, and manageability by 
+grouping devices into separate broadcast domains, regardless of their physical location. The main purposes of VLANs include:
+    Segmentation: VLANs allow network administrators to segment a large LAN into smaller logical networks. Devices within a VLAN can communicate with each other as if they were on the same LAN, but they 
+    are isolated from devices in other VLANs. This helps to reduce network congestion and improve overall network performance.
+    Security: VLANs can be used to isolate sensitive or critical devices from other devices on the network. This can help prevent unauthorized access and reduce the risk of security breaches. For example, 
+    a engineering department's devices can be placed in a separate VLAN from the general employee devices, providing an additional layer of security.
+    Broadcast control: In traditional LANs, broadcast traffic is typically sent to all devices in the broadcast domain, which can cause network congestion. With VLANs, broadcast traffic is limited to 
+    devices within the same VLAN, reducing unnecessary broadcast traffic and improving network efficiency.
+    Ease of management: VLANs allow for easier management of network resources by logically grouping devices based on their function, department, or location. Network administrators can apply consistent 
+    policies, such as access control lists (ACLs) and Quality of Service (QoS) settings, to VLANs, making it easier to manage and enforce network policies across the organization.
+    Flexibility: VLANs provide flexibility in network design and reconfiguration. Devices can be easily moved between VLANs without physically moving network cables, which makes it easier to adapt to 
+    changes in network requirements or device locations.
+<img src="images/1.2.vlandiagram.jpg" alt="" width="29%" height="60%">
+A WAN is a group of LANs or other networks that communicate with one another. A WAN (wide-area network) is the technology that connects your offices, cloud applications, and cloud storage together. It is 
+called a wide-area network because it spans beyond a single building or large campus to include multiple locations spread across a specific geographic area, or even the world. 
+<img src="images/1.3.WAN.jpg" alt="" width="19%" height="40%">
+The Internet is a global network of interconnected WANs. The word <b>internet</b> is from the word <b>internetwork</b>. 
+MAC addresses(hardware address) are used for communication within a LAN, IP addresses are used for communication both within a LAN and across different LANs, including over the Internet
+VPN(Virtual Private Network) is a technology that provides a secure and private connection over a public network, such as the Internet, by encrypting data and creating a virtual private tunnel for 
+communication between two or more devices. The main purpose of a VPN is to enhance privacy and security by creating a secure communication channel between two or more devices over an untrusted network, 
+such as the Internet. Here are some common use cases and purposes of VPNs:
+    Secure Remote Access: VPNs are commonly used by remote workers or telecommuters to securely connect to their organization's internal network from outside the office. This allows employees to access 
+    company resources, such as files, applications, and databases, securely over the Internet as if they were directly connected to the organization's internal network.
+    Protecting Online Privacy: VPNs can be used to encrypt internet traffic and protect the privacy of users' online activities. By routing internet traffic through a VPN server, the user's IP address and 
+    location are masked, making it more difficult for websites, advertisers, and other entities to track and monitor their online activities.
+    Bypassing Geographical Restrictions: VPNs can be used to bypass geographical restrictions or censorship imposed by governments or content providers. By connecting to a VPN server located in a different 
+    country, users can access region-restricted content or services that may not be available in their own country.
+    Secure Public Wi-Fi Usage: Public Wi-Fi networks, such as those found in coffee shops, airports, and hotels, are often unsecured and can be vulnerable to eavesdropping and other security threats. Using 
+    a VPN on a public Wi-Fi network can encrypt data and protect against potential security risks.
+    Enhanced Security for Data Transfer: VPNs can provide an additional layer of security for data transfer between devices, such as between branch offices of an organization or between business 
+    partners. VPNs can encrypt data to protect it from unauthorized access or interception during transit.
+    Protecting Personal Information: VPNs can be used to encrypt personal information, such as credit card numbers, usernames, and passwords, when using online banking, online shopping, or other sensitive 
+    online activities, to protect against potential data breaches or identity theft.
+<img src="images/1.4.VPN.jpg" alt="" width="29%" height="40%">
+VLAN is a good solution if the host is a part of the network which is physically local 
+VPN is a better solution if the host is part of the network which is physically remote 
+Peer-to-peer (P2P) and client/server are two different types of networking architectures used in computer networks.
+Peer-to-Peer (P2P) Networking:
+    In a P2P network, all devices are considered equal and can act as both clients and servers. Each device on the network can share resources, such as files, printers, and services, directly with other 
+    devices without relying on a central server. P2P networks do not have a central authority or control, and devices communicate with each other in a decentralized manner. Examples of P2P networking 
+    include file sharing applications like BitTorrent and decentralized communication applications like Skype.
+    <img src="images/1.5.peertopeer.jpg" alt="" width="19%" height="40%">
+Client/Server Networking:
+    In a client/server network, there are dedicated servers that provide services, and client devices request and consume these services. Clients are typically end-user devices, such as desktop computers, 
+    laptops, tablets, or smartphones, that connect to servers to access resources and services, such as files, databases, email, and web pages. Servers are powerful computers or systems that are responsible 
+    for managing and delivering resources and services to clients.
+    <img src="images/1.6.clientserver.jpg" alt="" width="19%" height="40%">
+Physical topology refers to the physical layout or arrangement of devices and cables in a computer network. It defines how devices are connected to each other and how data flows between them in a 
+physical sense. Physical topology is concerned with the actual physical connections and configurations of network devices, such as computers, switches, routers, hubs, and cables, in the network 
+infrastructure. Some common physical network topologies:
+    Bus Topology: In a bus topology, all devices are connected to a common communication medium, typically a single cable. Each device shares the same communication medium and can communicate with 
+    other devices by transmitting data on the shared cable.
+    Star Topology: In a star topology, all devices are connected to a central hub or switch. The hub or switch acts as a central point for data communication, and devices communicate with each other 
+    through the hub or switch.
+    Ring Topology: In a ring topology, devices are connected in a circular loop, where each device is connected to the device next to it, forming a closed loop. Data is transmitted in one direction 
+    around the ring, and each device regenerates and passes the data to the next device until it reaches the destination device.
+    Mesh Topology: In a mesh topology, devices are interconnected with multiple redundant paths, creating a highly interconnected network. Mesh topologies can be either full mesh, where every device is 
+    connected to every other device, or partial mesh, where only some devices have redundant connections.
+    Tree (Hierarchical) Topology: In a tree topology, devices are organized in a hierarchical structure, similar to a tree. Devices are connected in multiple levels, with a root device at the top and 
+    branches of devices branching out from the root. Devices in the tree topology can communicate with devices in the same branch or with devices in higher or lower branches.
+    Hybrid Topology: A hybrid topology is a combination of two or more different topologies. For example, a network can have a combination of star and bus topologies, or a combination of ring and mesh 
+    topologies. Hybrid topologies are often used to take advantage of the strengths of different topologies in different parts of a network.
+    <img src="images/1.7.physicaltopology.jpg" alt="" width="59%" height="40%">
+In a typical network architecture, the <b>network backbone</b> connects different <b>network segments</b> to enable communication between them. 
+Network Backbone: The network backbone, also known as the backbone network or simply backbone, refers to the main high-speed, high-capacity communication links that connect different segments or 
+subnetworks within a larger network. The backbone is responsible for carrying data traffic between different parts of the network and acts as a central conduit for data transmission. It is typically 
+designed to handle high bandwidth and is used to interconnect major network components, such as switches, routers, and servers. The backbone is a critical part of a network infrastructure and is 
+typically built with redundant links for high availability and fault tolerance. Some common types of network backbones include:
+    Wired Ethernet Backbone: This is the most traditional and widely used type of network backbone. It uses Ethernet cables, such as Cat5e or Cat6 cables, to establish wired connections between 
+    network devices, such as switches, routers, and servers. Wired Ethernet backbones are known for their reliability, scalability, and high performance, making them suitable for large networks 
+    with high bandwidth requirements.    
+    Fiber Optic Backbone: Fiber optic backbones use fiber optic cables to transmit data as pulses of light, allowing for much higher bandwidth and longer distances compared to copper-based Ethernet 
+    backbones. Fiber optic backbones are ideal for networks that require long-distance connectivity, high data rates, and immunity to electromagnetic interference (EMI). They are commonly used in 
+    large enterprise networks, data centers, and metropolitan area networks (MANs) where high-speed and long-distance connectivity are essential.    
+    Wireless Backbone: Wireless backbones use wireless technologies, such as Wi-Fi or microwave links, to establish wireless connections between network devices. Wireless backbones are typically 
+    used in scenarios where running physical cables is impractical or cost-prohibitive, such as in remote or outdoor environments. Wireless backbones are less common than wired or fiber optic 
+    backbones and are typically used in smaller networks or as supplemental connectivity options in conjunction with wired backbones.    
+    Virtual Backbone: A virtual backbone, also known as a logical backbone or a virtual LAN (VLAN) backbone, is a logical or virtual grouping of network segments or VLANs that are interconnected 
+    using network switches or routers. VLANs are created by dividing a physical network into smaller logical segments, allowing for network segmentation, improved security, and better network 
+    management. VLAN backbones are commonly used in large networks where logical segmentation is desired without the need for physically separate backbone cabling.    
+    Cloud-based Backbone: Cloud-based backbones utilize cloud-based networking services, such as virtual private networks (VPNs), software-defined wide area networks (SD-WANs), or cloud 
+    interconnects, to establish a virtual network backbone over the Internet or other public or private cloud networks. Cloud-based backbones are ideal for distributed networks or organizations 
+    that rely on cloud-based resources and services, providing flexible and scalable connectivity options without the need for physical backbone infrastructure.
+    <img src="images/1.8.backbone.jpg" alt="" width="29%" height="40%">
+Network Segment: A network segment, also known as a network segment or a LAN segment, refers to a smaller portion of a larger network that is separated by network devices, such as switches or 
+routers. A network segment may consist of a group of devices, such as computers, servers, printers, and other networked devices, that are connected to the same local area network (LAN) or a 
+virtual LAN (VLAN) and can communicate directly with each other without the need for intermediate routing or switching. Network segments are used to divide a large network into smaller manageable 
+parts, improve network performance, and manage network traffic.
+The purpose of a protocol is to establish a common understanding and agreement among participants in a communication or interaction process. Protocols define the format, structure, and sequence of 
+data exchanged, as well as the rules for error detection, correction, and handling.
+<b>OSI</b> stands for Open Systems Interconnection. It is a conceptual model that describes how network communication occurs between different computer systems or devices. The OSI model was developed 
+by the International Organization for Standardization (ISO) in the 1980s as a reference framework for understanding and standardizing network communication protocols. The OSI model consists of seven 
+layers, each representing a specific function or task in the network communication process. These layers are:
+<img src="images/2.1.OSImodelexample.jpg" alt="" width="79%" height="40%">
+Some mnemonics that can help you remember the order of the OSI layers:
+    Please Do Not Throw Sausage Pizza Away
+    All People Seem To Need Data Processing
+Connection-oriented and connectionless communication are two different approaches to transmitting data in computer networks.
+    Connection-oriented communication: In connection-oriented communication, a reliable and established connection is first established between the sender and receiver before data transfer occurs. This 
+    connection is maintained throughout the entire data transfer process, and both the sender and receiver exchange control information to ensure that the data is received correctly. Examples of 
+    connection-oriented protocols include TCP (Transmission Control Protocol), which is used in the TCP/IP protocol suite commonly used in the Internet, and the X.25 protocol.
+    Connectionless communication: In connectionless communication, data packets are transmitted independently without establishing a dedicated connection between the sender and receiver. Each packet is 
+    treated as an independent unit and can take different routes to reach the destination. The receiver does not send any acknowledgment or control information back to the sender, and the responsibility 
+    for ensuring reliable delivery of data is typically handled by higher-level protocols or applications. Examples of connectionless protocols include UDP (User Datagram Protocol), which is also used 
+    in the TCP/IP protocol suite, and the IP (Internet Protocol) itself.
+On a connection-oriented communication
+    In the case of TCP, a series of steps known as the "three-way handshake" will establish for a connection and start exchanging data packets 
+        SYN (Synchronize): The process begins with the sender (client) sending a SYN packet to the receiver (server) to initiate a connection request. The SYN packet contains information such as 
+        the source and destination IP addresses, port numbers, and a randomly generated sequence number.
+        SYN-ACK (Synchronize-Acknowledge): If the receiver (server) is willing to establish a connection, it responds with a SYN-ACK packet. The SYN-ACK packet acknowledges the receipt of the 
+        SYN packet, contains its own randomly generated sequence number, and indicates the readiness to establish a connection.
+        ACK (Acknowledge): Finally, the sender (client) sends an ACK packet to acknowledge the receipt of the SYN-ACK packet. This completes the three-way handshake process, and a connection 
+        is established between the sender and receiver. The ACK packet typically contains the next sequence number that the sender is expecting to receive.
+    To terminate a connection, similar process with FIN (Finish) and FIN-ACK (Finish-Acknowledge) packets to gracefully close the connection.
+Data encapsulation on network communication
+<img src="images/2.2.dataencapsulation.jpg" alt="" width="39%" height="40%">
+TCP header typically includes the following fields:
+    Source Port: This field identifies the source application or process on the sending device.
+    Destination Port: This field identifies the destination application or process on the receiving device.
+    Sequence Number: This field contains a unique number that represents the position of the data segment within the stream of data being transmitted.
+    Acknowledgment Number: This field contains the sequence number of the next expected data segment from the receiving device, acknowledging the receipt of previously received data.
+    Data Offset: This field specifies the length of the TCP header in 32-bit words, indicating the start of the TCP payload (data) field.
+    Reserved: This field is reserved for future use and is currently set to zero.
+    Flags: This field contains control bits that specify various TCP options, such as SYN (synchronize), ACK, FIN (finish), RST (reset), and others, to control the behavior of the TCP connection.
+    Window Size: This field indicates the size of the receive window, which specifies the amount of data that the receiving device is willing to accept without requiring further acknowledgment.
+    Checksum: This field contains a calculated value based on the contents of the TCP header and data, used for error detection.
+    Urgent Pointer: This field is used to indicate the presence of urgent data in the TCP payload, and points to the last byte of urgent data.
+    Options: This field is used for carrying additional optional information, such as maximum segment size (MSS), selective acknowledgment (SACK), and others.
+    Padding: This field is used to ensure that the TCP header is aligned on a 32-bit boundary, and is filled with zeroes if needed
+IP (Internet Protocol) header typically includes the following fields:
+    Version: This field indicates the version of the IP protocol being used, such as IPv4 or IPv6.    
+    Header Length: This field specifies the length of the IP header in 32-bit words, indicating the start of the IP payload (data) field.    
+    Type of Service (TOS): This field is used to specify the priority, quality of service (QoS), and other characteristics of the IP packet.    
+    Total Length: This field indicates the total length of the IP packet, including the header and data, in bytes.    
+    Identification: This field contains a unique value that is used to identify a particular IP packet, and is used in fragmentation and reassembly of large IP packets.    
+    Flags: This field contains control bits that specify various options for handling fragmentation and reassembly of IP packets, such as "Don't Fragment" (DF) and "More Fragments" (MF).    
+    Fragment Offset: This field indicates the position of the data fragment within the original IP packet, in case the IP packet has been fragmented into smaller pieces.    
+    Time to Live (TTL): This field specifies the max number of hops (routers) that the IP packet is allowed to traverse before being discarded, to prevent from circulating indefinitely in the network.    
+    Protocol: This field indicates the type of protocol used in the data payload of the IP packet, such as TCP, UDP, ICMP, or others.    
+    Header Checksum: This field contains a calculated value based on the contents of the IP header, used for error detection.    
+    Source IP Address: This field contains the IP address of the sender (source) of the IP packet.    
+    Destination IP Address: This field contains the IP address of the intended recipient (destination) of the IP packet.    
+    Options: This field is used for carrying additional optional information, such as route information, security options, and others.
+LLC header typically includes the following fields:
+    Destination Service Access Point (DSAP): This field identifies the upper layer (network layer or higher) protocol to determine the destination protocol entity at the receiving end.
+    Source Service Access Point (SSAP): This field identifies the upper layer (network layer or higher) protocol to determine the source protocol entity at the sending end.    
+    Control: This field contains control information that is used for managing the data link connection, such as flow control, error control, and connection establishment and termination.
+Frame Check Sequence (FCS): This field contains a checksum or cyclic redundancy check (CRC) value that is used for error detection in the MAC header and data payload of the data packet.
+MAC header typically includes the following fields:
+    Destination MAC address: This field identifies the MAC address (also known as the hardware address or physical address) of the intended recipient device on the local network.  
+    Source MAC address: This field identifies the MAC address of the sending device on the local network. It is used to indicate the source of the data packet.    
+    Type or Length field: This field indicates the type of data being carried in the data packet, or the length of the data packet.    
+There are several popular cables used for networking, including:
+    Coaxial Cable: Coaxial cables are used for various networking applications, including cable TV, internet, and CCTV systems. They have a central conductor surrounded by an insulating layer, a 
+    metal shield, and an outer insulating layer. Coaxial cables are capable of carrying high-frequency signals and are commonly used in environments where high-quality signal transmission is 
+    important. Coaxial cable is primarily used by cable TV companies to connect their satellite antenna facilities to customer homes and businesses. For many networking applications, twisted pair 
+    Ethernet cables, such as Cat 5e, Cat 6, Cat 6a, and Cat 7, have become more prevalent due to their higher bandwidth, faster data transfer speeds, and ease of installation. These cables are 
+    commonly used in bus topologies
+    <img src="images/3.1.coaxialcable.jpg" alt="" width="19%" height="40%">
+    Twisted pair cable: Twisted pair cables are a type of cabling commonly used for networking and telecommunications. They consist of pairs of insulated copper wires that are twisted together in a 
+    specific pattern to reduce interference and improve performance. The twisting of the wires helps to cancel out electromagnetic interference (EMI) and radio frequency interference (RFI) that can 
+    occur during data transmission, allowing for more reliable and higher-quality signal transmission. Twisted pair cables are widely used to transmit data signals between devices such as computers, 
+    routers, switches, and access points. These cables are commonly used in star topologies, ring topology and mesh topology. There are two main types of twisted pair cables:
+        Shielded Twisted Pair (STP) cables: STP cables, also known as screened twisted pair (ScTP) cables, are similar to UTP cables, but they have an additional layer of shielding around the twisted 
+        pairs. This shielding provides extra protection against electromagnetic interference (EMI) and radio frequency interference (RFI). STP cables are less common compared to UTP cables and are 
+        typically used in specific networking environments that require higher levels of EMI and RFI protection, such as in industrial settings or in areas with high electromagnetic interference. Here 
+        are the commonly used color combinations for STP cables:   
+            TIA/EIA 568A:
+                Pair 1: White/Blue (TIP with foil shield), Blue (RING with foil shield) - Typically used for Transmit Data (Tx+/-) or Data+
+                Pair 2: White/Orange (TIP with foil shield), Orange (RING with foil shield) - Typically used for Receive Data (Rx+/-) or Data-
+                Pair 3: White/Green (TIP with foil shield), Green (RING with foil shield) - Typically unused or used for other purposes such as PoE or Voice
+                Pair 4: White/Brown (TIP with foil shield), Brown (RING with foil shield) - Typically unused or used for other purposes such as PoE or Voice
+            TIA/EIA 568B:
+                Pair 1: White/Orange (TIP with foil shield), Orange (RING with foil shield) - Typically used for Transmit Data (Tx+/-) or Data+
+                Pair 2: White/Green (TIP with foil shield), Green (RING with foil shield) - Typically used for Receive Data (Rx+/-) or Data-
+                Pair 3: White/Blue (TIP with foil shield), Blue (RING with foil shield) - Typically unused or used for other purposes such as PoE or Voice
+                Pair 4: White/Brown (TIP with foil shield), Brown (RING with foil shield) - Typically unused or used for other purposes such as PoE or Voice
+        <img src="images/3.3.2.shieldedtwistedpaircables.jpg" alt="" width="19%" height="40%">
+        The following are some Ethernet standards that may use STP cables:
+        <img src="images/3.5.1.STPcableproperties.jpg" alt="" width="49%" height="40%">
+        Unshielded Twisted Pair (UTP) cables: UTP cables are the most common type of twisted pair cables used in networking. They consist of pairs of insulated copper wires that are twisted together 
+        without any additional shielding. UTP cables are used in various Ethernet cable categories, such as Cat 5e, Cat 6, Cat 6a, and Cat 7, and are typically color-coded for easy identification 
+        and termination. Here are the commonly used color combinations for UTP cables:        
+            TIA/EIA 568A:
+                Pair 1: White/Blue (TIP), Blue (RING) - Typically used for Transmit Data (Tx+/-) or Data+
+                Pair 2: White/Orange (TIP), Orange (RING) - Typically used for Receive Data (Rx+/-) or Data-
+                Pair 3: White/Green (TIP), Green (RING) - Typically unused or used for other purposes such as PoE or Voice
+                Pair 4: White/Brown (TIP), Brown (RING) - Typically unused or used for other purposes such as PoE or Voice
+            TIA/EIA 568B:        
+                Pair 1: White/Orange (TIP), Orange (RING) - Typically used for Transmit Data (Tx+/-) or Data+
+                Pair 2: White/Green (TIP), Green (RING) - Typically used for Receive Data (Rx+/-) or Data-
+                Pair 3: White/Blue (TIP), Blue (RING) - Typically unused or used for other purposes such as PoE or Voice
+                Pair 4: White/Brown (TIP), Brown (RING) - Typically unused or used for other purposes such as PoE or Voice
+        <img src="images/3.3.1.unshieldedtwistedpaircables.jpg" alt="" width="19%" height="40%">
+        The following are some of the most common Ethernet standards that utilize UTP cables:
+        <img src="images/3.5.2.UTPcableproperties.jpg" alt="" width="49%" height="40%">
+        TIA/EIA 568A and TIA/EIA 568B are two different wiring standards for Ethernet cabling, specified by the Telecommunications Industry Association (TIA) and the Electronic Industries 
+        Alliance (EIA). These standards define the pinout and color coding for the various pairs of wires used in Ethernet cabling, specifically for 10BASE-T and 100BASE-TX Ethernet networks.
+    Fiber Optic Cable: Fiber optic cables are used for high-speed and long-distance networking applications. They use light to transmit data, offering faster data transfer rates and better immunity to 
+    interference compared to Ethernet cables. Fiber optic cables are commonly used in data centers, telecommunication networks, and other environments where high bandwidth and long-distance 
+    transmission are required. These cables are commonly used in ring topologies and mesh topology
+    <img src="images/3.2.fibreopticcables.jpg" alt="" width="19%" height="40%">
+The naming conventions for STP and UTP cables in Ethernet standards typically follow similar patterns. Here's a general guide on how STP and UTP cables are typically named:
+    Data Transfer Rate: The data transfer rate, which indicates the speed at which data can be transmitted over the network, is usually specified as a number in Mbps, Gbps, or higher.
+    Cable Type: The cable type, whether it's STP or UTP, may be indicated in the naming convention. For example, "T" typically indicates UTP cables, while "F" or "X" may indicate fiber 
+    optic cables, and "S" or "L" may indicate STP cables.
+    Maximum Distance: The maximum distance that data can be transmitted over the network using the specified cable type is usually indicated in the naming convention. This distance is usually 
+    expressed in meters or feet and indicates the maximum length of the cable that can be used for network connections.
+    Other Parameters: Some standards may include additional parameters, such as the encoding scheme used for data transmission, the type of connectors used, or other specifications.
+"10GBASE-T" is an Ethernet standard that specifies 
+    "10G" in the name indicates the data transfer rate of 10 Gbps
+    "BASE" indicates that it uses baseband signaling, which means that the entire bandwidth of the cable is dedicated to carrying Ethernet data
+    "T" indicates that twisted pair copper cables are used for network connections
+"Cat" stands for "Category" and refers to a classification system used for Ethernet cables that indicates the performance and capabilities of the cable. Different Cat versions correspond to 
+different standards set by the TIA/EIA for Ethernet cabling. Overview of the main differences between these Cat versions:
+<img src="images/3.6.catversions.jpg" alt="" width="69%" height="40%">
+Here's a comprehensive list of network topologies, along with the commonly used cables for each topology:
+<img src="images/3.4.cabletypeandtopology.jpg" alt="" width="69%" height="40%">
+
+<hr>
+</pre>
+</body>
+</html>
