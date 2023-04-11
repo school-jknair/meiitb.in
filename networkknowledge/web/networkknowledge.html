@@ -17,7 +17,8 @@
           <td align="middle"><img src="images/computernetworking.jpg" alt="" width="79%" height="60%"></td>
           <td>  
             <b><a href="#id_expansion_cards_details" style="color: rgb(0, 0, 0); text-decoration: none;">x-----------------------------x</a></b><b><a href="#id_cooling_system_details" style="color: rgb(0, 0, 0); text-decoration: none;"> | x-----------------------------x</a></b>
-            <b>x-----------------------------x</b>
+            <b>x-----------------------------x</b>     
+            <b><a href="#id_last_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach end of the document   ######</a></b>      <b id="id_top_details"></b> 
           </td>
       </tr>
   </table>
@@ -243,27 +244,60 @@ There are several popular cables used for networking, including:
         <img src="images/3.5.2.UTPcableproperties.jpg" alt="" width="49%" height="40%">
         TIA/EIA 568A and TIA/EIA 568B are two different wiring standards for Ethernet cabling, specified by the Telecommunications Industry Association (TIA) and the Electronic Industries 
         Alliance (EIA). These standards define the pinout and color coding for the various pairs of wires used in Ethernet cabling, specifically for 10BASE-T and 100BASE-TX Ethernet networks.
+        The naming conventions for STP and UTP cables in Ethernet standards typically follow similar patterns. Here's a general guide on how STP and UTP cables are typically named:
+            Data Transfer Rate: The data transfer rate, which indicates the speed at which data can be transmitted over the network, is usually specified as a number in Mbps, Gbps, or higher.
+            Cable Type: The cable type, whether it's STP or UTP, may be indicated in the naming convention. For example, "T" typically indicates UTP cables, while "F" or "X" may indicate fiber 
+            optic cables, and "S" or "L" may indicate STP cables.
+            Maximum Distance: The maximum distance that data can be transmitted over the network using the specified cable type is usually indicated in the naming convention. This distance is usually 
+            expressed in meters or feet and indicates the maximum length of the cable that can be used for network connections.
+            Other Parameters: Some standards may include additional parameters, such as the encoding scheme used for data transmission, the type of connectors used, or other specifications.
+        "10GBASE-T" is an Ethernet standard that specifies 
+            "10G" in the name indicates the data transfer rate of 10 Gbps
+            "BASE" indicates that it uses baseband signaling, which means that the entire bandwidth of the cable is dedicated to carrying Ethernet data
+            "T" indicates that twisted pair copper cables are used for network connections
+        "Cat" stands for "Category" and refers to a classification system used for Ethernet cables that indicates the performance and capabilities of the cable. Different Cat versions correspond to 
+        different standards set by the TIA/EIA for Ethernet cabling. Overview of the main differences between these Cat versions:
+        <img src="images/3.6.catversions.jpg" alt="" width="69%" height="40%">
     Fiber Optic Cable: Fiber optic cables are used for high-speed and long-distance networking applications. They use light to transmit data, offering faster data transfer rates and better immunity to 
     interference compared to Ethernet cables. Fiber optic cables are commonly used in data centers, telecommunication networks, and other environments where high bandwidth and long-distance 
-    transmission are required. These cables are commonly used in ring topologies and mesh topology
+    transmission are required. These cables are commonly used in ring topologies and mesh topology. There are several different modes of fiber optic cables available, which refer to the way light 
+    travels within the fiber core. 
     <img src="images/3.2.fibreopticcables.jpg" alt="" width="19%" height="40%">
-The naming conventions for STP and UTP cables in Ethernet standards typically follow similar patterns. Here's a general guide on how STP and UTP cables are typically named:
-    Data Transfer Rate: The data transfer rate, which indicates the speed at which data can be transmitted over the network, is usually specified as a number in Mbps, Gbps, or higher.
-    Cable Type: The cable type, whether it's STP or UTP, may be indicated in the naming convention. For example, "T" typically indicates UTP cables, while "F" or "X" may indicate fiber 
-    optic cables, and "S" or "L" may indicate STP cables.
-    Maximum Distance: The maximum distance that data can be transmitted over the network using the specified cable type is usually indicated in the naming convention. This distance is usually 
-    expressed in meters or feet and indicates the maximum length of the cable that can be used for network connections.
-    Other Parameters: Some standards may include additional parameters, such as the encoding scheme used for data transmission, the type of connectors used, or other specifications.
-"10GBASE-T" is an Ethernet standard that specifies 
-    "10G" in the name indicates the data transfer rate of 10 Gbps
-    "BASE" indicates that it uses baseband signaling, which means that the entire bandwidth of the cable is dedicated to carrying Ethernet data
-    "T" indicates that twisted pair copper cables are used for network connections
-"Cat" stands for "Category" and refers to a classification system used for Ethernet cables that indicates the performance and capabilities of the cable. Different Cat versions correspond to 
-different standards set by the TIA/EIA for Ethernet cabling. Overview of the main differences between these Cat versions:
-<img src="images/3.6.catversions.jpg" alt="" width="69%" height="40%">
-Here's a comprehensive list of network topologies, along with the commonly used cables for each topology:
-<img src="images/3.4.cabletypeandtopology.jpg" alt="" width="69%" height="40%">
+    The most common modes of fiber optic cables are:
+        Single-mode (SM): Single-mode fiber optic cables have a small core diameter (typically 9/125 µm or 8.3/125 µm) and allow for only one mode, a single path of light propagation , of light to 
+        travel through the core. Single-mode fibers are designed for long-distance transmission and are used in high-bandwidth applications such as long-haul telecommunications, data centers, and 
+        campus networks. Single-mode fiber is using laser as the source of the light for transmission of the optical signal and transmission media is glass.
+        Multimode (MM): Multimode fiber optic cables have a larger core diameter (typically 50/125 µm or 62.5/125 µm) and allow for multiple modes, allows for multiple modes of light propagation, 
+        of light to travel through the core. Multimode fibers are typically used for shorter distances, such as within buildings or campuses, and are suitable for lower-bandwidth applications such 
+        as local area networks (LANs), premises cabling, and some data center applications. Multimode fiber is using LEDs as the source of the light for transmission of the optical signal and cables 
+        are available in glass or in a plastic version. Single mode cables are meant for long distance, while multimode is often used for shorter distances
+        <img src="images/3.9.singlevsmultimodecabledifference.jpg" alt="" width="29%" height="40%"> 
+        Here is the main differences in characterization between single-mode and multimode fiber optic cables:
+        <img src="images/3.8.singlevsmultimodedifference.jpg" alt="" width="89%" height="40%"> 
+        Within multimode fibers, there are also different types of multimode fibers that are optimized for different performance characteristics: 
+        <img src="images/3.7.variousmutimodetypes.jpg" alt="" width="49%" height="40%">
+    There are several types of fiber optic connectors commonly used in the industry, including:
+        SC (Subscriber Connector): SC connectors are one of the most widely used fiber optic connectors. They have a square-shaped push-pull mechanism for easy insertion and removal, and they provide 
+        low insertion loss and high return loss.        
+        LC (Lucent Connector): LC connectors are small form-factor connectors that use a 1.25 mm ferrule, making them half the size of SC connectors. They are commonly used in high-density applications 
+        and provide low insertion loss and high return loss.        
+        ST (Straight Tip): ST connectors are one of the older types of fiber optic connectors and are commonly used in older networks. They have a round, bayonet-style coupling mechanism and use 
+        a 2.5 mm ferrule.        
+        FC (Ferrule Connector): FC connectors use a threaded coupling mechanism and a 2.5 mm ferrule. They are commonly used in applications that require high precision and stability, such as in 
+        laboratory settings.        
+        MTP/MPO (Multi-Fiber Push-On/Pull-Off): MTP/MPO connectors are used for multi-fiber cables and provide high-density connectivity. They have a push-pull mechanism and can accommodate multiple 
+        fibers in a single connector, making them ideal for data centers and high-speed networks.        
+        MT-RJ (Mechanical Transfer Registered Jack): MT-RJ connectors are duplex connectors that combine a fiber optic connection with a copper RJ-style connector in a single housing. They are 
+        commonly used in residential and small office/home office (SOHO) applications.
+        E2000: E2000 connectors have a spring-loaded shutter that protects the fiber when not in use, making them ideal for applications that require dust and dirt protection. They provide low 
+        insertion loss and high return loss.
+        <img src="images/3.10.fiberopticconnectors.jpg" alt="" width="69%" height="40%">
 
+
+Here's a comprehensive list of network topologies, along with the commonly used cables for each topology:
+<img src="images/3.4.cabletypeandtopology.jpg" alt="" width="79%" height="40%">
+<b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
+<b id="id_last_details"></b>
 <hr>
 </pre>
 </body>
