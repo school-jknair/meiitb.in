@@ -211,39 +211,36 @@ There are several popular cables used for networking, including:
     routers, switches, and access points. These cables are commonly used in star topologies, ring topology and mesh topology. There are two main types of twisted pair cables:
         Shielded Twisted Pair (STP) cables: STP cables, also known as screened twisted pair (ScTP) cables, are similar to UTP cables, but they have an additional layer of shielding around the twisted 
         pairs. This shielding provides extra protection against electromagnetic interference (EMI) and radio frequency interference (RFI). STP cables are less common compared to UTP cables and are 
-        typically used in specific networking environments that require higher levels of EMI and RFI protection, such as in industrial settings or in areas with high electromagnetic interference. Here 
-        are the commonly used color combinations for STP cables:   
-            TIA/EIA 568A:
-                Pair 1: White/Blue (TIP with foil shield), Blue (RING with foil shield) - Typically used for Transmit Data (Tx+/-) or Data+
-                Pair 2: White/Orange (TIP with foil shield), Orange (RING with foil shield) - Typically used for Receive Data (Rx+/-) or Data-
-                Pair 3: White/Green (TIP with foil shield), Green (RING with foil shield) - Typically unused or used for other purposes such as PoE or Voice
-                Pair 4: White/Brown (TIP with foil shield), Brown (RING with foil shield) - Typically unused or used for other purposes such as PoE or Voice
-            TIA/EIA 568B:
-                Pair 1: White/Orange (TIP with foil shield), Orange (RING with foil shield) - Typically used for Transmit Data (Tx+/-) or Data+
-                Pair 2: White/Green (TIP with foil shield), Green (RING with foil shield) - Typically used for Receive Data (Rx+/-) or Data-
-                Pair 3: White/Blue (TIP with foil shield), Blue (RING with foil shield) - Typically unused or used for other purposes such as PoE or Voice
-                Pair 4: White/Brown (TIP with foil shield), Brown (RING with foil shield) - Typically unused or used for other purposes such as PoE or Voice
+        typically used in specific networking environments that require higher levels of EMI and RFI protection, such as in industrial settings or in areas with high electromagnetic interference. 
         <img src="images/3.3.2.shieldedtwistedpaircables.jpg" alt="" width="19%" height="40%">
         The following are some Ethernet standards that may use STP cables:
         <img src="images/3.5.1.STPcableproperties.jpg" alt="" width="49%" height="40%">
         Unshielded Twisted Pair (UTP) cables: UTP cables are the most common type of twisted pair cables used in networking. They consist of pairs of insulated copper wires that are twisted together 
         without any additional shielding. UTP cables are used in various Ethernet cable categories, such as Cat 5e, Cat 6, Cat 6a, and Cat 7, and are typically color-coded for easy identification 
-        and termination. Here are the commonly used color combinations for UTP cables:        
-            TIA/EIA 568A:
-                Pair 1: White/Blue (TIP), Blue (RING) - Typically used for Transmit Data (Tx+/-) or Data+
-                Pair 2: White/Orange (TIP), Orange (RING) - Typically used for Receive Data (Rx+/-) or Data-
-                Pair 3: White/Green (TIP), Green (RING) - Typically unused or used for other purposes such as PoE or Voice
-                Pair 4: White/Brown (TIP), Brown (RING) - Typically unused or used for other purposes such as PoE or Voice
-            TIA/EIA 568B:        
-                Pair 1: White/Orange (TIP), Orange (RING) - Typically used for Transmit Data (Tx+/-) or Data+
-                Pair 2: White/Green (TIP), Green (RING) - Typically used for Receive Data (Rx+/-) or Data-
-                Pair 3: White/Blue (TIP), Blue (RING) - Typically unused or used for other purposes such as PoE or Voice
-                Pair 4: White/Brown (TIP), Brown (RING) - Typically unused or used for other purposes such as PoE or Voice
+        and termination. 
         <img src="images/3.3.1.unshieldedtwistedpaircables.jpg" alt="" width="19%" height="40%">
         The following are some of the most common Ethernet standards that utilize UTP cables:
         <img src="images/3.5.2.UTPcableproperties.jpg" alt="" width="49%" height="40%">
-        TIA/EIA 568A and TIA/EIA 568B are two different wiring standards for Ethernet cabling, specified by the Telecommunications Industry Association (TIA) and the Electronic Industries 
-        Alliance (EIA). These standards define the pinout and color coding for the various pairs of wires used in Ethernet cabling, specifically for 10BASE-T and 100BASE-TX Ethernet networks.
+        The T568A and T568B are two different wiring standards used for Ethernet cabling, specifically for terminating Ethernet cables with RJ45 connectors. These standards define the pin assignments 
+        for the eight wires inside the Ethernet cable and determine how they should be connected to the pins of the RJ45 connector. Both standards differ in the arrangement of the wire pairs within 
+        the connector. 
+        T568A  standard uses the following pin assignments:
+            Pair 1 (Pin 1(White/Green) and Pin 2(Green)): Transmit (TX) and Receive (RX) for Ethernet data
+            Pair 2 (Pin 3(White/Orange) and Pin 6(Orange)): Transmit (TX) and Receive (RX) for Ethernet data
+            Pair 3 (Pin 4(Blue) and Pin 5(White/Blue)): Unused
+            Pair 4 (Pin 7(White/Brown) and Pin 8(Brown)): Unused
+        T568B:
+            Pair 1 (Pin 1(White/Orange) and Pin 2(Orange)): Transmit (TX) and Receive (RX) for Ethernet data
+            Pair 2 (Pin 3(White/Green) and Pin 6(Green)): Transmit (TX) and Receive (RX) for Ethernet data
+            Pair 3 (Pin 4(Blue) and Pin 5(White/Blue)): Unused
+            Pair 4 (Pin 7(White/Brown) and Pin 8(Brown)): Unused
+        Two types of Ethernet cables that are used for different purposes in networking
+        Straight-through cable: A straight-through cable, also known as a patch cable, is used to connect different types of network devices that have different functions, such as connecting a computer 
+        to a switch or a router to a modem. In a straight-through cable, the pin assignments on one end of the cable are wired to the same standard (either T568A or T568B) as the pin assignments on the 
+        other end of the cable.
+        Crossover cable: A crossover cable, also known as a crossover patch cable, is used to directly connect two similar network devices without the need for a switch or a router in between, such as 
+        connecting two computers or two switches. In a crossover cable, the pin assignments on one end of the cable are wired to a different standard (T568A or T568B) than the pin assignments on the 
+        other end of the cable, which allows for the proper exchange of data between the two devices.
         The naming conventions for STP and UTP cables in Ethernet standards typically follow similar patterns. Here's a general guide on how STP and UTP cables are typically named:
             Data Transfer Rate: The data transfer rate, which indicates the speed at which data can be transmitted over the network, is usually specified as a number in Mbps, Gbps, or higher.
             Cable Type: The cable type, whether it's STP or UTP, may be indicated in the naming convention. For example, "T" typically indicates UTP cables, while "F" or "X" may indicate fiber 
@@ -292,34 +289,7 @@ There are several popular cables used for networking, including:
         E2000: E2000 connectors have a spring-loaded shutter that protects the fiber when not in use, making them ideal for applications that require dust and dirt protection. They provide low 
         insertion loss and high return loss.
         <img src="images/3.10.fiberopticconnectors.jpg" alt="" width="69%" height="40%">
-Two types of Ethernet cables that are used for different purposes in networking
-    Straight-through cable: A straight-through cable is the most common type of Ethernet cable used to connect different types of networking devices, such as computers to switches, routers, or 
-    modems. In a straight-through cable, the pinout assignments on one end of the cable are exactly mirrored on the other end, meaning that the wires are connected in the same sequence from one 
-    end to the other. Straight-through cables typically use use either T568A or T568B wiring standard, which define the pinout assignments for each wire pair in the cable, where pins 1, 2, 3, 
-    and 6 are used for transmitting and pins 4, 5, 7, and 8 are used for receiving.
-    Crossover cable: A crossover cable, also known as a crossover patch cable or simply a crossover, is a special type of Ethernet cable used to connect similar types of networking devices directly 
-    to each other, such as computers to computers, switches to switches, or routers to routers. In a crossover cable, the pinout assignments on one end of the cable are crossed over or swapped with 
-    the pinout assignments on the other end, hence the name "crossover". This means that the transmit (Tx) pins on one end are connected to the receive (Rx) pins on the other end, and vice 
-    versa. Crossover cables are typically used in scenarios where devices with similar functionalities need to communicate with each other without the need for an intermediate networking device, such 
-    as a switch or a router. This type of cable use T568A wiring standard on one end and T568B wiring standard on the other end. The wiring configuration for T568A and T568B is typically as follows:
-        T568A wiring standard(either end):
-            Pin 1: White/Green (TX+)
-            Pin 2: Green (TX-)
-            Pin 3: White/Orange (RX+)
-            Pin 4: Blue (Not used)
-            Pin 5: White/Blue (Not used)
-            Pin 6: Orange (RX-)
-            Pin 7: White/Brown (Not used)
-            Pin 8: Brown (Not used)
-        T568B wiring standard(other end):
-            Pin 1: White/Orange (TX+)
-            Pin 2: Orange (TX-)
-            Pin 3: White/Green (RX+)
-            Pin 4: Blue (Not used)
-            Pin 5: White/Blue (Not used)
-            Pin 6: Green (RX-)
-            Pin 7: White/Brown (Not used)
-            Pin 8: Brown (Not used)
+
 
 
 Here's a comprehensive list of network topologies, along with the commonly used cables for each topology:
