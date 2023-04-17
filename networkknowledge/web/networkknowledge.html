@@ -24,6 +24,30 @@
   </table>
 <hr>
 <b id="id_expansion_cards_details">draft writing started on 3-Apr-2023</b>
+<hr>
+<b id="id_further_do_details">further do</b>
+Ethernet connection = Ethernet stanadard based LAN connection
+what is one collision domain
+what one broadcast domain
+Subnet mask is used to identify the network and host portions of an IP address. The subnet mask contains a series of contiguous 1s followed by a series of contiguous 0s. 
+	1s correspond to the network bits
+	0s correspond to the host bits
+When an IP address is "ANDed" (bitwise logical AND operation) with the subnet mask, the result is the network portion of the IP address
+IP address is 192.168.1.100 [ 1-1-0-0-0-0-0-0-1-0-1-0-1-0-0-0-0-0-0-0-0-0-0-1-0-1-1-0-0-1-0-0 ]
+subnet mask is 255.255.255.0 [ 1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-1-0-0-0-0-0-0-0-0 ]
+
+IP address (bitwise logical AND) subnet mask (is) network portion of the IP address
+
+11000000 10101000 00000001 01100100 & 
+11111111 11111111 11111111 00000000 = 
+11000000 10101000 00000001 00000000 
+ie 
+192.168.1.100 bitwise logical AND 
+255.255.255.0 is 
+192.168.1.0
+
+what is contention-based media access method used in Ethernet networks
+
 <b>network</b> means a group
 <b>computer network</b> means 2 or more connected computers can share resources like data and application, office machines or an internet connection
 these computer interact with each other using a computer Language called <b>binary code</b> which consists of lot of 0 and 1 in a <b>specific order</b> 
@@ -198,6 +222,8 @@ MAC header typically includes the following fields:
     Destination MAC address: This field identifies the MAC address (also known as the hardware address or physical address) of the intended recipient device on the local network.  
     Source MAC address: This field identifies the MAC address of the sending device on the local network. It is used to indicate the source of the data packet.    
     Type or Length field: This field indicates the type of data being carried in the data packet, or the length of the data packet.    
+PDU stands for "Protocol Data Unit." It refers to the unit of data that is transmitted at each layer of the OSI (Open Systems Interconnection) model or other networking protocol models. Each layer 
+in the OSI model has its own PDU format, and these PDUs are used to encapsulate data as it is passed down or up the protocol stack.
 There are several popular cables used for networking, including:
     Coaxial Cable: Coaxial cables are used for various networking applications, including cable TV, internet, and CCTV systems. They have a central conductor surrounded by an insulating layer, a 
     metal shield, and an outer insulating layer. Coaxial cables are capable of carrying high-frequency signals and are commonly used in environments where high-quality signal transmission is 
@@ -212,35 +238,37 @@ There are several popular cables used for networking, including:
         Shielded Twisted Pair (STP) cables: STP cables, also known as screened twisted pair (ScTP) cables, are similar to UTP cables, but they have an additional layer of shielding around the twisted 
         pairs. This shielding provides extra protection against electromagnetic interference (EMI) and radio frequency interference (RFI). STP cables are less common compared to UTP cables and are 
         typically used in specific networking environments that require higher levels of EMI and RFI protection, such as in industrial settings or in areas with high electromagnetic interference. 
-        <img src="images/3.3.2.shieldedtwistedpaircables.jpg" alt="" width="19%" height="40%">
+        <img src="images/3.3.2.shieldedtwistedpaircables.jpg" alt="" width="9%" height="40%">
         The following are some Ethernet standards that may use STP cables:
         <img src="images/3.5.1.STPcableproperties.jpg" alt="" width="49%" height="40%">
         Unshielded Twisted Pair (UTP) cables: UTP cables are the most common type of twisted pair cables used in networking. They consist of pairs of insulated copper wires that are twisted together 
         without any additional shielding. UTP cables are used in various Ethernet cable categories, such as Cat 5e, Cat 6, Cat 6a, and Cat 7, and are typically color-coded for easy identification 
         and termination. 
-        <img src="images/3.3.1.unshieldedtwistedpaircables.jpg" alt="" width="19%" height="40%">
+        <img src="images/3.3.1.unshieldedtwistedpaircables.jpg" alt="" width="9%" height="40%">
         The following are some of the most common Ethernet standards that utilize UTP cables:
-        <img src="images/3.5.2.UTPcableproperties.jpg" alt="" width="49%" height="40%">
+        <img src="images/3.5.2.UTPcableproperties.jpg" alt="" width="69%" height="40%">
         The T568A and T568B are two different wiring standards used for Ethernet cabling, specifically for terminating Ethernet cables with RJ45 connectors. These standards define the pin assignments 
         for the eight wires inside the Ethernet cable and determine how they should be connected to the pins of the RJ45 connector. Both standards differ in the arrangement of the wire pairs within 
         the connector. 
         T568A  standard uses the following pin assignments:
-            Pair 1 (Pin 1(White/Green) and Pin 2(Green)): Transmit (TX) and Receive (RX) for Ethernet data
-            Pair 2 (Pin 3(White/Orange) and Pin 6(Orange)): Transmit (TX) and Receive (RX) for Ethernet data
-            Pair 3 (Pin 4(Blue) and Pin 5(White/Blue)): Unused
-            Pair 4 (Pin 7(White/Brown) and Pin 8(Brown)): Unused
+            Pair 1 (Pin 1 and 2 (White/Green and Green)): Transmit (TX) and Receive (RX) for Ethernet data
+            Pair 2 (Pin 3 and 6 (White/Orange and Orange)): Transmit (TX) and Receive (RX) for Ethernet data
+            Pair 3 (Pin 4 and 5 (Blue and White/Blue): Unused
+            Pair 4 (Pin 7 ans 8 (White/Brown and Brown): Unused
         T568B:
-            Pair 1 (Pin 1(White/Orange) and Pin 2(Orange)): Transmit (TX) and Receive (RX) for Ethernet data
-            Pair 2 (Pin 3(White/Green) and Pin 6(Green)): Transmit (TX) and Receive (RX) for Ethernet data
-            Pair 3 (Pin 4(Blue) and Pin 5(White/Blue)): Unused
-            Pair 4 (Pin 7(White/Brown) and Pin 8(Brown)): Unused
+            Pair 1 (Pin 1 and (White/Orange and Orange)): Transmit (TX) and Receive (RX) for Ethernet data
+            Pair 2 (Pin 3 and (White/Green and Green)): Transmit (TX) and Receive (RX) for Ethernet data
+            Pair 3 (Pin 4 and 5 (Blue and White/Blue)): Unused
+            Pair 4 (Pin 7 and 8 (White/Brown and Brown)): Unused
         Two types of Ethernet cables that are used for different purposes in networking
-        Straight-through cable: A straight-through cable, also known as a patch cable, is used to connect different types of network devices that have different functions, such as connecting a computer 
-        to a switch or a router to a modem. In a straight-through cable, the pin assignments on one end of the cable are wired to the same standard (either T568A or T568B) as the pin assignments on the 
-        other end of the cable.
-        Crossover cable: A crossover cable, also known as a crossover patch cable, is used to directly connect two similar network devices without the need for a switch or a router in between, such as 
-        connecting two computers or two switches. In a crossover cable, the pin assignments on one end of the cable are wired to a different standard (T568A or T568B) than the pin assignments on the 
-        other end of the cable, which allows for the proper exchange of data between the two devices.
+            Straight-through cable: A straight-through cable, also known as a patch cable, is used to connect different types of network devices that have different functions, such as connecting a 
+            computer to a switch or a router to a modem. In a straight-through cable, the pin assignments on one end of the cable are wired to the same standard (either T568A or T568B) as the pin 
+            assignments on the other end of the cable.
+            <img src="images/3.13.straight-throughethernetcable.jpg" alt="" width="19%" height="40%">
+            Crossover cable: A crossover cable, also known as a crossover patch cable, is used to directly connect two similar network devices without the need for a switch or a router in between, 
+            such as connecting two computers or two switches. In a crossover cable, the pin assignments on one end of the cable are wired to a different standard (T568A or T568B) than the pin 
+            assignments on the other end of the cable, which allows for the proper exchange of data between the two devices.
+            <img src="images/3.14.crossoverethernetcable.jpg" alt="" width="19%" height="40%">
         The naming conventions for STP and UTP cables in Ethernet standards typically follow similar patterns. Here's a general guide on how STP and UTP cables are typically named:
             Data Transfer Rate: The data transfer rate, which indicates the speed at which data can be transmitted over the network, is usually specified as a number in Mbps, Gbps, or higher.
             Cable Type: The cable type, whether it's STP or UTP, may be indicated in the naming convention. For example, "T" typically indicates UTP cables, while "F" or "X" may indicate fiber 
@@ -289,11 +317,318 @@ There are several popular cables used for networking, including:
         E2000: E2000 connectors have a spring-loaded shutter that protects the fiber when not in use, making them ideal for applications that require dust and dirt protection. They provide low 
         insertion loss and high return loss.
         <img src="images/3.10.fiberopticconnectors.jpg" alt="" width="69%" height="40%">
-
-
-
 Here's a comprehensive list of network topologies, along with the commonly used cables for each topology:
 <img src="images/3.4.cabletypeandtopology.jpg" alt="" width="79%" height="40%">
+A rollover cable is a type of networking cable that is commonly used to connect a computer or networking device, such as a router or switch, to the console port of another networking device. It is 
+also known as a Cisco console cable or a serial console cable. The purpose of a rollover cable is to establish a console connection between networking devices for the purpose of configuration, 
+management, and troubleshooting. By connecting a computer or terminal to the console port of a networking device using a rollover cable, network administrators can access the command-line 
+interface (CLI) or the configuration mode of the device's operating system, allowing them to configure various settings, monitor the device's performance, and troubleshoot issues. A rollover cable 
+typically has a 9-pin or 25-pin serial connector on one end (which connects to the console port of the networking device) and an RJ-45 Ethernet connector on the other end (which connects to the 
+computer or terminal). The pinouts of the serial connector are wired in a "rollover" pattern, which means that the signals from the pins on one end of the cable are "rolled over" to different pins 
+on the other end of the cable. This allows the console connection to function properly and allows for communication between the computer and the networking device. Rollover cables are often used 
+in Cisco networking devices, but can also be used with other networking equipment that has a similar console port.
+<img src="images/3.11.rollovercable.jpg" alt="" width="9%" height="40%"> <img src="images/3.15.rolledethernetcable.jpg" alt="" width="19%" height="40%">
+Hardware loopback is a method used in computer networking and telecommunications to test the functionality of network interfaces, cables, and other networking hardware. It involves creating a 
+loopback connection within the hardware itself, where data sent from a device is immediately received by the same device, without being transmitted over a network. In a hardware loopback setup, 
+a loopback plug or loopback adapter is typically used to connect the transmit (TX) and receive (RX) lines of a network interface or cable, creating a loop that allows data to be sent and received 
+locally. This allows for testing of the physical and data link layers of the OSI model, which include checking for proper signal transmission, link integrity, and other hardware-related 
+issues. Hardware loopback can be used for various purposes, such as testing the functionality of 
+    Network cards
+    Diagnosing network connectivity issues
+    Verifying the integrity of network cables. 
+<img src="images/3.12.1.hardwareloopbackfiberoptic.jpg" alt="" width="9%" height="40%"> <img src="images/3.16.hardwareloopback.jpg" alt="" width="9%" height="40%">
+Cabling refers to the process of installing and organizing cables in a network infrastructure to establish connections between devices or systems for data, voice, or video communication. Cables 
+are physical pathways that carry electrical or optical signals from one device to another, allowing for the transfer of data or other types of information. Cabling is a critical component of any 
+network, including LANs, WANs, data centers, and other communication systems. Proper cabling is essential for establishing reliable and efficient network connections, ensuring data integrity, 
+minimizing signal loss or interference, and facilitating smooth communication between devices. Proper cabling techniques are important to minimize signal loss, interference, and other issues that 
+can affect network performance and reliability. Cables are typically installed according to specific standards, guidelines, and best practices to ensure optimal performance and compliance with 
+industry standards. Cabling may involve tasks such as 
+    Cable routing
+    Cable termination (i.e., connecting cables to connectors or devices)
+    Cable testing
+    Cable management (i.e., organizing and securing cables)
+    Documentation (i.e., labeling and documenting cable connections for future reference and troubleshooting)
+Several components are typically involved in cabling, depending on the specific type of cabling and network infrastructure. Some common components used in cabling include:
+    Cables: There are various types of cables used in networking, such as 
+        Ethernet cables (e.g., Cat 5e, Cat 6, Cat 6a)
+        Fiber optic cables
+        Coaxial cables
+        Other types of copper or wireless cables
+        <img src="images/3.22.ethernetCATfiberopticcoaxialcables.jpg" alt="" width="49%" height="40%">
+    Connectors: Connectors are used to terminate the ends of cables and provide a physical connection between cables and devices. Examples of connectors commonly used in cabling include 
+        RJ-45 connectors for Ethernet cables
+        LC or SC connectors for fiber optic cables
+        BNC connectors for coaxial cables
+        <img src="images/3.18.RJ45LCSCBNCconnectors.jpg" alt="" width="49%" height="40%">
+    Patch Panels: Patch panels are used to provide a centralized point for connecting and managing multiple cables. They typically have multiple ports where cables from various devices are terminated. Patch 
+    panels typically do not come with keystones by default.
+    <img src="images/3.25.patchpanel.jpg" alt="" width="19%" height="40%">
+    Keystone Jacks: Keystone jacks are modular connectors that are used in wall plates, patch panels, and other network devices. They provide a connection point for cables to be terminated.
+    <img src="images/3.26.keystonejacks.jpg" alt="" width="9%" height="40%">
+    Patch Cords: Patch cords, also known as patch cables or patch leads, are short lengths of cables with connectors on both ends. 
+    <img src="images/3.27.patchcords.jpg" alt="" width="29%" height="40%">
+    Cabinets or Racks: Cabinets or racks are used to house and organize network equipment, including patch panels, switches, routers, and other devices. 
+    <img src="images/3.28.cabinets.jpg" alt="" width="19%" height="40%">  
+    Cable Management Accessories: Various accessories are used to organize and secure cables, ensuring a neat and organized cabling layout. Such as 
+        Cable trays
+        Cable ties
+        Cable labels
+        Cable clips
+    <img src="images/3.29.cabletraysclipslablesties.jpg" alt="" width="49%" height="40%"> 
+    Testing and Certification Equipment: Testing and certification equipment, such as cable testers and certifiers, are used to verify the performance and integrity of cables, ensuring that they 
+    meet industry standards and are capable of transmitting data or other signals effectively.
+    <img src="images/3.30.cabletesterscertifiers.jpg" alt="" width="29%" height="40%"> 
+There are several methods for cabling, which refer to the different ways in which network cables are installed and organized to establish connectivity between devices in a network. Some of the common 
+methods for cabling include:
+    Structured Cabling: Structured cabling is a standardized approach to designing and installing a comprehensive cabling infrastructure system that can support various types of communication and 
+    data transmission within a building or facility. It involves organizing and connecting cabling systems, such as Ethernet cables, fiber optic cables, and other types of copper and coaxial cables, 
+    to create a reliable and flexible network infrastructure that can handle voice, data, video, and other types of signals. Structured cabling typically follows industry standards, such as the 
+    TIA/EIA-568 and ISO/IEC 11801, and involves components such as patch panels, keystone jacks, and patch cords.
+    <img src="images/3.31.structuredcabling.jpg" alt="" width="19%" height="40%">
+    Point-to-Point Cabling: In this method, each device or system in a network is connected directly to another device or system using individual, dedicated cables. Point-to-point cabling is simple 
+    and easy to set up, but it can result in a complex and tangled cabling layout, which can be difficult to manage and maintain, especially in larger networks.
+    Home Run Cabling: also known as star topology, involves running individual cables from each device directly to a central point, such as a patch panel or switch. This method provides a centralized 
+    and organized cabling layout, making it easier to manage and troubleshoot network connections.
+    Daisy Chaining: also known as bus topology, involves connecting devices in a linear chain or daisy chain fashion, where each device is connected to the previous device in the chain using a single 
+    cable. This method is simple and cost-effective, but it can be prone to network disruptions if one device or cable fails, affecting the entire chain.
+    Wireless Cabling: also known as wireless networking, uses wireless technology, such as Wi-Fi, to establish network connectivity between devices without the need for physical cables. Wireless 
+    cabling provides flexibility and mobility, but it may not be suitable for all types of devices or environments, and may have limitations in terms of speed, security, and range.
+Structured cabling refers to a standardized and organized approach for designing, installing, and managing a comprehensive cabling infrastructure system within a building or facility. It is 
+typically used to establish a reliable and scalable foundation for various information and communication technology (ICT) networks, such as local area networks (LANs), data centers, voice over 
+IP (VoIP) networks, and other networked systems. Structured cabling systems typically consist of a hierarchical and modular arrangement of standardized cabling components, including horizontal 
+cabling, backbone cabling, patch panels, connectors, outlets, and other hardware, along with associated pathways, conduits, and cable management systems. These components are designed to support 
+the transmission of data, voice, and video signals, and provide a flexible and future-proof infrastructure that can accommodate current and future networking technologies. The key principles of 
+structured cabling include:
+    Standards-based approach: Structured cabling systems adhere to industry standards, such as the TIA/EIA-568-C series and ISO/IEC 11801, which define the requirements for various cabling components, 
+    performance, and installation practices. Compliance with standards ensures interoperability, compatibility, and performance of the cabling infrastructure.
+    Modularity and scalability: Structured cabling systems are designed to be modular and scalable, allowing for easy additions, modifications, and upgrades without disrupting the entire cabling 
+    infrastructure. This provides flexibility and adaptability to changing networking requirements and technologies.
+    Hierarchical architecture: Structured cabling systems typically have a hierarchical architecture, with a central distribution point (such as a main distribution area or MDA) connected to 
+    intermediate distribution points (such as horizontal distribution areas or HDAs), which are in turn connected to end-user devices or equipment. This hierarchical structure simplifies management 
+    and troubleshooting of the cabling infrastructure.
+    Documentation and labeling: Structured cabling systems require thorough documentation and labeling of cabling components, including cables, patch panels, and outlets, to aid in installation, 
+    troubleshooting, and maintenance activities.
+    Cable management: Structured cabling systems incorporate cable management practices and systems, such as racks, cabinets, and pathways, to organize and protect cables, minimize interference, 
+    and facilitate maintenance and upgrades.
+Structured cabling typically requires several facilities and components to ensure efficient and reliable network connectivity within a building or campus. These may include:
+    Telecommunications rooms (TRs) or data centers: These are dedicated rooms or spaces within a building or campus where the cabling infrastructure is terminated, managed, and distributed. TRs or 
+    data centers are typically designed with proper environmental conditions, such as temperature, humidity, and security, to house networking equipment, patch panels, and other components of the 
+    structured cabling system. These facilities may include:
+        Main Distribution Frame (MDF): The MDF is the central distribution point for a structured cabling system, where the incoming backbone cabling from the service provider or external network is 
+        terminated, and connections are made to the horizontal cabling for different areas or zones within a building or campus. The MDF typically houses the main networking equipment, such as 
+        switches, routers, and servers, and may also include patch panels, cable management accessories, and power backup systems.    
+        Intermediate Distribution Frame (IDF): IDFs are secondary distribution points that are strategically located throughout a building or campus to serve as intermediate connectivity points 
+        between the MDF and the end devices in different areas or zones. IDFs typically house patch panels, switches, and other networking equipment, and are connected to the MDF via backbone cabling. 
+        <img src="images/3.32.MDFIDF.jpg" alt="" width="29%" height="40%"> 
+        Equipment Rooms: Equipment rooms are dedicated spaces within a building or campus where networking equipment, servers, and other critical IT infrastructure are housed. These rooms typically 
+        have specialized environmental controls, such as cooling, power backup, and fire suppression systems, to ensure the reliable and secure operation of the equipment.    
+        Data Centers: Data centers are specialized facilities designed to house mission-critical IT infrastructure, including servers, networking equipment, storage devices, and other hardware, for 
+        data storage, processing, and management. Data centers are typically larger and more sophisticated than TRs and may have redundant power and cooling systems, backup generators, advanced 
+        security measures, and other features to ensure high availability and uptime for critical IT operations.    
+        Server Rooms: Server rooms are smaller spaces within a building or campus that are dedicated to housing servers and related networking equipment. They may be used in smaller facilities or 
+        as additional spaces to support the IT infrastructure beyond the MDF, IDF, or data center, depending on the size and complexity of the network.    
+        Telecommunications Closets: Telecommunications closets are small, localized spaces that house networking equipment, patch panels, and related infrastructure to serve a specific area or zone 
+        within a building. These closets are typically used in smaller facilities or as additional connectivity points beyond the MDF and IDFs, and may have limited environmental controls compared to 
+        larger TRs or data centers.   
+    Backbone cabling: also known as vertical cabling, this refers to the cabling infrastructure that interconnects different TRs or data centers within a building or campus. It typically consists of 
+    high-capacity cables, such as fiber optic or copper cables, that are used to establish connections between TRs or data centers to enable communication and data transfer between different areas 
+    of the facility.    
+    Horizontal cabling: This refers to the cabling infrastructure that connects the TRs or data centers to the end devices, such as workstations, telephones, cameras, and other networked devices, 
+    within each area or zone of the building or campus. It typically consists of copper cables, such as Cat5e or Cat6, or fiber optic cables, that run from the TRs or data centers to the outlets 
+    or jacks located in each area or zone.    
+    <img src="images/3.33.backboneandhorizontalcabling.jpg" alt="" width="29%" height="40%"> 
+    Patch panels: These are panels with jacks or connectors that are used to terminate and manage network connections in the TRs or data centers. Patch panels provide a central point for terminating 
+    and organizing the horizontal cabling, backbone cabling, and active networking equipment, such as switches and routers.    
+    Patch cords: These are short, pre-terminated cables with connectors on both ends that are used to establish connections between the patch panels, networking equipment, and end devices. Patch cords 
+    are used to connect the jacks on the patch panels to the jacks or ports on active networking equipment or end devices, facilitating the establishment of network connections.    
+    Networking equipment: This includes active networking devices, such as switches, routers, and other network devices, that are used to route, switch, and manage network traffic within the structured 
+    cabling system. Networking equipment is typically installed in the TRs or data centers and connected to the patch panels and other components of the structured cabling system.    
+    Cable management accessories: These include various accessories, such as cable trays, racks, cabinets, and labels, that are used to manage, organize, and protect the cabling infrastructure. Cable 
+    management accessories help maintain a clean and organized cabling system, ease troubleshooting and maintenance, and ensure the overall reliability and performance of the structured cabling system.    
+    Testing and certification tools: These include tools, testers, and certification equipment used to test, verify, and certify the performance and quality of the cabling system, ensuring that it meets 
+    industry standards and performance requirements.    
+    Documentation and labeling: Proper documentation and labeling are critical for a well-organized and maintainable structured cabling system. This may include documentation of cabling layouts, labeling 
+    of patch panels, cables, and outlets, and other relevant information to aid in troubleshooting, maintenance, and future modifications.
+Demarc, short for demarcation point, is the point of interface between the telecommunications service provider's network and the customer's premises in a telecommunications or data networking system. It 
+marks the boundary between the service provider's responsibility for the external network and the customer's responsibility for the internal network.
+A smart jack, also known as a managed service demarcation point or a managed service handoff, is a type of network interface device (NID) or demarcation point that provides advanced features and 
+functionality for managing and monitoring telecommunications or data networking services at the customer's premises. A smart jack is typically used in situations where the customer receives managed 
+services, such as high-speed Internet access, voice over IP (VoIP) services, or other data networking services from a service provider, and requires advanced capabilities for troubleshooting, monitoring, 
+and managing the services at their premises.
+<b id="id_ethernet_specifications_details">Ethernet Specifications</b>
+Ethernet is a set of standards and protocols that specify the physical and data link layer aspects of networking, which are the first two layers of the OSI (Open Systems Interconnection) model. Ethernet 
+was developed by Xerox Corporation in the 1970s and has since become the dominant LAN technology in use today. It is used to connect devices such as computers, servers, switches, routers, and other 
+network-enabled devices in a LAN, allowing them to communicate and share data with each other. Ethernet uses a contention-based media access method, known as Carrier Sense Multiple Access with Collision 
+Detection (CSMA/CD), where devices on the network compete for access to the network medium to transmit data. Ethernet frames, which are the data packets used in Ethernet networks, are encapsulated with 
+source and destination MAC (Media Access Control) addresses, and they are transmitted over a physical network medium, such as copper cables or optical fibers, using various signaling methods and encoding 
+schemes. Ethernet has evolved over the years to support different data rates, ranging from 10 Mbps (Ethernet) to 100 Gbps (Ethernet), and beyond. It has also been adapted for different physical media, 
+such as twisted pair copper cables (e.g., Cat5e, Cat6, Cat6a), coaxial cables (e.g., 10BASE2, 10BASE5), and fiber optic cables (e.g., 1000BASE-SX, 10GBASE-LR). 
+A collision domain is a term used in networking to define the network segment or portion of a LAN (Local Area Network) where network devices share the same network medium and can potentially collide with 
+each other when attempting to transmit data simultaneously. When two or more devices transmit data at the same time, their data packets may collide, resulting in corrupted data. When a collision is 
+detected, the devices stop transmitting and wait for a random time before attempting to retransmit the data again, which can cause delays and reduce network performance. A collision domain is typically 
+limited to a single network segment or LAN segment, which is typically defined by a hub or a repeater in Ethernet networks. Hubs and repeaters are devices that operate at the Physical layer of the OSI 
+model and simply regenerate and amplify network signals, extending the physical reach of the network but not providing any isolation or segmentation of collision domains. In contrast, devices such as 
+switches or bridges operate at the Data Link layer of the OSI model and provide individual collision domains for each of their ports. Switches and bridges are capable of forwarding network traffic only 
+to the destination port, effectively isolating collision domains and reducing the likelihood of collisions. This can improve network performance and reduce network congestion in larger LANs. In modern 
+Ethernet networks, switches are commonly used, and the concept of collision domains is not as relevant as it was in the past when hubs and repeaters were more commonly used. Switches are capable of 
+creating multiple collision domains, isolating network segments and improving network performance by reducing the likelihood of collisions.
+CSMA/CD is an important mechanism used in Ethernet networks to regulate access to the network medium and prevent collisions from degrading network performance. However, it is worth noting that 
+CSMA/CD is used in traditional Ethernet networks based on half-duplex communication, where devices can either transmit or receive data at a time, and collisions can occur. In modern Ethernet 
+networks, full-duplex communication is commonly used, where devices can transmit and receive data simultaneously on separate channels, eliminating the need for CSMA/CD as collisions are 
+rare. Here's how CSMA/CD works step-by-step:
+    Carrier Sense: Before a device transmits data on the network, it listens for carrier signals on the network medium to check if it's free or busy. If the medium is found to be busy, the device 
+    waits until it becomes idle before attempting to transmit.
+    Multiple Access: Once the device detects that the network medium is idle, it starts to transmit its data. Multiple devices on the network may attempt to transmit data simultaneously, but only 
+    one device can transmit successfully at a time due to the physical limitations of the network medium.
+    Collision Detection: If two or more devices transmit data simultaneously and their signals collide on the network medium, a collision occurs. When a device detects a collision during its 
+    transmission, it immediately stops transmitting and sends a jamming signal to inform other devices that a collision has occurred.
+    Backoff and Retransmission: After a collision is detected, each colliding device waits for a random period of time before attempting to retransmit its data. This is called the "backoff" 
+    period, and it helps to reduce the likelihood of another collision occurring immediately after the first collision. The backoff period is calculated based on the binary exponential backoff 
+    algorithm, where each colliding device selects a random waiting time within a predefined range, and the range increases exponentially with each collision. Once the backoff period expires, 
+    the device that initiated the backoff attempts to retransmit its data.
+    Repeat the Process: The process of carrier sense, multiple access, collision detection, backoff, and retransmission continues as long as there are devices on the network that need to transmit data.
+Half-duplex and full-duplex are two different modes of operation for Ethernet networks, which determine how data can be transmitted and received over the network.
+    Half-Duplex Ethernet: In half-duplex Ethernet, data can be transmitted or received, but not both simultaneously. When a device is transmitting data, it cannot receive data at the same time, and 
+    vice versa. Devices using half-duplex Ethernet must wait for the network to be clear before they can transmit data to avoid collisions, where two devices try to transmit data simultaneously, 
+    resulting in data loss. Half-duplex Ethernet uses a shared medium, where all devices on the network share the same communication channel.    
+    Full-Duplex Ethernet: In full-duplex Ethernet, data can be transmitted and received simultaneously, allowing for faster and more efficient communication. Devices using full-duplex Ethernet have 
+    separate channels for transmitting and receiving data, eliminating the need for collision detection and avoiding data loss due to collisions. Full-duplex Ethernet can be used in point-to-point 
+    connections or in networks with switches or hubs that support full-duplex operation.
+    <img src="images/4.2.halfandfullduplex.jpg" alt="" width="19%" height="40%"> 
+A broadcast domain is a term used in networking to define the network segment or portion of a LAN (Local Area Network) within which broadcast traffic is forwarded. Broadcast traffic is network traffic 
+that is sent to all devices within a particular network segment, and it is typically used for tasks such as address resolution, network discovery, and network management. When a device broadcasts a 
+frame, it is received by all devices within the broadcast domain, regardless of their MAC addresses. This can result in increased network traffic and potential network congestion, especially in larger 
+LANs with many devices generating broadcast traffic. A broadcast domain is typically limited to a single LAN segment or network segment, which is defined by a switch or a router in Ethernet 
+networks. Routers are used to interconnect multiple LAN segments or network segments, and they can also define broadcast domains. Routers typically do not forward broadcast traffic between different 
+network segments, which helps to isolate broadcast domains and prevent broadcast storms, which can occur when broadcast traffic is forwarded in an uncontrolled manner and overwhelms the network.
+In modern Ethernet networks, switches and routers are commonly used to create and manage broadcast domains, and the concept of broadcast domains is an important consideration in network design and 
+configuration to optimize network performance, reduce network congestion, and improve network security.
+<img src="images/4.1.broadcastdomain.jpg" alt="" width="29%" height="40%"> 
+Ethernet is a set of standards that define the physical and data link layers of the OSI (Open Systems Interconnection) model. The physical layer defines the physical characteristics of the network 
+medium, such as the electrical or optical properties of the cables, connectors, and signaling methods. The data link layer provides the means for transmitting data over the physical medium, including 
+how data is framed, addressed, and transmitted between devices on the same network segment. Here are some commonly used Ethernet specifications:
+<img src="images/4.3.ethernetwiredandwirelessspecifications.jpg" alt="" width="59%" height="40%"> 
+Ethernet at data link layer, is responsible for 
+    Ethernet addressing, commonly referred to as hardware addressing or MAC addressing. The MAC address is a unique identifier assigned to the network interface card (NIC) of a network device, such 
+    as a network adapter in a computer, a switch, or a router. MAC addresses are typically 48 bits (6 bytes) in length, and they are represented in hexadecimal notation. A computer with multiple 
+    physical NICs and virtual NICs may have multiple MAC addresses associated with it, corresponding to the number of NICs present in the system. A MAC address is divided into two parts:
+        Organizationally Unique Identifier (OUI): The first 24 bits (3 bytes) of a MAC address are known as the OUI. The OUI is assigned by the Institute of Electrical and Electronics Engineers (IEEE) 
+        and identifies the manufacturer or vendor of the network device, it is common to all NICs produced by that vendor.
+        Device Identifier: The last 24 bits (3 bytes) of a MAC address, following the OUI, are known as the device identifier. The device identifier is assigned by the manufacturer and is unique to each 
+        network interface card (NIC) produced by that manufacturer. The device identifier is used to uniquely identify a specific NIC among all the NICs produced by the same manufacturer.
+    Ethernet frames, Ethernet framing is the process of encapsulating data into Ethernet frames for transmission over Ethernet networks. The Ethernet frame is the basic unit of data that is transmitted 
+    and received over an Ethernet network. The process of Ethernet framing typically involves the following steps:
+        Data Segmentation: The data to be transmitted is divided into smaller units called frames. Each frame typically consists of a header(14-byte), data payload(1500-byte), and a trailer(4-byte). 
+        <img src="images/4.4.ethernetframe.jpg" alt="" width="59%" height="40%">    
+        Transmitting the Frame: The completed Ethernet frame is then transmitted over the network using the appropriate physical layer, such as twisted pair cables, coaxial cables, or fiber optic cables.
+Ethernet at physical link layer
+    The process of converting an Ethernet frame to bits involves several steps, including encapsulation, encoding, modulation, and transmission.
+        Encapsulation: data is encapsulated on ethernet frames on data link layer
+        Encoding: The Ethernet frame is then encoded into a sequence of bits. Different encoding schemes are used depending on the specific Ethernet standard being used, such as Manchester encoding, 
+        4B/5B encoding, or 8B/10B encoding. These encoding schemes are used to convert the binary data of the Ethernet frame into a format suitable for transmission over the network medium, which may 
+        involve modulation of electrical or optical signals.
+        Modulation: In some Ethernet standards, such as those that use twisted-pair copper cables, the encoded bits are further modulated onto the physical medium using a modulation technique, such as 
+        pulse amplitude modulation (PAM), in which the amplitude or voltage of the signals is varied to represent different bits.
+        Transmission: The modulated or encoded bits are then transmitted over the physical medium, such as the Ethernet cable, as a continuous stream of signals. The physical layer characteristics, 
+        such as the signaling method, voltage levels, and timing, are defined by the specific Ethernet standard being used, and the receiving end of the transmission must adhere to the same standard 
+        for proper decoding and processing of the transmitted bits.
+    A technical committee(802.3 Committee) within the Institute of Electrical and Electronics Engineers (IEEE) that is responsible for the development and maintenance of Ethernet standards. There 
+    are several other committees within the IEEE that focus on different areas of networking and communication technologies. Some of the notable IEEE committees related to networking include: 
+        802.11 Committee (Wireless LAN): This committee is responsible for the development of wireless local area network (WLAN) standards, commonly known as Wi-Fi, including the widely 
+        used 802.11b, 802.11g, 802.11n, and 802.11ac standards.
+        802.15 Committee (Wireless Personal Area Network): This committee focuses on the development of wireless personal area network (WPAN) standards, such as Bluetooth and Zigbee, which are 
+        used for short-range wireless communication between devices in close proximity.
+        802.16 Committee (Wireless Metropolitan Area Network): This committee is responsible for the development of wireless metropolitan area network (WMAN) standards, also known as WiMAX, 
+        which provide broadband wireless access for metropolitan area networks.
+        802.1 Committee (Bridging and Networking): This committee develops standards for bridging, interconnecting, and managing networks, including Ethernet bridging, virtual LAN (VLAN) tagging, 
+        and network management protocols.
+        802.3cg Committee (10 Mb/s Single Pair Ethernet): This committee focuses specifically for single-pair cabling, which is used in industrial and automotive applications.
+    Some of the key IEEE 802.3 standards are:
+        IEEE 802.3 Ethernet: This is the original Ethernet standard that defines the basic operation of Ethernet networks, including the physical layer (PHY) and the media access control (MAC) 
+        layer. It includes specifications for various Ethernet data rates, such as 10 Mbps (10Base-T), 100 Mbps (100Base-TX), and 1000 Mbps (1000Base-T).            
+        IEEE 802.3ae: This standard, also known as 10 Gigabit Ethernet, defines Ethernet operation at a data rate of 10 Gbps over optical fiber.            
+        IEEE 802.3az: This standard, also known as Energy Efficient Ethernet (EEE), defines mechanisms for reducing power consumption in Ethernet networks during periods of low traffic.            
+        IEEE 802.3ba: This standard, also known as 40 Gigabit Ethernet and 100 Gigabit Ethernet, defines Ethernet operation at data rates of 40 Gbps and 100 Gbps over various media, including optical 
+        fiber and copper cables.            
+        IEEE 802.3bt: This standard, also known as Power over Ethernet (PoE) Plus Plus, defines enhancements to PoE technology to deliver higher power levels for devices such as high-performance 
+        wireless access points and pan-tilt-zoom (PTZ) cameras.            
+        IEEE 802.3cg: This standard, also known as 10 Mb/s Single Pair Ethernet (SPE), defines Ethernet operation over a single twisted pair copper cable for industrial and automotive applications.            
+        IEEE 802.3cu: This standard, also known as 100 Gigabit Ethernet over Backplane and Twinaxial Cables, defines Ethernet operation at a data rate of 100 Gbps over backplanes and twinaxial cables 
+        commonly used in data centers.            
+        IEEE 802.3cv: This standard, also known as Ethernet over Time-Sensitive Networking (TSN), defines Ethernet operation for real-time and time-sensitive applications, such as industrial 
+        automation and automotive networks.            
+        IEEE 802.3dd: This standard, also known as Precision Time Protocol (PTP) Transparent Clocks, defines mechanisms for accurate time synchronization in Ethernet networks for applications that 
+        require precise timing, such as audio/video streaming and financial transactions.
+<b id="id_networking_devices_details">Networking Devices</b>
+Network devices refer to the hardware or software components that are used to establish, manage, and optimize computer networks. These devices enable communication and data exchange between different 
+devices and users within a network. Network devices can be classified into several categories based on their functionality and purpose. Some common types of network devices include:
+    Switches: Switches are used to connect devices within a local area network (LAN) and create a network by forwarding data packets between connected devices based on their MAC addresses. Switches 
+    are typically used to provide multiple Ethernet ports for connecting devices such as computers, printers, and servers in a LAN.
+    <img src="images/5.1.switches.jpg" alt="" width="19%" height="40%">     <img src="images/5.3.switchpurpose.jpg" alt="" width="29%" height="40%">   
+    Routers: Routers are used to connect different networks together, such as connecting LANs to form a wide area network (WAN) or connecting a LAN to the Internet. Routers use routing tables and 
+    protocols to determine the most efficient path for forwarding data packets between networks.
+    <img src="images/5.4.routers.jpg" alt="" width="19%" height="40%">     <img src="images/5.2.routerpurpose.jpg" alt="" width="29%" height="40%">   
+    Hubs: Hubs are used to connect devices in a network, but they are less commonly used nowadays due to their limited functionality. Hubs simply broadcast incoming data packets to all connected 
+    devices, which can cause collisions and network congestion.
+    <img src="images/5.5.hub.jpg" alt="" width="19%" height="40%">     <img src="images/5.6.hubpurpose.jpg" alt="" width="29%" height="40%">  
+    Modems: Modems are used to convert digital data into analog signals for transmission over telephone lines, cable lines, or other communication lines, and vice versa. Modems are commonly used for 
+    connecting to the Internet or other remote networks.
+    Network Adapters: Network adapters, also known as network interface cards (NICs), are used to connect devices such as computers, servers, and printers to a network. Network adapters provide the 
+    physical interface for connecting devices to the network and often support various Ethernet speeds (e.g., 10 Mbps, 100 Mbps, 1 Gbps, 10 Gbps) and types of network cables (e.g., Ethernet cables, 
+    fiber optic cables).
+    Repeaters/Extenders: Repeaters or extenders are used to amplify or regenerate signals over long distances in a network, allowing for longer cable runs and extending the reach of a network beyond 
+    the limitations of the physical cabling.
+    Media Converters: Media converters are used to convert network signals between different types of media, such as converting Ethernet signals between copper cables and fiber optic cables. Media 
+    converters are commonly used in network deployments where different types of cabling are used.
+    Network Switches: Network switches are used in data center and enterprise environments to provide advanced features such as virtual LANs (VLANs), quality of service (QoS), and advanced security 
+    features. Network switches are typically more powerful and feature-rich compared to basic switches used in home or small office environments.
+    Wireless Access Points (WAPs): WAPs are used to provide wireless connectivity in a network, allowing devices such as laptops, smartphones, and tablets to connect to a network without using 
+    physical cables. WAPs are commonly used in environments where wired connectivity is not feasible or where mobility is required.
+    Network Security Appliances: Network security appliances, such as firewalls, intrusion detection systems (IDS), and virtual private network (VPN) concentrators, are used to secure a network by 
+    monitoring and filtering network traffic, protecting against unauthorized access and threats, and enforcing security policies.
+    Dynamic Host Configuration Protocol (DHCP) server is a network server that automatically assigns IP (Internet Protocol) addresses and other network configuration parameters to devices on a 
+    TCP/IP (Transmission Control Protocol/Internet Protocol) network. The DHCP server manages a pool of IP addresses and leases them to devices, such as computers, smartphones, and other network 
+    devices, on request.
+Apart from the common network connectivity devices mentioned earlier (such as switches, routers, hubs, bridges, and access points), there are also several specialized devices used in networking. These 
+devices serve specific purposes and functions in modern networks. Some examples of specialized networking devices include:
+    Firewall: A firewall is a network security device that monitors and filters incoming and outgoing network traffic based on an organization's previously established security policies. It acts as a 
+    barrier between internal and external networks, helping to prevent unauthorized access and protecting the network from malicious activity.    
+    Load Balancer: A load balancer is a device or software that distributes incoming network traffic across multiple servers or resources to ensure optimal utilization of resources and prevent overload 
+    on a single server. Load balancers are commonly used in large-scale networks to distribute traffic across multiple servers, improving network performance and availability.    
+    Proxy Server: A proxy server is an intermediary server that acts on behalf of clients to request resources from other servers. It can be used to provide various functions, such as caching commonly 
+    accessed resources, filtering and controlling outbound and inbound network traffic, and enhancing security by adding an additional layer of protection between clients and servers.    
+    Network Attached Storage (NAS): NAS is a specialized device that provides centralized storage accessible over a network. It allows multiple users or devices to store and access files from a central 
+    location, providing data sharing and storage management capabilities for networks.    
+    VoIP Gateway: VoIP (Voice over Internet Protocol) gateway is a device that converts traditional analog voice signals into digital packets that can be transmitted over an IP network. It enables voice 
+    communication over IP-based networks, such as the Internet, allowing for cost-effective voice communication over the same network infrastructure used for data communication.    
+    Content Delivery Network (CDN): A CDN is a distributed network of servers that work together to deliver web content to users from a server that is geographically closer to them. CDNs are used to 
+    accelerate content delivery, reduce latency, and improve performance of websites and web applications.    
+    Network Analyzer/Protocol Analyzer: Network analyzers or protocol analyzers are specialized devices or software tools used to capture, analyze, and diagnose network traffic. They provide insights 
+    into network performance, troubleshoot network issues, and analyze network protocols for debugging and monitoring purposes.
+    Multilayer Switch: A multilayer switch is a networking device that operates at both the data link layer (Layer 2) and the network layer (Layer 3) of the OSI model. It combines the functions of a 
+    traditional Ethernet switch with that of a router, allowing for advanced routing and switching capabilities in a single device. Multilayer switches are commonly used in large-scale networks to 
+    enable efficient inter-VLAN routing, implement advanced networking features, and optimize network performance.
+    Content Switch: A content switch is a specialized networking device that distributes incoming network traffic based on content or application layer information. It can inspect and analyze the 
+    content of network packets, such as HTTP requests or XML data, to make intelligent routing decisions. Content switches are commonly used in large-scale networks to optimize content delivery, improve 
+    performance, and ensure high availability of web-based applications or services.
+    Intrusion Detection or Prevention System (IDS/IPS): An IDS/IPS is a security device or software that monitors network traffic for suspicious or malicious activity and alerts or prevents such 
+    activity. IDS/IPS can detect and block known and unknown threats, such as malware, intrusions, and unauthorized access attempts. They are commonly used in networks to enhance network security 
+    and protect against cyber threats.
+    Bandwidth Shaper: A bandwidth shaper is a networking device or software that regulates and controls the amount of bandwidth allocated to different types of network traffic. It allows network 
+    administrators to prioritize, limit, or shape the flow of network traffic based on predefined policies or rules. Bandwidth shapers are commonly used in networks to manage network congestion, 
+    prioritize critical traffic, and optimize network performance.
+    DNS Server: A DNS server is a specialized server that translates human-friendly domain names into IP addresses used by computers to identify each other on the Internet or a local network. DNS 
+    servers are an essential part of the Internet infrastructure, and they are commonly used in networks to resolve domain names, manage domain records, and provide DNS-related services, such as 
+    caching and authoritative DNS responses.
+    Proxy Server: As mentioned earlier, a proxy server is an intermediary server that acts on behalf of clients to request resources from other servers. Proxy servers can provide various functions, 
+    such as caching, content filtering, and traffic management, to enhance network performance, security, and privacy.
+    Channel Service Unit/Data Service Unit (CSU/DSU): A CSU/DSU is a networking device that provides digital signaling and conversion between data terminal equipment (DTE) and data communication 
+    equipment (DCE) in a digital communication link, typically over a T1 or E1 line. It is commonly used in wide area networks (WANs) to connect remote locations or branch offices to a central network.
+    Multifunction Network Devices: Multifunction network devices refer to networking devices that combine multiple functionalities into a single device. Examples include routers with built-in firewalls, 
+    switches with integrated wireless access points, or all-in-one security appliances that combine firewall, VPN (Virtual Private Network), IDS/IPS, and other security functions. These devices are used 
+    to simplify network architecture, reduce hardware costs, and streamline network management.
+
+
 <b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
 <b id="id_last_details"></b>
 <hr>
