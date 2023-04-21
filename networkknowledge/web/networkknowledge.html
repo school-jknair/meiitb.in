@@ -224,6 +224,25 @@ MAC header typically includes the following fields:
     Type or Length field: This field indicates the type of data being carried in the data packet, or the length of the data packet.    
 PDU stands for "Protocol Data Unit." It refers to the unit of data that is transmitted at each layer of the OSI (Open Systems Interconnection) model or other networking protocol models. Each layer 
 in the OSI model has its own PDU format, and these PDUs are used to encapsulate data as it is passed down or up the protocol stack.
+In computer networking, the maximum transmission unit (MTU) refers to the maximum size of a data unit that can be transmitted over a particular network protocol at one time. In the case of Ethernet-
+based networks, the MTU is typically set to 1500 bytes. When a 1500-byte packet is sent over an Ethernet-based network, it is encapsulated with an Ethernet header and trailer, which add additional 
+bytes to the overall size of the packet. Once the packet is encapsulated with the Ethernet header and trailer, it can be transmitted over the network in a single shot as a single frame(12000 bits). The 
+frame will be received by the destination host, which will then strip off the Ethernet header and trailer to access the original 1500-byte packet. If a host wants to send a packet that is larger than 
+1500 bytes, it will be fragmented into multiple smaller packets that can be transmitted over the network.
+Here's how the data from an HTML form with two fields (email and phone number) would be encapsulated as it passes through each layer of the OSI model:
+    Application Layer: The user fills out the form on their web browser, which is an application layer protocol. The data for the email and phone number fields are sent to the web server using the 
+    HTTP at the application layer. The HTTP protocol encapsulates the data in a header that includes information about the HTTP version, request method, and URI.
+    Presentation Layer: The data is not manipulated at this layer, so no encapsulation is added.
+    Session Layer: The data is not divided into smaller units at this layer, so no encapsulation is added.
+    Transport Layer: The HTTP message is broken up into smaller segments(if it is larger than 1500 bytes) to be transmitted more efficiently over the network. The transport layer protocol, which 
+    is likely the TCP, adds a header to each segment that includes a sequence number, acknowledgement number, and other control information. The TCP protocol also performs error checking on each 
+    segment to ensure reliable delivery.
+    Network Layer: The TCP segments are encapsulated in an IP packet. The IP protocol adds a header to the packet that includes the source and destination IP addresses, as well as other routing 
+    information. The IP packet is then forwarded towards the destination using routing protocols.
+    Data Link Layer: The IP packet is encapsulated in a frame by the data link layer protocol, which could be Ethernet. The frame header includes the source and destination MAC addresses, as well as 
+    other data link layer information. The frame trailer includes error checking information.
+    Physical Layer: The frame is converted into a physical signal that can be transmitted over the physical medium, such as a copper cable or wireless signal.
+    <img src="images/2.3.messagepassingthroughmultiplelayers.jpg" alt="" width="39%" height="40%">  <img src="images/2.4.messagepassingthroughmultiplelayers.jpg" alt="" width="49%" height="40%">
 There are several popular cables used for networking, including:
     Coaxial Cable: Coaxial cables are used for various networking applications, including cable TV, internet, and CCTV systems. They have a central conductor surrounded by an insulating layer, a 
     metal shield, and an outer insulating layer. Coaxial cables are capable of carrying high-frequency signals and are commonly used in environments where high-quality signal transmission is 
@@ -662,6 +681,7 @@ Routers and switches play important roles in network segmentation.
     appropriate destination. Switches can be used to segment a network by creating multiple virtual local area networks (VLANs) within a single physical network infrastructure. VLANs enable network 
     administrators to group devices based on function, location, or security requirements, and to control traffic flow and access between them. By limiting traffic within VLANs, switches can help to 
     improve network performance and security by reducing congestion and isolating network traffic.
+
 <b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
 <b id="id_last_details"></b>
 <hr>
