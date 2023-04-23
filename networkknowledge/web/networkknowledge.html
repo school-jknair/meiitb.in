@@ -17,7 +17,7 @@
           <td align="middle"><img src="images/computernetworking.jpg" alt="" width="79%" height="60%"></td>
           <td>  
             <b><a href="#id_expansion_cards_details" style="color: rgb(0, 0, 0); text-decoration: none;">x-----------------------------x</a></b><b><a href="#id_cooling_system_details" style="color: rgb(0, 0, 0); text-decoration: none;"> | x-----------------------------x</a></b>
-            <b>x-----------------------------x</b>     
+            <b>x-----------------------------x</b>  <b><a href="#id_internet_protocol_details" style="color: rgb(0, 0, 0); text-decoration: none;">Internet Protocol (IP)</a></b>   
             <b><a href="#id_last_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach end of the document   ######</a></b>      <b id="id_top_details"></b> 
           </td>
       </tr>
@@ -164,26 +164,6 @@ data exchanged, as well as the rules for error detection, correction, and handli
 by the International Organization for Standardization (ISO) in the 1980s as a reference framework for understanding and standardizing network communication protocols. The OSI model consists of seven 
 layers, each representing a specific function or task in the network communication process. These layers are:
 <img src="images/2.1.OSImodelexample.jpg" alt="" width="79%" height="40%">
-Some mnemonics that can help you remember the order of the OSI layers:
-    Please Do Not Throw Sausage Pizza Away
-    All People Seem To Need Data Processing
-Connection-oriented and connectionless communication are two different approaches to transmitting data in computer networks.
-    Connection-oriented communication: In connection-oriented communication, a reliable and established connection is first established between the sender and receiver before data transfer occurs. This 
-    connection is maintained throughout the entire data transfer process, and both the sender and receiver exchange control information to ensure that the data is received correctly. Examples of 
-    connection-oriented protocols include TCP (Transmission Control Protocol), which is used in the TCP/IP protocol suite commonly used in the Internet, and the X.25 protocol.
-    Connectionless communication: In connectionless communication, data packets are transmitted independently without establishing a dedicated connection between the sender and receiver. Each packet is 
-    treated as an independent unit and can take different routes to reach the destination. The receiver does not send any acknowledgment or control information back to the sender, and the responsibility 
-    for ensuring reliable delivery of data is typically handled by higher-level protocols or applications. Examples of connectionless protocols include UDP (User Datagram Protocol), which is also used 
-    in the TCP/IP protocol suite, and the IP (Internet Protocol) itself.
-On a connection-oriented communication
-    In the case of TCP, a series of steps known as the "three-way handshake" will establish for a connection and start exchanging data packets 
-        SYN (Synchronize): The process begins with the sender (client) sending a SYN packet to the receiver (server) to initiate a connection request. The SYN packet contains information such as 
-        the source and destination IP addresses, port numbers, and a randomly generated sequence number.
-        SYN-ACK (Synchronize-Acknowledge): If the receiver (server) is willing to establish a connection, it responds with a SYN-ACK packet. The SYN-ACK packet acknowledges the receipt of the 
-        SYN packet, contains its own randomly generated sequence number, and indicates the readiness to establish a connection.
-        ACK (Acknowledge): Finally, the sender (client) sends an ACK packet to acknowledge the receipt of the SYN-ACK packet. This completes the three-way handshake process, and a connection 
-        is established between the sender and receiver. The ACK packet typically contains the next sequence number that the sender is expecting to receive.
-    To terminate a connection, similar process with FIN (Finish) and FIN-ACK (Finish-Acknowledge) packets to gracefully close the connection.
 Data encapsulation on network communication
 <img src="images/2.2.dataencapsulation.jpg" alt="" width="39%" height="40%">
 TCP header typically includes the following fields:
@@ -243,6 +223,42 @@ Here's how the data from an HTML form with two fields (email and phone number) w
     other data link layer information. The frame trailer includes error checking information.
     Physical Layer: The frame is converted into a physical signal that can be transmitted over the physical medium, such as a copper cable or wireless signal.
     <img src="images/2.3.messagepassingthroughmultiplelayers.jpg" alt="" width="39%" height="40%">  <img src="images/2.4.messagepassingthroughmultiplelayers.jpg" alt="" width="49%" height="40%">
+Some mnemonics that can help you remember the order of the OSI layers:
+    Please Do Not Throw Sausage Pizza Away
+    All People Seem To Need Data Processing
+Connection-oriented and connectionless communication are two different approaches to transmitting data in computer networks.
+    Connection-oriented communication: In connection-oriented communication, a reliable and established connection is first established between the sender and receiver before data transfer occurs. This 
+    connection is maintained throughout the entire data transfer process, and both the sender and receiver exchange control information to ensure that the data is received correctly. Examples of 
+    connection-oriented protocols include TCP (Transmission Control Protocol), which is used in the TCP/IP protocol suite commonly used in the Internet, and the X.25 protocol.
+    Connectionless communication: In connectionless communication, data packets are transmitted independently without establishing a dedicated connection between the sender and receiver. Each packet is 
+    treated as an independent unit and can take different routes to reach the destination. The receiver does not send any acknowledgment or control information back to the sender, and the responsibility 
+    for ensuring reliable delivery of data is typically handled by higher-level protocols or applications. Examples of connectionless protocols include UDP (User Datagram Protocol), which is also used 
+    in the TCP/IP protocol suite, and the IP (Internet Protocol) itself.
+How TCP starts and close session, 
+    A series of steps known as the "three-way handshake" will establish for a connection and start exchanging data packets 
+        SYN (Synchronize): The process begins with the sender (client) sending a SYN packet to the receiver (server) to initiate a connection request. The SYN packet contains information such as 
+        the source and destination IP addresses, port numbers, and a randomly generated sequence number.
+        SYN-ACK (Synchronize-Acknowledge): If the receiver (server) is willing to establish a connection, it responds with a SYN-ACK packet. The SYN-ACK packet acknowledges the receipt of the 
+        SYN packet, contains its own randomly generated sequence number, and indicates the readiness to establish a connection.
+        ACK (Acknowledge): Finally, the sender (client) sends an ACK packet to acknowledge the receipt of the SYN-ACK packet. This completes the three-way handshake process, and a connection 
+        is established between the sender and receiver. The ACK packet typically contains the next sequence number that the sender is expecting to receive.
+    To terminate a connection, the steps are:
+        FIN (Finish): The initiating party sends a FIN packet to the other party to signal that it wants to terminate the connection.        
+        FIN-ACK (Finish-Acknowledge): The receiving party responds with a FIN-ACK packet to acknowledge receipt of the FIN packet.        
+        ACK (Acknowledge): The initiating party then sends an ACK packet to confirm that it received the FIN-ACK packet. The receiving party also sends an ACK packet to confirm that it received 
+        the ACK packet. Once both parties have sent and received ACK packets, the connection is considered terminated.
+    <img src="images/2.5.TCPcommunication.jpg" alt="" width="29%" height="40%">        <img src="images/2.6.TCPsegmenthead.jpg" alt="" width="29%" height="40%">  
+UDP (User Datagram Protocol) is a transport layer protocol used for sending and receiving datagrams over an IP network. Here are the steps involved in the start and end of a UDP process:
+    Start of UDP process:    
+        Application sends data: The UDP process begins when an application sends data using the UDP protocol. The application specifies the source and destination IP addresses and port numbers, and 
+        the data to be sent.    
+        UDP encapsulates data: The UDP protocol encapsulates the application data into a UDP datagram, which includes a UDP header and the data.    
+        IP encapsulates UDP datagram: The IP protocol encapsulates the UDP datagram into an IP packet, which includes an IP header and the UDP datagram.    
+        IP packet sent to network: The IP packet is then sent to the network for transmission.    
+    End of UDP process:    
+        UDP packet received: When the UDP packet arrives at its destination, the UDP protocol extracts the UDP header and the data from the packet.    
+        Data passed to application: The UDP protocol then passes the data to the receiving application, which processes the data.
+    <img src="images/2.7.UDPdatagramhead.jpg" alt="" width="29%" height="40%">  
 There are several popular cables used for networking, including:
     Coaxial Cable: Coaxial cables are used for various networking applications, including cable TV, internet, and CCTV systems. They have a central conductor surrounded by an insulating layer, a 
     metal shield, and an outer insulating layer. Coaxial cables are capable of carrying high-frequency signals and are commonly used in environments where high-quality signal transmission is 
@@ -551,6 +567,8 @@ Ethernet at physical link layer
         Transmission: The modulated or encoded bits are then transmitted over the physical medium, such as the Ethernet cable, as a continuous stream of signals. The physical layer characteristics, 
         such as the signaling method, voltage levels, and timing, are defined by the specific Ethernet standard being used, and the receiving end of the transmission must adhere to the same standard 
         for proper decoding and processing of the transmitted bits.
+    Various encoding schemas are
+    <img src="images/4.6.variousencodingschemas.jpg" alt="" width="79%" height="40%">  
     A technical committee(802.3 Committee) within the Institute of Electrical and Electronics Engineers (IEEE) that is responsible for the development and maintenance of Ethernet standards. There 
     are several other committees within the IEEE that focus on different areas of networking and communication technologies. Some of the notable IEEE committees related to networking include: 
         802.11 Committee (Wireless LAN): This committee is responsible for the development of wireless local area network (WLAN) standards, commonly known as Wi-Fi, including the widely 
@@ -584,8 +602,14 @@ devices and users within a network. Network devices can be classified into sever
     Switches: Switches are used to connect devices within a local area network (LAN) and create a network by forwarding data packets between connected devices based on their MAC addresses. Switches 
     are typically used to provide multiple Ethernet ports for connecting devices such as computers, printers, and servers in a LAN.
     <img src="images/5.1.switches.jpg" alt="" width="19%" height="40%">     <img src="images/5.3.switchpurpose.jpg" alt="" width="29%" height="40%">   
-    Routers: Routers are used to connect different networks together, such as connecting LANs to form a wide area network (WAN) or connecting a LAN to the Internet. Routers use routing tables and 
-    protocols to determine the most efficient path for forwarding data packets between networks.
+        Routers: Routers are used to connect different networks together, such as connecting LANs to form a wide area network (WAN) or connecting a LAN to the Internet. Routers use routing tables and 
+        protocols to determine the most efficient path for forwarding data packets between networks. Some of the primary functions of a router include:
+        Packet forwarding: A router forwards data packets between different networks. It examines the header of each packet to determine its destination and chooses the best path to forward it to.      
+        Network segmentation: Routers can be used to divide a large network into smaller subnets, enabling better network performance and security.
+        Security: Routers can filter incoming and outgoing traffic based on various security policies to prevent unauthorized access and attacks.
+        Quality of Service (QoS) management: It can prioritize certain types of traffic over others, ensuring that critical applications like voice and video are given priority over less important traffic.
+        NAT (Network Address Translation): Routers can translate private IP addresses into public IP addresses, allowing devices on a private network to communicate with devices on the internet.
+    VPN (Virtual Private Network) support: Routers can provide secure remote access to a private network by supporting VPN connections
     <img src="images/5.4.routers.jpg" alt="" width="19%" height="40%">     <img src="images/5.2.routerpurpose.jpg" alt="" width="29%" height="40%">   
     Hubs: Hubs are used to connect devices in a network, but they are less commonly used nowadays due to their limited functionality. Hubs simply broadcast incoming data packets to all connected 
     devices, which can cause collisions and network congestion.
@@ -603,11 +627,11 @@ devices and users within a network. Network devices can be classified into sever
     Media Converters: Media converters are used to convert network signals between different types of media, such as converting Ethernet signals between copper cables and fiber optic cables. Media 
     converters are commonly used in network deployments where different types of cabling are used.
     <img src="images/5.12.mediaconverter.jpg" alt="" width="9%" height="40%">     <img src="images/5.13.mediaconveterpurpose.jpg" alt="" width="29%" height="40%">  
-    Multilayer Switches(IP switch): A multilayer switch, also known as a Layer 3 switch, is a type of networking device that combines the functions of a traditional Layer 2 switch, which operates at the data 
-    link layer (Layer 2) of the OSI model, and a router, which operates at the network layer (Layer 3) of the OSI model. This allows the multilayer switch to perform advanced routing and switching 
-    functions, making it a versatile and powerful device for managing network traffic. Multilayer switches are used in data center and enterprise environments to provide advanced features such as 
-    virtual LANs (VLANs), quality of service (QoS), and advanced security features. A basic network switch operates at Layer 2 (data link layer) of the OSI model and makes decisions based on MAC 
-    addresses. It simply forwards data packets between devices connected to its ports based on their MAC addresses, without any awareness of IP addresses or higher-layer protocols. On the other 
+    Multilayer Switches(IP switch): A multilayer switch, also known as a Layer 3 switch, is a type of networking device that combines the functions of a traditional Layer 2 switch, which operates at 
+    the data link layer (Layer 2) of the OSI model, and a router, which operates at the network layer (Layer 3) of the OSI model. This allows the multilayer switch to perform advanced routing and 
+    switching functions, making it a versatile and powerful device for managing network traffic. Multilayer switches are used in data center and enterprise environments to provide advanced features 
+    such as virtual LANs (VLANs), quality of service (QoS), and advanced security features. A basic network switch operates at Layer 2 (data link layer) of the OSI model and makes decisions based 
+    on MAC addresses. It simply forwards data packets between devices connected to its ports based on their MAC addresses, without any awareness of IP addresses or higher-layer protocols. On the other 
     hand, a multilayer switch, as the name suggests, operates at multiple layers of the OSI model, including Layer 2 and Layer 3 (network layer). It can perform advanced routing and switching 
     functions based on both MAC and IP addresses, allowing it to make decisions based on IP subnets, perform inter-VLAN routing, and support more advanced networking protocols.
     <img src="images/5.14.multilayerswitches.jpg" alt="" width="9%" height="40%">     <img src="images/5.15.multilayerswitchespurpose.jpg" alt="" width="29%" height="40%"> 
@@ -666,13 +690,10 @@ devices serve specific purposes and functions in modern networks. Some examples 
     Virtual private network (VPN) concentrators: A virtual private network (VPN) concentrator is a type of networking device that is used to create and manage secure connections between multiple 
     remote clients and a private network. The concentrator acts as a central point for VPN connections and manages the flow of traffic between the remote clients and the private network.
 <b><a href="#id_network_segmentation_details" style="color: rgb(0, 0, 0); text-decoration: none;">Network Segmentation</a></b>
-Network segmentation is the process of dividing a network into smaller subnetworks or segments to improve security and network performance. This involves creating boundaries between different groups 
-of network resources, such as servers, devices, and applications, to restrict access and limit the potential impact of security incidents. There are different ways to segment a network, depending on 
-the size and complexity of the network and the specific security requirements. 
-    VLAN (virtual local area networks) to group network resources based on their function or location. VLANs create logical segments within a physical network infrastructure and allow for better 
-    control over network traffic and access.
-    Firewalls and access control policies to control traffic between different network segments. Firewalls can be used to filter traffic based on its source, destination, or type, and can be 
-    configured to restrict access between different network segments or enforce security policies.
+Network segmentation is the process of dividing a network into smaller subnetworks or segments to improve security and network performance. This separation is typically done for security, performance, 
+or management reasons. A network segment can be a single subnet or a group of subnets that are connected by a common network device. A network segment can also refer to a logical division of a network, 
+such as a virtual LAN (VLAN), which separates a network into multiple virtual networks. VLANs allow network administrators to group network devices together based on factors such as department or 
+function, regardless of their physical location.
 Routers and switches play important roles in network segmentation.
     Routers are networking devices that connect multiple networks and route traffic between them. They can be used to segment a network by creating separate network segments, or subnets, and 
     routing traffic between them. This can be done by assigning IP addresses to each subnet and configuring the router to direct traffic between them based on the IP address of the destination. By 
@@ -681,6 +702,60 @@ Routers and switches play important roles in network segmentation.
     appropriate destination. Switches can be used to segment a network by creating multiple virtual local area networks (VLANs) within a single physical network infrastructure. VLANs enable network 
     administrators to group devices based on function, location, or security requirements, and to control traffic flow and access between them. By limiting traffic within VLANs, switches can help to 
     improve network performance and security by reducing congestion and isolating network traffic.
+There are several common causes of LAN (Local Area Network) traffic congestion, including:
+    Overutilization: When too many users or devices try to use the network at the same time, it can cause congestion.    
+    Broadcast storms: When a broadcast message is sent to all devices on a network, it can cause a flood of traffic that overwhelms the network.    
+    Network topology: The physical layout of a network can affect how efficiently data is transmitted. For example, a network with a lot of switches may have more congestion than one with fewer switches.    
+    Network bandwidth limitations: The amount of bandwidth available on a network can limit the amount of data that can be transmitted at any given time. For example, if a network has a bandwidth 
+    limitation of 100 Mbps, it means that the total amount of data that can be transmitted over the network during any given second cannot exceed 100 Mbps. If the total amount of data that needs to be 
+    transmitted exceeds the available bandwidth, network congestion can occur, which can result in slow data transfer speeds, dropped connections, or other issues. 
+    Faulty hardware or software: Malfunctioning or outdated network hardware or software can cause congestion by slowing down data transmission
+Bridging in networking is the process of connecting two or more network segments together at the data link layer (Layer 2) of the OSI model. Bridging is typically used in LANs to expand their coverage 
+area, increase the number of devices that can be connected to the network, and improve network performance by reducing congestion.
+Collision domain is a network segment in which packet collisions can occur. A collision occurs when two or more devices on the same network segment try to transmit data at the same time, causing the 
+signals to interfere with each other and resulting in data corruption or loss. Collision domains typically exist in shared media networks, such as Ethernet networks that use hubs 
+to connect multiple devices. 
+Broadcast domain is a network segment in which broadcast packets are forwarded to all devices on the segment. Broadcast packets are packets that are sent to all devices on the network, regardless of 
+whether they are intended for a specific device or not. A broadcast domain is typically defined by a router or a switch configured with VLANs (Virtual Local Area Networks). By using VLANs, network 
+administrators can separate the broadcast domains and limit the scope of broadcast traffic, reducing network congestion and improving network performance.
+<img src="images/5.35.collisionbroadcastandmulticastdomains.jpg" alt="" width="59%" height="40%">  
+A switch breaks the collision domain, which is the set of all devices on a network that can potentially collide with each other when transmitting data. Switches create a separate collision domain for 
+each port, so that collisions are limited to the devices connected to that port. This allows for more efficient and reliable data transfer on the network.
+A router breaks the broadcast domain, which is the set of all devices on a network that receive a broadcast message when it is sent out by any device on the network. Routers use a process called routing 
+to selectively forward traffic between different networks based on their IP addresses. This limits the reach of broadcast messages and helps to prevent network congestion and unnecessary traffic.
+<img src="images/5.36.calclatingcollisionandbroadcastdomain.jpg" alt="" width="69%" height="40%">  
+There are two primary methods used in telecommunications to transfer data between devices: packet switching and circuit switching.
+    Packet switching is a method where data is broken down into smaller units called packets, which are then sent individually over a network. Each packet contains the destination address, source 
+    address, and other information necessary for delivery. Packets can take different paths to reach their destination and may arrive out of order, but they are reassembled in the correct order at 
+    the destination device. An example implementation of packet switching is Voice over Internet Protocol (VoIP) calls. In VoIP, the voice signal is digitized and broken down into small packets, which 
+    are then transmitted over the internet. Each packet is routed independently, and packets may take different routes to reach the recipient. At the recipient's end, the packets are reassembled 
+    into the original voice signal. 
+    Circuit switching is a method where a dedicated physical connection is established between two devices for the duration of a communication. In circuit switching, a connection is established 
+    before any data transfer occurs. Once the connection is established, the devices communicate using a continuous stream of data until the connection is terminated. An example implementation of 
+    circuit switching is the traditional telephone network. When a person makes a phone call, the telephone network establishes a dedicated physical connection between the caller and the recipient, 
+    and a fixed amount of bandwidth is reserved for the duration of the call.
+Here are the general steps that a router interface goes through to process and route network traffic:
+    Data is received by the router interface from a device on the network, such as a computer or switch.    
+    The router examines the header of the incoming packet to determine the destination IP address of the data.    
+    The router looks up the destination IP address in its routing table to determine the best path to reach the destination network or device.    
+    The router encapsulates the packet in a new frame appropriate for the outgoing interface, which may include changes to the source and destination MAC addresses.    
+    The router forwards the packet to the next hop along the path to the destination, which may be another router or the final destination device.    
+    The process repeats for each router along the path until the packet reaches its final destination.    
+    If the router encounters any errors or problems during the routing process, it may discard the packet or send an error message back to the source device.    
+    The router may also perform other functions on the data passing through its interfaces, such as filtering, shaping, or prioritizing traffic based on certain criteria.
+Here are the general steps that a switch interface goes through to process network traffic:
+    Data is received by the switch interface from a device on the network, such as a computer or another switch.    
+    The switch examines the incoming frame to determine the destination MAC address of the data.    
+    The switch checks its MAC address table to see if it has previously learned the MAC address.    
+    If the MAC address is in the table, the switch forwards the frame out the appropriate interface to reach the destination device.    
+    If the MAC address is not in the table, the switch floods the frame out all of its interfaces, except for the interface it received the frame on.    
+    The destination device responds to the frame with its own frame containing its MAC address.    
+    The switch learns the MAC address of the destination device and adds it to its MAC address table for future reference.    
+    The switch forwards subsequent frames to the destination device out the appropriate interface.    
+    If the switch encounters any errors or problems during the forwarding process, it may discard the frame or send an error message back to the source device.    
+    The switch may also perform other functions on the data passing through its interfaces, such as filtering or prioritizing traffic based on certain criteria. 
+<b id="id_internet_protocol_details" style="color: rgb(0, 0, 0); text-decoration: none;">Internet Protocol (IP)</b>
+
 
 <b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
 <b id="id_last_details"></b>
