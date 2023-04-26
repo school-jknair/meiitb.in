@@ -754,7 +754,183 @@ Here are the general steps that a switch interface goes through to process netwo
     The switch forwards subsequent frames to the destination device out the appropriate interface.    
     If the switch encounters any errors or problems during the forwarding process, it may discard the frame or send an error message back to the source device.    
     The switch may also perform other functions on the data passing through its interfaces, such as filtering or prioritizing traffic based on certain criteria. 
+All network connectivity relies on constantly updating ARP tables, MAC address tables, routing tables, and DNS tables. A network connectivity table contains addresses and interfaces associated with 
+them. All of them are required to enable packet forwarding between subnets. Here are the steps for data traveling from source to destination
+    DNS resolution: When a user wants to access a website or resource, their device sends a DNS query to a DNS server to resolve the domain name into an IP address.
+    Routing table lookup: Once the IP address is obtained, the device consults its routing table to determine the best path to reach the destination network.
+    ARP cache lookup: The device checks its ARP cache to see if it already has the MAC address of the next hop router or the destination device. If the MAC address is not in the cache, the device sends 
+    an ARP request to obtain it.
+    MAC address resolution: Once the device receives a response to the ARP request, it obtains the MAC address of the next hop router or destination device.
+    Packet forwarding: The device forwards the packet to the next hop router or the destination device, using the MAC address obtained in the previous step.
+    Repeat steps 2-5: The process repeats at each hop along the path until the packet reaches its destination network.
+    Response packet: When the destination device receives the packet, it sends a response packet back to the source device, following the same steps as above.
+There are several databases involved in the network data traveling, including:
+    DNS database: The DNS database stores information about domain names and their corresponding IP addresses.  
+    Routing table database: The routing table database stores information about the network topology and available routes to specific network destinations.    
+    <img src="images/5.38.routingtable.jpg" alt="" width="19%" height="40%">  
+    ARP cache database: The ARP cache database stores information about the MAC addresses of devices on the network.    
+    <img src="images/5.37.ARPtable.jpg" alt="" width="19%" height="40%">  
+    MAC address table database: The MAC address table database stores information about the MAC addresses of devices connected to a switch.    
+    <img src="images/5.39.MACaddresstable.jpg" alt="" width="19%" height="40%">  
+    Network address translation (NAT) table database: The NAT table database stores information about the translation between private IP used inside a network and public IP addresses used on the internet.
+    <img src="images/5.40.NATtable.jpg" alt="" width="19%" height="40%">  
 <b id="id_internet_protocol_details" style="color: rgb(0, 0, 0); text-decoration: none;">Internet Protocol (IP)</b>
+History of TCP/IP, most of the development work on TCP/IP happened at UC Berkeley in Northern California, where a group of scientists were simultaneously working on the Berkeley version of UNIX, which soon 
+became known as the BSD(Berkeley Software Distribution) series of UNIX versions. Because TCP/IP worked so well, it was packaged into subsequent releases of BSD UNIX and offered to other universities and 
+institutions on a distribution tape. So basically, BSD UNIX bundled with TCP/IP began as shareware in the world of academia, and as a result, became the basis of the huge success and exponential growth of 
+today’s Internet as well as smaller, private and corporate intranets.
+TCP (Transmission Control Protocol) and IP (Internet Protocol) are used together because they provide complementary functions that are necessary for reliable and efficient communication over the Internet
+and other networks. 
+    IP is responsible for breaking up large chunks of data into smaller packets, adding the source and destination IP addresses to each packet, and routing them through the network to their final destination.
+    TCP, on the other hand, provides reliable, ordered, and error-checked delivery of packets over the network. It establishes a connection between two devices and manages the flow of data between them 
+    by breaking up the data into segments, numbering them, and reassembling them at the destination. TCP also provides mechanisms for error detection and recovery, ensuring that all data is delivered 
+    correctly and in the correct order.
+An IP network is a group of interconnected devices (such as computers, routers, switches, and servers) that use the IP to communicate with each other over a network. Different applications and services 
+typically used in IP networks includes:
+<img src="images/6.1.TCPIPprotocolsuite.jpg" alt="" width="19%" height="40%"> 
+Telnet is a protocol that allows a user on one computer to establish a connection with another computer over the Internet or a local area network (LAN). The primary purpose of Telnet is to establish a 
+remote terminal session with a Telnet server. A Telnet client connects to a Telnet server over a network using the Telnet protocol, which allows the client to access a command-line interface or 
+application on the server as if it were running locally on the client's machine. To use Telnet, you need a Telnet client program installed on your computer and a Telnet server running on the remote 
+computer that you want to connect to. Telnet is an unencrypted protocol, so all data (including login credentials) is sent in plain text. As such, it is generally recommended to use Telnet only on 
+trusted networks and with caution. For secure remote access, consider using SSH or other encrypted protocols instead.
+FTP (File Transfer Protocol) is a standard protocol used for transferring files between a client and a server over a network. The primary purpose of FTP is to enable users to download and upload 
+files from and to a remote server. FTP works by establishing a connection between a client and a server using TCP/IP. The client sends requests to the server to download or upload files, and the 
+server responds by sending the requested files or acknowledging the successful upload. FTP supports both binary and ASCII file transfer modes, and also allows users to navigate through directories 
+on the remote server. To use FTP, you need a FTP client program installed on your computer and an FTP server running on the remote computer that you want to work with. However, it's worth noting 
+that while FTP is still widely used, it has largely been replaced by more secure and efficient file transfer protocols such as SFTP (SSH File Transfer Protocol) and FTPS (FTP over SSL/TLS). These 
+protocols offer encryption of data during transmission and stronger authentication mechanisms, which help to protect against eavesdropping and other security threats.
+Network File System (NFS) is a distributed file system protocol that allows a user on a client computer to access files over a network as if those files were on the local computer. The purpose of NFS 
+is to enable sharing of files and resources between computers, allowing multiple users to access the same files simultaneously. NFS works by having an NFS server export one or more directories 
+to be shared, and NFS clients mount those directories on their local file system. Once mounted, the client can read and write files on the NFS server just as if they were local files. NFS is a widely 
+used protocol in Unix and Linux environments, where it is used to share files between servers, workstations, and other devices. Server Message Block (SMB) protocol, which is used primarily in 
+Microsoft Windows environments. SMB enables file sharing between computers running Windows or other operating systems, and supports features such as file and printer sharing, remote procedure 
+calls (RPC), and authentication and authorization mechanisms. Another alternative is the Network Block Device (NBD) protocol, which allows remote storage devices to be mounted as local block 
+devices on a client computer.
+Simple Mail Transfer Protocol (SMTP) is a protocol used for sending email messages between servers and clients over a network. SMTP is responsible for transferring messages from one mail server 
+to another, and for delivering messages to the recipient's mailbox. It works by establishing a connection between the client and server, and then exchanging commands and responses to initiate 
+the email transmission process. To configure SMTP, you will typically need to set up an email server that supports SMTP, such as Microsoft Exchange, Postfix, or Sendmail. This server will need 
+to be configured with the necessary settings, such as the domain name, email addresses, and authentication mechanisms. As for the latest alternative to SMTP, there are several new protocols 
+and technologies that have emerged in recent years. One example is the Extensible Messaging and Presence Protocol (XMPP), which is used primarily for instant messaging and presence information 
+but also supports email communication. Another example is the Simple Mail Transfer Protocol over TLS (SMTPS), which is an extension of SMTP that uses the Transport Layer Security (TLS) protocol 
+for encryption and authentication. Finally, there is the newer messaging protocol, called the Message Queuing Telemetry Transport (MQTT) protocol, which is used for Internet of Things (IoT) 
+applications, but can also be used for email messaging. Here are the steps involved in how SMTP works:
+    The sender creates an email using an email client or webmail interface and clicks on the send button.
+    The email client connects to the SMTP server of the sender's email provider using the SMTP protocol.
+    The sender's SMTP server then checks the recipient's email domain name to determine the recipient's SMTP server.
+    The sender's SMTP server establishes a TCP (Transmission Control Protocol) connection with the recipient's SMTP server on port 25.
+    The sender's SMTP server sends the recipient's SMTP server the email message along with the sender and recipient email addresses.
+    The recipient's SMTP server receives the email and performs a series of checks, such as checking if the recipient's email address is valid and if the message size is within acceptable limits.
+    If the recipient's SMTP server determines that the email is acceptable, it stores the email in the recipient's mailbox on the server.
+    The recipient's email client then retrieves the email from the recipient's SMTP server using protocols such as POP3 or IMAP.
+    The recipient reads and responds to the email as desired.
+Post Office Protocol (POP) is an email protocol used for retrieving email messages from a mail server. Its main purpose is to enable users to access their emails from remote locations without 
+requiring a continuous connection to the email server. POP operates by downloading copies of emails from the mail server to a user's device or email client. Once the emails are downloaded, they 
+are removed from the server, making them inaccessible to other devices or email clients. The latest alternative to POP is the Internet Message Access Protocol (IMAP). 
+Internet Message Access Protocol (IMAP), The latest version of IMAP is version 4rev1, which is commonly referred to as IMAP4. IMAP4 is an email protocol used for retrieving and managing email 
+messages from a mail server. Its purpose is to allow users to access their email from multiple devices and email clients while keeping the email messages stored on the server. The latest alternative 
+to IMAP is the Exchange ActiveSync (EAS) protocol, which is primarily used for syncing emails, contacts, and calendars between mobile devices and email servers. However, IMAP is still widely used and 
+is the preferred protocol for many email clients.
+Transport Layer Security (TLS) is a cryptographic protocol used to secure communication over the internet. Its purpose is to provide confidentiality and integrity for data transmitted between two 
+endpoints, such as a client and a server. TLS operates by establishing a secure connection between two endpoints, typically a client and a server, using a combination of symmetric and asymmetric 
+encryption algorithms. This secure connection is established through a process called the TLS Handshake. TLS works on a client-server architecture. In a typical TLS connection, the client initiates 
+a connection to the server and requests a secure connection. The server then responds and establishes a secure connection between the client and server using the TLS protocol. During the TLS Handshake 
+process, the client and server exchange messages to agree upon the encryption algorithms, exchange keys, and verify each other's identity. Once the TLS Handshake is completed successfully, a secure 
+connection is established between the client and server, and they can exchange encrypted data over the network.After the TLS Handshake is completed, the client and server can exchange encrypted data 
+using the shared secret session key. The TLS Handshake involves the following steps:
+    Client Hello: The client sends a Client Hello message to the server, indicating its support for TLS and its preferred TLS version, cipher suites, and other parameters.
+    Server Hello: The server responds with a Server Hello message, indicating the TLS version, cipher suite, and other parameters that it has selected for the connection.
+    Certificate: The server sends its SSL/TLS certificate, which contains its public key and other information necessary for the client to verify its identity.
+    Server Key Exchange (optional): If the selected cipher suite requires it, the server sends additional information, such as a Diffie-Hellman public key, for use in generating the shared secret.
+    Certificate Request (optional): If the server requires the client to authenticate itself, it sends a Certificate Request message, requesting the client's SSL/TLS certificate.
+    Server Hello Done: The server sends a Server Hello Done message, indicating that it has completed its part of the Handshake.
+    Client Key Exchange: The client generates a random session key and encrypts it with the server's public key obtained from the server's SSL/TLS certificate. The client then sends the encrypted 
+    session key to the server.
+    Certificate Verification (optional): If the server requested the client's SSL/TLS certificate, the client sends its certificate to the server for verification.
+    Change Cipher Spec: The client and server agree to switch to the new session key and encryption algorithm by sending Change Cipher Spec messages.
+    Finished: The client and server exchange Finished messages, which contain a hash of all the previous Handshake messages, encrypted with the newly established session key. This verifies that 
+    both the client and server have the same session key and that the Handshake was successful.
+<img src="images/6.2.TLShandshake.jpg" alt="" width="29%" height="40%">    
+Here are the steps involved in how TLS works:
+    The client initiates a connection request to the server and requests a secure connection.
+    The server responds with its SSL/TLS certificate, which contains its public key.
+    The client verifies the server's SSL/TLS certificate and checks its validity and trustworthiness.
+    The client generates a random session key and encrypts it with the server's public key.
+    The client sends the encrypted session key to the server, which decrypts it using its private key.
+    The client and server now share a secret session key that can be used to encrypt and decrypt data exchanged between them.
+    The client and server exchange encrypted data using the session key, ensuring that the data is kept confidential and cannot be tampered with by third parties.
+HTTPS is simply HTTP over TLS, meaning that HTTP traffic is encrypted and decrypted using TLS encryption. When a client connects to an HTTPS-enabled website, the server responds with its SSL/TLS 
+certificate, and a TLS Handshake occurs to establish a secure connection between the client and server. Once the TLS Handshake is completed successfully, the client and server can exchange encrypted 
+data over the HTTPS connection. The latest alternative to TLS is the QUIC (Quick UDP Internet Connections) protocol. QUIC is a transport layer protocol developed by Google that is designed to provide 
+low-latency and secure communication over the internet. It combines the features of TCP, TLS, and HTTP/2 into a single protocol, providing faster and more reliable communication than traditional protocols.
+SIP (Session Initiation Protocol) is a protocol used in Voice over IP (VoIP) communications to set up, modify, and terminate voice or video calls between two or more endpoints over an IP network. SIP is 
+an application-layer protocol that operates independently of the underlying transport layer and can run over both UDP and TCP. The purpose of SIP is to establish, modify and terminate multimedia sessions 
+between two or more endpoints over the internet or private IP networks. SIP allows for the setup of various communication sessions, such as voice calls, video calls, and instant messaging, among 
+others. SIP configuration involves the following steps:
+    Choose a SIP provider: Select a SIP provider that can offer the required service for your business or personal use.
+    Create a SIP account: Sign up for a SIP account with the chosen provider.
+    Configure SIP settings: Configure the SIP client application with the SIP account credentials, including the SIP server hostname, port, username, and password.
+    Test the SIP connection: Verify the SIP connection by making a test call to a SIP phone or another SIP-enabled device.
+The latest alternative to SIP is WebRTC (Web Real-Time Communication), which is a newer protocol used for real-time communication between web browsers and other devices. WebRTC operates over the web 
+and does not require any additional software or plugins to be installed on the device.
+RTP (Real-time Transport Protocol) is a transport protocol used in VoIP (Voice over IP) communications to transport audio and video data over IP networks. The purpose of RTP is to transport audio and 
+video data in a timely and efficient manner, ensuring that the audio and video packets arrive in the correct order and without delay, providing a smooth audio and video experience for 
+users. Configuring RTP involves the following steps:
+    Choose an RTP-capable VoIP system: Select a VoIP system that supports RTP, such as Asterisk, Cisco CallManager, or Microsoft Lync.
+    Configure RTP settings: Configure the RTP settings in the VoIP system, such as the RTP port range, codec selection, packetization interval, and jitter buffer size.
+    Test RTP functionality: Verify the RTP functionality by making a test call and monitoring the audio and video quality.
+The latest alternative to RTP is SRTP (Secure Real-time Transport Protocol), which is a more secure version of RTP that provides encryption and authentication of the audio and video data.
+Line Printer Daemon (LPD) is a protocol used for printing on a network printer. It enables a client computer to send print jobs to a printer connected to a print server or directly to a printer 
+over the network. The purpose of LPD is to provide a standard method for sending print jobs between different computer platforms and operating systems. It allows multiple clients to share a 
+single printer and enables remote printing, where users can print documents from their computer to a printer located in a different room or even in a different building. Configuring LPD involves 
+the following steps:
+    Enable LPD service: Enable the LPD service on the print server or printer that will be accepting print jobs over the network.
+    Configure the printer: Configure the printer settings, such as print quality, paper size, and printer sharing, using the printer manufacturer's software.
+    Configure the LPD server: Configure the LPD server settings, such as the listening port and printer name, using the LPD server software.
+    Test the LPD service: Test the LPD service by sending a print job from a client computer to the printer and verifying that it prints correctly.
+The latest alternative to LPD is the Internet Printing Protocol (IPP), which is a more advanced printing protocol that supports more features and provides better security and reliability.
+
+
+Explain the function of common n ÛÛ etworking protocols
+NN TCP
+NN FTP
+NN UDP
+NN TCP/IP suite
+NN DHCP
+NN TFTP
+NN DNS
+NN HTTP(S)
+NN ARP
+NN SIP (VoIP)
+NN RTP (VoIP)
+NN SSH
+NN POP3
+NN NTP
+NN IMAP4
+NN TELNET
+NN SMTP
+NN SMNP2/3
+NN ICMP
+NN IGMP
+NN TLS
+
+Identify commonly u ÛÛ sed TCP and UDP default ports
+NN TCP ports
+NN FTP – 20, 21
+NN SSH – 22
+NN TELNET – 23
+NN SMTP – 25
+NN DNS – 53
+NN HTTP – 80
+NN POP3 – 110
+NN NTP – 123
+NN IMAP4 – 143
+NN HTTPS – 443
+NN UDP ports
+NN TFTP – 69
+NN DNS – 53
+NN BOOTPS/DHCP – 67
+NN SNMP – 161
+
 
 
 <b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
