@@ -16,8 +16,10 @@
       <tr>
           <td align="middle"><img src="images/computernetworking.jpg" alt="" width="79%" height="60%"></td>
           <td>  
-            <b><a href="#id_expansion_cards_details" style="color: rgb(0, 0, 0); text-decoration: none;">x-----------------------------x</a></b><b><a href="#id_cooling_system_details" style="color: rgb(0, 0, 0); text-decoration: none;"> | x-----------------------------x</a></b>
-            <b>x-----------------------------x</b>  <b><a href="#id_internet_protocol_details" style="color: rgb(0, 0, 0); text-decoration: none;">Internet Protocol (IP)</a></b>   
+            <b><a href="#id_expansion_cards_details" style="color: rgb(0, 0, 0); text-decoration: none;">x-----------------------------x</a></b>
+            <b><a href="#id_cooling_system_details" style="color: rgb(0, 0, 0); text-decoration: none;"> | x-----------------------------x</a></b>
+            <b><a href="#id_internet_protocol_details" style="color: rgb(0, 0, 0); text-decoration: none;">Internet Protocol (IP)</a></b>   
+            <b><a href="#id_ip_addressing_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP addressing</a></b> 
             <b><a href="#id_last_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach end of the document   ######</a></b>      <b id="id_top_details"></b> 
           </td>
       </tr>
@@ -234,31 +236,6 @@ Connection-oriented and connectionless communication are two different approache
     treated as an independent unit and can take different routes to reach the destination. The receiver does not send any acknowledgment or control information back to the sender, and the responsibility 
     for ensuring reliable delivery of data is typically handled by higher-level protocols or applications. Examples of connectionless protocols include UDP (User Datagram Protocol), which is also used 
     in the TCP/IP protocol suite, and the IP (Internet Protocol) itself.
-How TCP starts and close session, 
-    A series of steps known as the "three-way handshake" will establish for a connection and start exchanging data packets 
-        SYN (Synchronize): The process begins with the sender (client) sending a SYN packet to the receiver (server) to initiate a connection request. The SYN packet contains information such as 
-        the source and destination IP addresses, port numbers, and a randomly generated sequence number.
-        SYN-ACK (Synchronize-Acknowledge): If the receiver (server) is willing to establish a connection, it responds with a SYN-ACK packet. The SYN-ACK packet acknowledges the receipt of the 
-        SYN packet, contains its own randomly generated sequence number, and indicates the readiness to establish a connection.
-        ACK (Acknowledge): Finally, the sender (client) sends an ACK packet to acknowledge the receipt of the SYN-ACK packet. This completes the three-way handshake process, and a connection 
-        is established between the sender and receiver. The ACK packet typically contains the next sequence number that the sender is expecting to receive.
-    To terminate a connection, the steps are:
-        FIN (Finish): The initiating party sends a FIN packet to the other party to signal that it wants to terminate the connection.        
-        FIN-ACK (Finish-Acknowledge): The receiving party responds with a FIN-ACK packet to acknowledge receipt of the FIN packet.        
-        ACK (Acknowledge): The initiating party then sends an ACK packet to confirm that it received the FIN-ACK packet. The receiving party also sends an ACK packet to confirm that it received 
-        the ACK packet. Once both parties have sent and received ACK packets, the connection is considered terminated.
-    <img src="images/2.5.TCPcommunication.jpg" alt="" width="29%" height="40%">        <img src="images/2.6.TCPsegmenthead.jpg" alt="" width="29%" height="40%">  
-UDP (User Datagram Protocol) is a transport layer protocol used for sending and receiving datagrams over an IP network. Here are the steps involved in the start and end of a UDP process:
-    Start of UDP process:    
-        Application sends data: The UDP process begins when an application sends data using the UDP protocol. The application specifies the source and destination IP addresses and port numbers, and 
-        the data to be sent.    
-        UDP encapsulates data: The UDP protocol encapsulates the application data into a UDP datagram, which includes a UDP header and the data.    
-        IP encapsulates UDP datagram: The IP protocol encapsulates the UDP datagram into an IP packet, which includes an IP header and the UDP datagram.    
-        IP packet sent to network: The IP packet is then sent to the network for transmission.    
-    End of UDP process:    
-        UDP packet received: When the UDP packet arrives at its destination, the UDP protocol extracts the UDP header and the data from the packet.    
-        Data passed to application: The UDP protocol then passes the data to the receiving application, which processes the data.
-    <img src="images/2.7.UDPdatagramhead.jpg" alt="" width="29%" height="40%">  
 There are several popular cables used for networking, including:
     Coaxial Cable: Coaxial cables are used for various networking applications, including cable TV, internet, and CCTV systems. They have a central conductor surrounded by an insulating layer, a 
     metal shield, and an outer insulating layer. Coaxial cables are capable of carrying high-frequency signals and are commonly used in environments where high-quality signal transmission is 
@@ -787,7 +764,7 @@ and other networks.
     correctly and in the correct order.
 An IP network is a group of interconnected devices (such as computers, routers, switches, and servers) that use the IP to communicate with each other over a network. Different applications and services 
 typically used in IP networks includes:
-<img src="images/6.1.TCPIPprotocolsuite.jpg" alt="" width="19%" height="40%"> 
+<img src="images/6.1.applicationsworksonTCPIPprotocol.jpg" alt="" width="79%" height="40%"> 
 Telnet is a protocol that allows a user on one computer to establish a connection with another computer over the Internet or a local area network (LAN). The primary purpose of Telnet is to establish a 
 remote terminal session with a Telnet server. A Telnet client connects to a Telnet server over a network using the Telnet protocol, which allows the client to access a command-line interface or 
 application on the server as if it were running locally on the client's machine. To use Telnet, you need a Telnet client program installed on your computer and a Telnet server running on the remote 
@@ -968,47 +945,193 @@ functionality for secure file transfer. To configure and use SCP, follow these s
         Open the SCP client on your local host and specify the source and destination paths for the file transfer, as well as the login credentials for the remote host.
         Initiate the file transfer and monitor the progress of the transfer.
         Once the file transfer is complete, verify the integrity of the transferred file by comparing its checksum with the checksum of the original file.
-
-
-NN TCP
-NN FTP
-NN UDP
-NN TCP/IP suite
-NN DHCP
-NN TFTP
-NN DNS
-NN HTTP(S)
-NN ARP
-NN SIP (VoIP)
-NN RTP (VoIP)
-NN SSH
-NN POP3
-NN NTP
-NN IMAP4
-NN TELNET
-NN SMTP
-NN SMNP2/3
-NN ICMP
-NN IGMP
-NN TLS
-
-Identify commonly u ÛÛ sed TCP and UDP default ports
-NN TCP ports
-NN FTP – 20, 21
-NN SSH – 22
-NN TELNET – 23
-NN SMTP – 25
-NN DNS – 53
-NN HTTP – 80
-NN POP3 – 110
-NN NTP – 123
-NN IMAP4 – 143
-NN HTTPS – 443
-NN UDP ports
-NN TFTP – 69
-NN DNS – 53
-NN BOOTPS/DHCP – 67
-NN SNMP – 161
+Lightweight Directory Access Protocol (LDAP) is an application protocol used to access and manage directory information. LDAP provides a standardized method for storing and accessing information 
+about users, groups, and other resources in a network directory. The purpose of LDAP is to centralize and simplify the management of network resources by providing a single directory service that 
+can be used by different applications and systems. LDAP also supports authentication and authorization, allowing network administrators to control access to resources based on user and group 
+membership. The latest alternative to LDAP is the System for Cross-domain Identity Management (SCIM), which provides a standardized method for managing user identities across different systems 
+and applications. To configure and use LDAP, follow these steps:
+        Install an LDAP server on a network host, such as OpenLDAP or Microsoft Active Directory.
+        Configure the LDAP server to store the directory information for your network, such as user accounts, groups, and permissions.
+        Install an LDAP client on each system or application that needs to access the directory information. Most operating systems and applications provide built-in LDAP client support.
+        Configure the LDAP client to connect to the LDAP server, specifying the server address and login credentials if required.
+        Use the LDAP client to search, retrieve, and modify directory information as needed. This typically involves constructing LDAP queries to search for specific directory entries and using 
+        LDAP APIs to interact with the directory server.
+Internet Group Management Protocol (IGMP) is a communication protocol used by IP hosts and adjacent multicast routers to establish multicast group memberships. The purpose of IGMP is to allow 
+hosts to inform multicast routers that they want to receive multicast traffic for a specific multicast group. This allows routers to forward multicast traffic only to those interfaces that have 
+active members for that group, reducing network congestion and optimizing network performance. The latest alternative to IGMP is Multicast Listener Discovery (MLD), which is used in IPv6 networks
+Line Printer Remote (LPR) is a protocol used to send print jobs from a client computer to a printer on a remote server over a network. It was developed by the Internet Engineering Task Force (IETF) 
+as a standard for printing on a network. The purpose of LPR is to provide a simple and reliable way to print documents on a remote printer. It allows users to submit print jobs from their local 
+machine and have them sent over the network to a printer on a remote server. This can be useful in situations where multiple users need to share a printer or where a printer is located in a different 
+physical location from the client machine. The latest alternative for LPR is the Internet Printing Protocol (IPP), which provides additional features such as job status updates and printer discovery.
+Domain Name Service (DNS) is a network protocol used for resolving domain names to IP addresses. It is used to translate human-readable domain names, such as www.example.com, into 
+machine-readable IP addresses, such as 192.0.2.1. The purpose of DNS is to make it easier for users to access websites and other online resources without having to remember the IP addresses of the 
+servers hosting those resources. DNS allows users to type in easy-to-remember domain names, which are then translated into IP addresses by DNS servers. There is currently no latest alternative for DNS 
+as it remains the primary system for resolving domain names. To configure DNS, you would typically need to specify the IP address of one or more DNS servers in the network settings of your 
+device. You can either use the DNS server provided by your internet service provider (ISP), or you can use a third-party DNS service such as Google DNS or OpenDNS.
+Dynamic Host Configuration Protocol (DHCP) is a network protocol used to dynamically assign IP addresses and other network configuration parameters to devices on a network. Their purpose is to 
+simplify network administration by automating the process of assigning IP addresses and reducing the risk of conflicts that can occur when addresses are assigned manually. The latest alternative 
+to DHCP is known as IPv6 Stateless Address Autoconfiguration, which uses network prefixes and device MAC addresses to automatically assign unique IPv6 addresses to devices. To configure DHCP, you 
+need a DHCP server and clients that support DHCP. The basic steps for configuring DHCP are as follows:
+    Install and configure a DHCP server on the network.
+    Configure the DHCP server with the appropriate settings, such as IP address range, lease time, and DNS server information.
+    Connect the clients to the network and configure them to obtain their network settings automatically from the DHCP server.
+    When a client connects to the network, it sends a broadcast message requesting an IP address.
+    The DHCP server receives the broadcast and responds with an offer of an IP address and other network settings.
+    The client accepts the offer and the DHCP server assigns the IP address to the client for the specified lease time.
+    The client then uses the assigned IP address and network settings to communicate on the network.
+<img src="images/6.3.DHCPnegotiation.jpg" alt="" width="19%" height="40%"> 
+Host-to-Host Layer Protocols refer to the set of protocols in the TCP/IP networking model that are responsible for ensuring reliable communication between two hosts or devices in a network. These 
+protocols operate at the Transport layer of the TCP/IP model and are primarily concerned with end-to-end communication between applications running on different hosts. The two main protocols are 
+    Transmission Control Protocol (TCP), TCP is a connection-oriented protocol that provides reliable and ordered delivery of data between two hosts
+    User Datagram Protocol (UDP), UDP is a connectionless protocol that provides unreliable delivery of data
+    Stream Control Transmission Protocol (SCTP),  SCTP is a transport layer protocol that provides reliable, ordered, and error-checked delivery of messages between applications. It is intended 
+    to support applications that require higher levels of reliability and fault tolerance than can be provided by TCP or UDP. SCTP is becoming increasingly popular for use in applications such 
+    as Voice over IP (VoIP) and teleconferencing.
+    Datagram Congestion Control Protocol (DCCP), DCCP is designed to be flexible and extensible, allowing for the development of new congestion control mechanisms and congestion control algorithms 
+    tailored to specific application requirements. Its main goal is to provide a reliable, congestion-controlled, and low-latency transport protocol for datagram-oriented applications, while avoiding 
+    the overhead and complexity of traditional transport protocols like TCP. DCCP is primarily used in multimedia and streaming applications, such as VoIP, online gaming, and video conferencing, 
+    where the timely delivery of data is critical and some loss of data is acceptable.
+    Reliable Data Protocol (RDP), RDP is an open standard protocol that provides reliable delivery of data across IP networks. Its purpose is to enable reliable communication for real-time applications, 
+    such as audio and video streaming, that require low latency and minimal loss or delay of data.
+Transmission Control Protocol (TCP) takes large blocks of information from an application and breaks them into segments. It numbers and sequences each segment so that the destination’s TCP process can 
+put the segments back into the order the application intended. After these segments are sent, TCP (on the transmitting host) waits for an acknowledgment from the receiving end’s TCP process, retransmitting 
+those segments that aren’t acknowledged. Remember that in reliable transport operation, a device that wants to transmit sets up a connection-oriented communication with a remote device by creating a 
+session. The transmitting device first establishes a connection-oriented session with its peer system, which is called a call setup or a three-way handshake. Data is then transferred; and when the transfer
+is complete, a call termination takes place to tear down the virtual circuit. TCP is a full-duplex, connection-oriented, reliable, and accurate protocol. TCP segments a data stream and prepares it for the
+Internet layer. When the Internet layer receives the data stream, it routes the segments as packets through an internetwork. The segments are handed to the receiving host’s Host-to-Host layer protocol, 
+which rebuilds the data stream to hand to the upper-layer protocols. 
+How TCP starts and close session, 
+A series of steps known as the "three-way handshake" will establish for a connection and start exchanging data packets 
+    SYN (Synchronize): The process begins with the sender (client) sending a SYN packet to the receiver (server) to initiate a connection request. The SYN packet contains information such as 
+    the source and destination IP addresses, port numbers, and a randomly generated sequence number.
+    SYN-ACK (Synchronize-Acknowledge): If the receiver (server) is willing to establish a connection, it responds with a SYN-ACK packet. The SYN-ACK packet acknowledges the receipt of the 
+    SYN packet, contains its own randomly generated sequence number, and indicates the readiness to establish a connection.
+    ACK (Acknowledge): Finally, the sender (client) sends an ACK packet to acknowledge the receipt of the SYN-ACK packet. This completes the three-way handshake process, and a connection 
+    is established between the sender and receiver. The ACK packet typically contains the next sequence number that the sender is expecting to receive.
+To terminate a connection, the steps are:
+    FIN (Finish): The initiating party sends a FIN packet to the other party to signal that it wants to terminate the connection.        
+    FIN-ACK (Finish-Acknowledge): The receiving party responds with a FIN-ACK packet to acknowledge receipt of the FIN packet.        
+    ACK (Acknowledge): The initiating party then sends an ACK packet to confirm that it received the FIN-ACK packet. The receiving party also sends an ACK packet to confirm that it received 
+    the ACK packet. Once both parties have sent and received ACK packets, the connection is considered terminated.
+<img src="images/6.4.TCPcommunication.jpg" alt="" width="29%" height="40%">        <img src="images/6.5.TCPsegmenthead.jpg" alt="" width="29%" height="40%">  
+The TCP header is 20 bytes long, or up to 24 bytes with options.
+UDP (User Datagram Protocol) is a transport layer protocol used for sending and receiving datagrams over an IP network. Here are the steps involved in the start and end of a UDP process:
+Start of UDP process:    
+    Application sends data: The UDP process begins when an application sends data using the UDP protocol. The application specifies the source and destination IP addresses and port numbers, and 
+    the data to be sent.    
+    UDP encapsulates data: The UDP protocol encapsulates the application data into a UDP datagram, which includes a UDP header and the data.    
+    IP encapsulates UDP datagram: The IP protocol encapsulates the UDP datagram into an IP packet, which includes an IP header and the UDP datagram.    
+    IP packet sent to network: The IP packet is then sent to the network for transmission.    
+End of UDP process:    
+    UDP packet received: When the UDP packet arrives at its destination, the UDP protocol extracts the UDP header and the data from the packet.    
+    Data passed to application: The UDP protocol then passes the data to the receiving application, which processes the data.
+<img src="images/6.6.UDPdatagramhead.jpg" alt="" width="39%" height="40%"> 
+TCP is a connection-oriented protocol, which means that it establishes a connection between two devices before sending data(creates a virtual circuit). TCP is commonly used for applications that require 
+reliable and error-free transmission of data. UDP is a connectionless protocol, which means that it does not establish a connection before sending data(doesn't creates a virtual circuit). UDP is commonly 
+used for applications that require fast and efficient transmission of data
+<img src="images/6.7.TCPorUDPexamples.jpg" alt="" width="59%" height="40%"> 
+TCP and UDP are two of the most commonly used transport layer protocols in computer networks. Some of their key features are:
+<img src="images/6.8.keyfeaturesofTCPandUDP.jpg" alt="" width="29%" height="40%"> 
+The overhead of a protocol refers to the additional data that is required for communication and is not part of the actual payload. TCP has a higher overhead compared to UDP because it provides reliable, 
+ordered, and error-checked delivery of data, which requires additional data exchange for managing connections, error detection, and recovery. 
+Windowing flow control is a mechanism used in the TCP to manage the flow of data between two devices communicating over a network. The basic idea is to limit the amount of data that can be transmitted 
+at any given time based on the receiver's ability to handle it. The receiver advertises a "window size" to the sender, which indicates the amount of data it can receive and buffer at a given time. The 
+sender then sends data up to the maximum allowed by the receiver's window size and waits for an acknowledgement before sending more data.
+Port is a communication endpoint that is used to identify a specific process to which network data is to be sent or from which network data is to be received. Ports are identified by a number 
+ranging from 0 to 65535. Ports are an essential part of networking, as they enable multiple processes to use the same network interface without interfering with each other. Port binding is the process 
+of associating a specific network service or application with a particular port number on a host. When a network service or application starts, it binds to a particular port number to listen for incoming 
+requests from other hosts on the network. This ensures that the service/application receives incoming network traffic on the designated port number and can process the requests accordingly. For example, a 
+web server typically binds to port 80 or 443 (for HTTPS) to receive HTTP or HTTPS requests from web browsers. Similarly, an SSH server binds to port 22 to listen for incoming SSH connections. When 
+incoming traffic arrives at a server, the network stack consults the system's routing table to determine which network interface the traffic should be delivered to. The network stack then checks the 
+destination port number of the incoming traffic, and forwards it to the application or service that has bound to that port. A system's routing table, also known as a routing information base (RIB), is 
+a database maintained by the operating system that stores information about the paths and metrics to reach different networks and hosts on a network. It contains a list of all the known networks and 
+the next hop gateway or interface through which the traffic should be sent to reach those networks. The routing table is used by the operating system to determine the best path for forwarding traffic 
+to its destination. When a packet is sent, the operating system looks up the destination IP address in the routing table and selects the best route based on the available paths, their associated 
+costs, and other factors. The selected route is then used to forward the packet to the next hop towards its final destination. The RIB (Routing Information Base) is stored in the RAM (Random Access 
+Memory) of a router or a network device. It is a data structure that holds the network topology information and the routing protocols updates received from different interfaces and protocols, such as 
+OSPF, BGP, or RIP. The RIB is used to calculate the best path or route to reach a destination network or IP address, and the forwarding table (FIB) is populated with this information to perform 
+packet forwarding. The use of different ports allows a computer to distinguish between different types of network traffic and direct it to the appropriate process. There are three types of ports:
+    Well-known ports: These are reserved ports that are used by system processes or by programs executed by privileged users. They range from 0 to 1023 and are assigned by the Internet Assigned 
+    Numbers Authority (IANA). The list of registered well-known ports can be obtained from the<a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml" target="_blank" rel="noopener noreferrer">Internet Assigned Numbers Authority(IANA)</a> website. This list is regularly updated as new ports 
+    are registered or deprecated. Some common examples of well-known ports are Port 80: HTTP (Hypertext Transfer Protocol), Port 443: HTTPS (Hypertext Transfer Protocol Secure), Port 25: SMTP (Simple Mail 
+    Transfer Protocol), Port 110: POP3 (Post Office Protocol version 3), Port 143: IMAP (Internet Message Access Protocol), Port 22: SSH (Secure Shell). If the service or application uses a well-known 
+    port, it requires administrative privileges or approval. It depends on the network configuration and security policies in place. 
+    Registered ports: These are ports from 1024 to 49151 and are used by services or applications. It is common to configure access to registered ports to require administrative privileges
+    Dynamic or private ports: These are ports from 49152 to 65535 used by the operating system for temporary connections and are not reserved for any specific service or application.
+Internet Control Message Protocol (ICMP) is a protocol used by network devices, such as routers and hosts, to communicate error messages and operational information about network conditions. Its purpose 
+is to report errors, provide diagnostic information, and aid in troubleshooting network issues. To configure ICMP, you typically do not need to take any specific steps, as it is already built into the IP 
+stack of most operating systems. However, you can configure certain aspects of ICMP, such as enabling or disabling the ping command, using operating system-specific commands or utilities. ICMP works by 
+embedding messages in IP packets, which are then transmitted across a network. When a router or host encounters an error or needs to transmit information, it will include an ICMP message in an IP packet 
+and send it to the intended recipient. The recipient can then use the information contained in the ICMP message to diagnose and correct network issues. ICMP has several message types, including:
+    Echo Request (Type 8) - used in ping requests to test network connectivity
+    Echo Reply (Type 0) - used in ping responses to indicate successful connectivity
+    Destination Unreachable (Type 3) - used to indicate that a packet cannot be delivered to its intended destination
+    Time Exceeded (Type 11) - used to indicate that a packet has exceeded its allowed time to live (TTL) and has been discarded
+    Redirect (Type 5) - used to inform a host that a better next-hop address for a particular destination exists
+    Router Advertisement (Type 9) - used by routers to advertise their presence and to provide configuration information to hosts on a network
+    Router Solicitation (Type 10) - used by hosts to solicit router advertisements on a network
+Address Resolution Protocol (ARP) is a protocol used for mapping a network address (such as an IP address) to a physical address (such as a MAC address). Its main purpose is to allow communication 
+between devices on a local network segment. When a device wants to send data to another device on the same network segment, it needs to know the MAC address of the destination device. The ARP protocol 
+is used to query the network to find out the MAC address of the device with the specific IP address. Once the MAC address is known, the device can use it to send data to the correct destination. A newer 
+protocols such as NDP (Neighbor Discovery Protocol) have been developed for IPv6 networks, which perform a similar function. Here are the basic steps involved in the ARP process:    
+    The source device checks its ARP cache to see if it already has the MAC address of the destination device.
+    If the MAC address is not found in the ARP cache, the source device sends a broadcast ARP request message to all devices on the local network segment asking for the MAC address associated with the 
+    IP address of the destination device.
+    The device with the matching IP address responds to the ARP request message with its MAC address.
+    The source device updates its ARP cache with the MAC address of the destination device.
+ARP cache database: The ARP cache database stores information about the MAC addresses of devices on the network.    
+    <img src="images/5.37.ARPtable.jpg" alt="" width="29%" height="40%"> 
+Proxy Address Resolution Protocol (Proxy ARP) is a protocol used in computer networking to allow devices to indirectly communicate with each other when they are on different IP subnets. Its purpose is 
+to enable a device to act as a proxy for other devices on a network by responding to ARP requests on behalf of those devices. The latest alternative for Proxy ARP is the use of Layer 3 switches or 
+routers with inter-VLAN routing capabilities. Proxy ARP isn’t really a separate protocol. It’s a service run by routers on behalf of other devices. Here are the steps on how Proxy ARP works:    
+    A device on a network (Host A) wants to communicate with another device (Host B) on a different network.    
+    Host A sends an ARP request for the MAC address of Host B's IP address.    
+    The ARP request is broadcast on the local network.    
+    The router on the local network receives the ARP request and checks its routing table to determine if it knows the location of Host B.    
+    If the router does not know the location of Host B, it broadcasts a Proxy ARP request to all devices on the network.    
+    The Proxy ARP request is broadcast to all devices on the network and is received by Host B.    
+    Host B sends a reply to the router, which then forwards the reply to Host A.    
+    Host A now knows the MAC address of Host B and can communicate with it.
+Assuming that the 50 MB file is being transferred using TCP/IP protocol from host X to Host Y and 3 intermediate routers
+    <img src="images/2.2.dataencapsulation.jpg" alt="" width="29%" height="40%">   <img src="images/6.9.PDUandlayeraddressing.jpg" alt="" width="29%" height="40%"> 
+PDU stands for Protocol Data Unit. It is a term used in networking and communication to refer to the unit of data that is transmitted between two network entities at a particular layer of the 
+protocol stack. Each layer of the protocol stack has its own PDU format and structure. The PDU at each layer contains the data, control information, and headers required by that layer. The PDU 
+is then passed down to the next lower layer, which adds its own headers and control information, until it is transmitted over the network. At the receiving end, each layer removes its own headers 
+and control information and passes the remaining data up to the next higher layer.
+    The Layer 1 (Physical Layer) PDU is the bit
+    The Layer 2 (Data Link Layer) PDU is the frame
+    The Layer 3 (Network Layer) PDU is the packet
+    The Layer 4 (Transport Layer) PDU is the segment for TCP or the datagram for UDP
+    The Layer 5-6-7 (Application Layer) PDU is the data, which can be clear text, encrypted, or compressed
+When transferring a 50 MB file using TCP/IP protocol from Host X to Host Y via 3 intermediate routers, the process can be broken down into several steps:
+    File Segmentation: The file is segmented into smaller chunks or packets by the transport layer protocol, TCP. The packet size is determined by the Maximum Transmission Unit (MTU) of the 
+    network. Let's assume a packet size of 1500 bytes.
+    Encapsulation: Each packet(20,000) is encapsulated with a TCP header, which includes the source and destination port numbers, sequence and acknowledgment numbers, and other control information. Then 
+    the packet is encapsulated with an IP header, which includes the source and destination IP addresses and other routing information.    
+    Routing: The packet is then forwarded from Host X to Router A, then to Router B, then to Router C, and finally to Host Y. Each router inspects the destination IP address in the IP header and 
+    uses its routing table to determine the next hop to forward the packet.    
+    Decapsulation: At each intermediate router and at the receiving end, the packet is decapsulated by removing the IP and TCP headers to obtain the original data packet.    
+    Reassembly: At the receiving end, the TCP protocol reassembles the packets into the original 50 MB file based on the sequence numbers in the TCP header.    
+    Verification: The receiving end sends an acknowledgment back to the sending end for each packet received to verify that all packets have been successfully transmitted.
+<b id="id_ip_addressing_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP addressing</b>
+An IP address (Internet Protocol address) is a unique numerical label assigned to every device connected to the internet. It serves as an identifier for the device and enables it to communicate 
+with other devices on the internet. An IP address consists of four numbers separated by periods, for example, 192.168.0.1. Each number can range from 0 to 255, making the total number of possible 
+IP addresses approximately 4.3 billion for IPv4. Each number in an IP address is also referred to as an "octet" because it represents 8 bits of the 32-bit IPv4 address. There are two types of IP 
+addresses: IPv4 and IPv6. 
+    IPv4 is a 32-bit address and is the most commonly used version of IP addresses
+    IPv6 is a 128-bit address designed to replace IPv4 due to its limited number of available addresses
+IP address: An IP address is a unique numerical identifier assigned to a device on a network. It consists of four numbers separated by periods, such as 192.168.0.1. IP addresses enable devices to 
+send and receive data packets over a network.
+Subnet mask: A subnet mask is a number that defines the range of IP addresses that are available within a particular network. It is used to separate the network portion of an IP address from the 
+host portion. For example, in a network with a subnet mask of 255.255.255.0, the first three numbers in the IP address represent the network, and the last number represents the host.
+Default gateway: The default gateway is the IP address of the device that enables devices on a network to communicate with devices on other networks. It acts as the entry and exit point for data 
+packets between the local network and other networks, such as the internet. The default gateway is typically set to the IP address of the router on the local network.
+Network address: A network address is the first IP address in a given network range, which is used to identify the network itself. This address is obtained by setting all the host bits to zero in 
+the subnet mask. For example, if the IP address of a device on a network is 192.168.1.5, and the subnet mask is 255.255.255.0, then the network address is 192.168.1.0.
+Broadcast address: A broadcast address is the last IP address in a given network range, which is used to send data packets to all devices on the network. This address is obtained by setting all the 
+host bits to one in the subnet mask. For example, if the IP address of a device on a network is 192.168.1.5, and the subnet mask is 255.255.255.0, then the broadcast address is 192.168.1.255.
+The number of IP addresses that can be assigned to a device on a network is 254 when the IP address of that device is 192.168.1.5 and the subnet mask is 255.255.255.0, which is the number of IP 
+addresses available on this network less the network address (192.168.1.0) and the broadcast address (192.168.1.255).
 
 
 
