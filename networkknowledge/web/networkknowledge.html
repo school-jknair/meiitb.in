@@ -20,6 +20,7 @@
             <b><a href="#id_cooling_system_details" style="color: rgb(0, 0, 0); text-decoration: none;"> | x-----------------------------x</a></b>
             <b><a href="#id_internet_protocol_details" style="color: rgb(0, 0, 0); text-decoration: none;">Internet Protocol (IP)</a></b>   
             <b><a href="#id_ip_addressing_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP addressing</a></b> 
+            <b><a href="#id_ip_subnetting_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP subnetting, troubleshooting IP</a></b> 
             <b><a href="#id_last_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach end of the document   ######</a></b>      <b id="id_top_details"></b> 
           </td>
       </tr>
@@ -980,6 +981,8 @@ need a DHCP server and clients that support DHCP. The basic steps for configurin
     The client accepts the offer and the DHCP server assigns the IP address to the client for the specified lease time.
     The client then uses the assigned IP address and network settings to communicate on the network.
 <img src="images/6.3.DHCPnegotiation.jpg" alt="" width="19%" height="40%"> 
+Automatic Private IP Addressing (APIPA), with APIPA, clients can automatically self-configure an IP address and subnet mask, which is the minimum information needed for hosts to communicate 
+when a DHCP server isn’t available. The IP address range for APIPA is 169.254.0.1 through 169.254.255.254. The client also configures itself with a default class B subnet mask of 255.255.0.0.
 Host-to-Host Layer Protocols refer to the set of protocols in the TCP/IP networking model that are responsible for ensuring reliable communication between two hosts or devices in a network. These 
 protocols operate at the Transport layer of the TCP/IP model and are primarily concerned with end-to-end communication between applications running on different hosts. The two main protocols are 
     Transmission Control Protocol (TCP), TCP is a connection-oriented protocol that provides reliable and ordered delivery of data between two hosts
@@ -1130,12 +1133,126 @@ Network address: A network address is the first IP address in a given network ra
 the subnet mask. For example, if the IP address of a device on a network is 192.168.1.5, and the subnet mask is 255.255.255.0, then the network address is 192.168.1.0.
 Broadcast address: A broadcast address is the last IP address in a given network range, which is used to send data packets to all devices on the network. This address is obtained by setting all the 
 host bits to one in the subnet mask. For example, if the IP address of a device on a network is 192.168.1.5, and the subnet mask is 255.255.255.0, then the broadcast address is 192.168.1.255.
+There are three common methods of representing IP addresses:
+    Dotted Decimal Notation: This is the most commonly used method of representing IP addresses. It consists of four decimal numbers, each ranging from 0 to 255, separated by dots. For 
+    example, 192.168.1.1 /24 is an IP address in dotted decimal notation with details like:
+        CIDR notation: /24
+        Subnet mask: 255.255.255.0
+        Network bits: 24
+        Host bits: 8
+        Maximum number of IP addresses: 256
+        Maximum number of usable host addresses: 254 (excluding network and broadcast addresses)
+    Binary Notation: IP addresses can also be represented in binary notation, which is a base-2 numbering system using only two digits: 0 and 1. Each of the four octets of the IP address 
+    is represented by eight binary digits (bits). For example, the IP address 192.168.1.1 in binary notation is 11000000.10101000.00000001.00000001.
+    Hexadecimal Notation: Another way to represent IP addresses is in hexadecimal notation, which is a base-16 numbering system that uses 16 digits: 0 to 9 and A to F. Each octet of the 
+IP address is represented by two hexadecimal digits. For example, the IP address 192.168.1.1 in hexadecimal notation is C0.A8.01.01.
 The number of IP addresses that can be assigned to a device on a network is 254 when the IP address of that device is 192.168.1.5 and the subnet mask is 255.255.255.0, which is the number of IP 
 addresses available on this network less the network address (192.168.1.0) and the broadcast address (192.168.1.255).
+Hierarchical IP Addressing Scheme is a way of organizing IP addresses in a hierarchical structure based on their network prefixes. It is also commonly referred to as Classful addressing 
+or Class-based addressing. In this scheme, IP addresses are divided into classes based on their first octet, which identifies the network address. The hierarchical IP addressing scheme defines 
+three main classes of IP addresses: Class A, Class B, and Class C. However, the use of classful IP addressing has largely been replaced by classless addressing with the introduction of 
+CIDR (Classless Inter-Domain Routing). Each class has a different range of network addresses and host addresses, as shown below:
+    Class A addresses are used for large networks and have an 8-bit network portion and a 24-bit host portion. The first bit of a Class A address is always 0, and the range of Class A addresses is 
+    from <b>1.0.0.0 to 126.0.0.0</b>, and it can support up to 126 different networks, each with up to 16,777,214 hosts.
+    Class B addresses are used for medium-sized networks and have a 16-bit network portion and a 16-bit host portion. The first two bits of a Class B address are always 10, and the range of Class B 
+    addresses is from <b>128.0.0.0 to 191.255.0.0</b>, and it can support up to 16,384 different networks, each with up to 65,534 hosts.
+    Class C addresses are used for small networks and have a 24-bit network portion and an 8-bit host portion. The first three bits of a Class C address are always 110, and the range of Class C 
+    addresses is from <b>192.0.0.0 to 223.255.255.0</b>, and it can support up to 2,097,152 different networks, each with up to 254 hosts.
+    Class D addresses are used for multicasting and have a first byte in the range from 224 to 239. Class D addresses are not used for unicast communication. The range of Class D IP addresses 
+    is <b>224.0.0.0 to 239.255.255.255</b>
+    Class E addresses are reserved for experimental and research purposes and have a first byte in the range from 240 to 255. Class E addresses are also not used for unicast communication. The 
+    range of Class E IP addresses is <b>240.0.0.0 to 255.255.255.254</b>
+Classless Inter-Domain Routing (CIDR) is an IP addressing scheme that was introduced to address the limitations of the Hierarchical IP Addressing Scheme. CIDR allows for more flexible 
+allocation of IP addresses and more efficient use of address space by allowing the creation of variable-length subnet masks (VLSM). In CIDR, the network prefix is not restricted to the 
+predefined classes (A, B, C, etc.) of the Hierarchical IP Addressing Scheme. Instead, the network prefix can be any length, and the subnet mask is expressed as a number of bits, rather than 
+a decimal number. For example, a CIDR notation of 192.168.1.0/24 indicates that the network prefix is 192.168.1.0, and the subnet mask is 24 bits long, which is equivalent to a decimal 
+subnet mask of 255.255.255.0.
+Private IP addresses allow devices within a private network to communicate with each other without needing a unique public IP address for each device. Instead, a single public IP address is 
+used to represent the entire private network on the internet, and network address translation (NAT) is used to translate between the private IP addresses and the public IP address when data 
+is sent to or received from the internet. NAT, is a technology used to enable devices on a private network to communicate with the internet using a single public IP address. In a network 
+using NAT, the private IP addresses of devices on the network are not visible on the internet. 
+    When a device on the network sends data to the internet, the NAT device (typically a router) replaces the private IP address of the sending device with the public IP address of the router
+    When data is sent back to the router's public IP address, the NAT device translates the public IP address back into the private IP address of the device that requested the data, and forwards 
+    the data to that device.
+A typical NAT table entry contains the following information:
+    Source IP address: The private IP address of the device that initiated the request.
+    Source port number: The dynamically assigned port number used by the device for the request.
+    Destination IP address: The IP address of the destination server that the request was sent to.
+    Destination port number: The port number used by the destination server for the service requested.
+    NAT IP address: The public IP address assigned to the NAT device.
+    NAT port number: The dynamically assigned port number used by the NAT device to forward the request to the destination server.
+    Timeout value: The amount of time that the NAT table entry will remain active before being removed.
+    <img src="images/7.1.NATtable.jpg" alt="" width="49%" height="40%">
+There are several types of NAT devices available, including:
+    Home routers     
+    Firewall appliances
+    Software-based NAT
+    Load balancers
+3 types of communication in computer networks, including the Internet
+    Unicast refers to a one-to-one communication model, where a single sender transmits data to a single receiver. In this type of communication, the data is sent from one source to a specific 
+    destination IP address, and only the intended recipient receives and processes the data.
+    Multicast, on the other hand, refers to a one-to-many communication model, where a single sender transmits data to multiple recipients simultaneously. In multicast communication, the data 
+    is sent from one source to a specific multicast group address, and any host that has joined that group will receive the data.
+    Broadcast is a one-to-all communication model, where a single sender transmits data to all hosts on a network. In broadcast communication, the data is sent from one source to a special 
+    broadcast address, and all hosts on the network receive and process the data.
+IPv6, or Internet Protocol version 6, is the latest version of the Internet Protocol (IP) that is designed to replace IPv4. IPv6 provides a larger address space than IPv4, which is critical for 
+the continued growth of the Internet and the increasing number of devices that are connected to it. There are several benefits of IPv6 over IPv4, including:    
+    Larger address space: IPv6 uses 128-bit addresses, providing a much larger address space than the 32-bit addresses used in IPv4. This allows for more unique IP addresses to be assigned, which 
+    is critical for the growth of the Internet.    
+    Auto-configuration: IPv6 includes features for automatic address configuration, making it easier to configure devices on a network. In IPv6, there is a mechanism called stateless address 
+    auto configuration (SLAAC) that allows devices to configure their own IPv6 addresses without the need for a DHCPv6 server. With SLAAC, a device uses information advertised by a router to 
+    generate its own IPv6 address. The process works as follows:
+        The router sends out a Router Advertisement (RA) message periodically, which contains information such as the prefix of the network and other configuration details.
+        When a device receives the RA message, it generates its own IPv6 address by combining the network prefix with its interface identifier. The interface identifier can be generated using 
+        a variety of methods, such as using the device's MAC address or a random number.
+        The device then tests its newly generated address to make sure it is unique on the network.
+        If the address is unique, the device can start using it to communicate on the network.    
+    Improved security: IPv6 includes built-in security features such as IPsec, which can help to secure network traffic.    
+    Better performance: IPv6 includes features such as multicast, which can help to reduce network traffic and improve performance.
+IPv6 addressing uses hexadecimal notation, which includes digits from 0 to 9 and letters from A to F. An IPv6 address is 128 bits long and is represented as eight groups of four hexadecimal 
+digits, separated by colons. For example, the following is a valid IPv6 address: 
+    2001:0db8:85a3:0000:0000:8a2e:0370:7334
+IPv6 also allows for shortened expressions, where leading zeros can be omitted, and consecutive groups of zeros can be replaced with a double colon (::). For example, the previous IPv6 address 
+can be expressed as:
+    2001:db8:85a3::8a2e:370:7334
+IPv6 has several types of addresses, including unicast, multicast, and anycast addresses. There are also several special addresses in IPv6, including:
+    Loopback address: This address (::1) is used to send traffic to the same interface that sent the traffic.
+    Unspecified address: This address (::) is used to indicate an unknown or unspecified address.
+    Link-local address: This address (fe80::/10) is used for communication between devices on the same physical network.
+    Site-local address: This address (fec0::/10) was deprecated in favor of Unique Local Addresses (ULAs), which are used for communication within a site or organization.
+    Multicast addresses: As mentioned earlier, multicast addresses are used to send data to multiple interfaces. The range of multicast addresses in IPv6 is 224.0.0.0 to 239.255.255.255.
+In the example, "fe80::/10", the "/10" indicates that the first 10 bits of the IPv6 address are used to identify the network, and the remaining bits are used to identify the host. This means that 
+the address range represented by "fe80::/10" includes all addresses that start with the binary value "1111 1110 10" in the first 10 bits.
+Anycast configuration, multiple devices or servers are assigned the same IP address, but each device is located at a different location on the network. When a client sends a request to an anycast 
+address, the request is sent to the nearest device on the network that is configured to receive traffic for that address. This can help to improve network efficiency, reduce latency, and improve 
+the reliability of network services. Anycast addressing is commonly used in large-scale networks, such as content delivery networks (CDNs), where multiple servers can be used to deliver content 
+to users around the world. By using anycast addressing, CDNs can route traffic to the server that is closest to the user, helping to reduce latency and improve the user experience.
+<b id="id_ip_subnetting_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP Subnetting, Troubleshooting IP</b>
+Subnetting is the process of dividing a larger network into smaller subnetworks, known as subnets. The purpose of subnetting is to improve the efficiency of network resources and to manage network 
+traffic in a more organized and secure manner. When a network is subnetted, it is divided into multiple smaller networks, each with its own unique network address. This allows for better management 
+of network traffic and reduces the amount of unnecessary broadcast traffic that can slow down a network. It also provides better security by isolating traffic within each subnet, making it more 
+difficult for unauthorized users to gain access to sensitive information. Subnetting also allows for more efficient use of IP addresses, as it enables an organization to assign IP addresses to 
+devices only as needed, rather than wasting them on unused or unnecessary addresses. This can be particularly important for larger networks, as it allows for the conservation of IP address 
+space, which can be a limited resource. Overall, subnetting is an important tool for network administrators, as it helps to optimize network performance, improve security, and conserve IP 
+address space. To create subnets, you would generally follow these steps:
+    Determine the number of required subnets: The number of subnets required depends on the size of the network and the number of devices that need to be connected to it.
+    Choose a suitable subnet mask: The subnet mask determines the size of each subnet and the number of host addresses available on each subnet. The most commonly used subnet masks 
+    are /24 (255.255.255.0 or 1111 1111.1111 1111.1111 1111.0000 0000), /25 (255.255.255.128 or 1111 1111.1111 1111.1111 1111.1000 0000), /26 (255.255.255.192 or 1111 1111.1111 1111.1111 
+    1111.1100 0000), and /27 (255.255.255.224 or 1111 1111.1111 1111.1111 1111.1110 0000).
+    Determine the network address: The network address is the IP address that identifies the subnet. It is obtained by applying the subnet mask to the IP address of the network.
+    Determine the broadcast address: The broadcast address is the IP address that is used to send messages to all devices on the subnet. It is obtained by setting all host bits to 1 in the subnet 
+    mask and adding the result to the network address.
+    Determine the range of valid host addresses: The range of valid host addresses is the range of IP addresses that can be assigned to devices on the subnet. It is obtained by taking the network 
+    address and adding 1 to it to obtain the first valid host address, and subtracting 1 from the broadcast address to obtain the last valid host address.
+    Assign IP addresses to devices: Once the subnet has been created, IP addresses can be assigned to devices on the subnet based on the range of valid host addresses.
+    <img src="images/8.1.subnettingguideline.jpg" alt="" width="29%" height="40%">
+You must create 7 subnets for the current network ID, 192.168.4.0/24. List each newly created Network ID, Subnet mask, Host ID range, # of hosts, # of usable hosts and	Broadcast ID.  
+<img src="images/8.2.subnettingexample.jpg" alt="" width="39%" height="40%">
 
 
 
 <b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
+<img src="images/xxxx.xxxx.xxxx.xxxx.jpg" alt="" width="49%" height="40%">
 <b id="id_last_details"></b>
 <hr>
 </pre>
