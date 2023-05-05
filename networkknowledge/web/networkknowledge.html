@@ -1255,13 +1255,13 @@ address, the request is sent to the nearest device on the network that is config
 the reliability of network services. Anycast addressing is commonly used in large-scale networks, such as content delivery networks (CDNs), where multiple servers can be used to deliver content 
 to users around the world. By using anycast addressing, CDNs can route traffic to the server that is closest to the user, helping to reduce latency and improve the user experience.
 <b id="id_ip_subnetting_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP Subnetting, Troubleshooting IP</b>
-Subnetting is the process of dividing a larger network into smaller subnetworks, known as subnets. The purpose of subnetting is to improve the efficiency of network resources and to manage network 
-traffic in a more organized and secure manner. When a network is subnetted, it is divided into multiple smaller networks, each with its own unique network address. This allows for better management 
-of network traffic and reduces the amount of unnecessary broadcast traffic that can slow down a network. It also provides better security by isolating traffic within each subnet, making it more 
-difficult for unauthorized users to gain access to sensitive information. Subnetting also allows for more efficient use of IP addresses, as it enables an organization to assign IP addresses to 
-devices only as needed, rather than wasting them on unused or unnecessary addresses. This can be particularly important for larger networks, as it allows for the conservation of IP address 
-space, which can be a limited resource. Overall, subnetting is an important tool for network administrators, as it helps to optimize network performance, improve security, and conserve IP 
-address space. To create subnets, you would generally follow these steps:
+Subnetting is the process of dividing a larger network into smaller subnets by borrowing bits from the host ID portion of the IP address. The purpose of subnetting is to improve the efficiency of 
+network resources and to manage network traffic in a more organized and secure manner. When a network is subnetted, it is divided into multiple smaller networks, each with its own unique network 
+address. This allows for better management of network traffic and reduces the amount of unnecessary broadcast traffic that can slow down a network. It also provides better security by isolating 
+traffic within each subnet, making it more difficult for unauthorized users to gain access to sensitive information. Subnetting also allows for more efficient use of IP addresses, as it enables 
+an organization to assign IP addresses to devices only as needed, rather than wasting them on unused or unnecessary addresses. This can be particularly important for larger networks, as it allows 
+for the conservation of IP address space, which can be a limited resource. Overall, subnetting is an important tool for network administrators, as it helps to optimize network performance, improve 
+security, and conserve IP address space. To create subnets, you would generally follow these steps:
     Determine the number of required subnets: The number of subnets required depends on the size of the network and the number of devices that need to be connected to it.
     Choose a suitable subnet mask: The subnet mask determines the size of each subnet and the number of host addresses available on each subnet. The most commonly used subnet masks 
     are /24 (255.255.255.0 or 1111 1111.1111 1111.1111 1111.0000 0000), /25 (255.255.255.128 or 1111 1111.1111 1111.1111 1111.1000 0000), /26 (255.255.255.192 or 1111 1111.1111 1111.1111 
