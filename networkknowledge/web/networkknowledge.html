@@ -1130,7 +1130,11 @@ host portion. For example, in a network with a subnet mask of 255.255.255.0, the
 Default gateway: The default gateway is the IP address of the device that enables devices on a network to communicate with devices on other networks. It acts as the entry and exit point for data 
 packets between the local network and other networks, such as the internet. The default gateway is typically set to the IP address of the router on the local network.
 Network address: A network address is the first IP address in a given network range, which is used to identify the network itself. This address is obtained by setting all the host bits to zero in 
-the subnet mask. For example, if the IP address of a device on a network is 192.168.1.5, and the subnet mask is 255.255.255.0, then the network address is 192.168.1.0.
+the subnet mask. For example, if the IP address of a device on a network is 192.168.1.5, and the subnet mask is 255.255.255.0, then the network address is 192.168.1.0. The purpose of a network address 
+is to identify a network on a larger network infrastructure, such as the Internet or a corporate network. A network address is a unique identifier that is used to route data between different networks, 
+allowing devices on one network to communicate with devices on another network. For example, if a device on the network with IP address 192.168.0.10 wants to communicate with a device on a different 
+network with IP address 10.0.0.5, the packet it sends will include both the source IP address (192.168.0.10) and the destination IP address (10.0.0.5), as well as the network address (10.0.0.0) of the 
+target network. The network address is used by routers and other networking equipment to direct the packet to the correct network.
 Broadcast address: A broadcast address is the last IP address in a given network range, which is used to send data packets to all devices on the network. This address is obtained by setting all the 
 host bits to one in the subnet mask. For example, if the IP address of a device on a network is 192.168.1.5, and the subnet mask is 255.255.255.0, then the broadcast address is 192.168.1.255.
 There are three common methods of representing IP addresses:
@@ -1166,7 +1170,29 @@ Classless Inter-Domain Routing (CIDR) is an IP addressing scheme that was introd
 allocation of IP addresses and more efficient use of address space by allowing the creation of variable-length subnet masks (VLSM). In CIDR, the network prefix is not restricted to the 
 predefined classes (A, B, C, etc.) of the Hierarchical IP Addressing Scheme. Instead, the network prefix can be any length, and the subnet mask is expressed as a number of bits, rather than 
 a decimal number. For example, a CIDR notation of 192.168.1.0/24 indicates that the network prefix is 192.168.1.0, and the subnet mask is 24 bits long, which is equivalent to a decimal 
-subnet mask of 255.255.255.0.
+subnet mask of 255.255.255.0. The slash notation (/) means how many bits are turned on (1s). But keep in mind that the largest subnet mask available (regardless of the class of address) can only 
+be a /30 because we have got to keep at least 2 bits for host bits.
+Classless and classful are terms used to describe two different approaches for dividing up IP addresses for use on networks.
+    Classful addressing was the original method of IP address assignment, which divided IP addresses into predefined classes (Class A, Class B, Class C, etc.) based on the number of network and 
+    host bits in the address. Each class had a fixed number of bits reserved for the network and host portions of the address, and the network size was determined by the class. Classful addressing 
+    provided a simple way to assign IP addresses and allocate network resources, but it had limitations. The size of the network had to be predetermined based on the class, which often resulted in 
+    inefficient use of IP addresses. In classful addressing, the network portion of the IP address is determined by the class of the address, as follows:
+        Class A addresses use the first octet to identify the network portion of the address, and the remaining three octets to identify the host portion.
+        Class B addresses use the first two octets to identify the network portion of the address, and the remaining two octets to identify the host portion.
+        Class C addresses use the first three octets to identify the network portion of the address, and the remaining octet to identify the host portion.
+        Class D addresses are used for multicast traffic, and have a fixed network portion of the address (the first 4 bits are set to 1110).
+        Class E addresses are reserved for experimental use, and have a fixed network portion of the address (the first 4 bits are set to 1111).
+    Classless addressing, on the other hand, allows for more flexibility in IP address allocation. Instead of being restricted to predefined classes, the network administrator can choose the size of 
+    the network by adjusting the number of bits used for the network portion of the address. This is commonly known as Variable Length Subnet Masking (VLSM). Classless addressing is more efficient and 
+    flexible than classful addressing, and it is the current standard for IP address assignment. It allows for more efficient use of IP addresses and provides greater flexibility in designing and 
+    managing IP networks.
+Multicast traffic is a type of network traffic where a single message is sent to multiple recipients simultaneously. Some examples of applications that use multicast traffic include:
+    Video conferencing: Video conferencing applications often use multicast traffic to transmit video and audio streams to multiple participants.
+    IPTV: IPTV (Internet Protocol television) is a technology that allows television signals to be delivered over the internet. Multicast traffic is used to transmit the television signals to multiple 
+    users at the same time.
+    Online gaming: Many online gaming applications use multicast traffic to send game updates and other information to all players in a game.
+    Stock market data: Stock market data providers often use multicast traffic to distribute real-time market data to subscribers.
+    Distance learning: Distance learning applications use multicast traffic to stream educational content to multiple students in remote locations.
 Private IP addresses allow devices within a private network to communicate with each other without needing a unique public IP address for each device. Instead, a single public IP address is 
 used to represent the entire private network on the internet, and network address translation (NAT) is used to translate between the private IP addresses and the public IP address when data 
 is sent to or received from the internet. NAT, is a technology used to enable devices on a private network to communicate with the internet using a single public IP address. In a network 
@@ -1245,9 +1271,16 @@ address space. To create subnets, you would generally follow these steps:
     Determine the range of valid host addresses: The range of valid host addresses is the range of IP addresses that can be assigned to devices on the subnet. It is obtained by taking the network 
     address and adding 1 to it to obtain the first valid host address, and subtracting 1 from the broadcast address to obtain the last valid host address.
     Assign IP addresses to devices: Once the subnet has been created, IP addresses can be assigned to devices on the subnet based on the range of valid host addresses.
-    <img src="images/8.1.subnettingguideline.jpg" alt="" width="29%" height="40%">
-You must create 7 subnets for the current network ID, 192.168.4.0/24. List each newly created Network ID, Subnet mask, Host ID range, # of hosts, # of usable hosts and	Broadcast ID.  
+    <img src="images/8.1.subnettingguideline.jpg" alt="" width="59%" height="40%">
+We need to borrow 2 bits from the host portion of the address to create 4 subnets because 2 bits can represent 4 different combinations of 0s and 1s. Borrowing 1 bit creates 2 subnets, borrowing 3 
+bits creates 8 subnets, borrowing 4 bits creates 16 subnets and so on.
+An example to create 7 subnets from the current network ID, 192.168.4.0/24. List each newly created Network ID, Subnet mask, Host ID range, # of hosts, # of usable hosts and	Broadcast ID.  
 <img src="images/8.2.subnettingexample.jpg" alt="" width="39%" height="40%">
+A subnet mask is a 32-bit value that is used to divide an IP address into two parts, a network address and a host address. The subnet mask works in conjunction with the IP address to determine which 
+part of the address represents the network and which part represents the host. The subnet mask consists of a series of 1's followed by a series of 0's. The number of 1's in the subnet mask determines 
+how many bits are used for the network portion of the address, and the number of 0's determines how many bits are used for the host portion. For example, a subnet mask of 255.255.255.0 (or /24 in CIDR 
+notation) means that the first 24 bits of the IP address are used to identify the network, and the remaining 8 bits are used to identify the host. This allows the network administrator to create multiple 
+subnets within a larger network, each with its own unique network address.
 
 
 
