@@ -21,6 +21,8 @@
             <b><a href="#id_internet_protocol_details" style="color: rgb(0, 0, 0); text-decoration: none;">Internet Protocol (IP)</a></b>   
             <b><a href="#id_ip_addressing_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP addressing</a></b> 
             <b><a href="#id_ip_subnetting_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP subnetting, troubleshooting IP</a></b> 
+            <b><a href="#id_troubleshooting_ip_addressing_details" style="color: rgb(0, 0, 0); text-decoration: none;">Troubleshooting IP Addressing</a></b> 
+            <b><a href="#id_ip_routing_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP Routing</a></b> 
             <b><a href="#id_last_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach end of the document   ######</a></b>      <b id="id_top_details"></b> 
           </td>
       </tr>
@@ -1274,19 +1276,87 @@ security, and conserve IP address space. To create subnets, you would generally 
     Assign IP addresses to devices: Once the subnet has been created, IP addresses can be assigned to devices on the subnet based on the range of valid host addresses.
     <img src="images/8.1.subnettingguideline.jpg" alt="" width="59%" height="40%">
 We need to borrow 2 bits from the host portion of the address to create 4 subnets because 2 bits can represent 4 different combinations of 0s and 1s. Borrowing 1 bit creates 2 subnets, borrowing 3 
-bits creates 8 subnets, borrowing 4 bits creates 16 subnets and so on.
-An example to create 7 subnets from the current network ID, 192.168.4.0/24. List each newly created Network ID, Subnet mask, Host ID range, # of hosts, # of usable hosts and	Broadcast ID.  
+bits creates 8 subnets, borrowing 4 bits creates 16 subnets and so on. An example to create 7 subnets from the current network ID, 192.168.4.0/24. List each newly created Network ID, Subnet mask, 
+Host ID range, # of hosts, # of usable hosts and Broadcast ID.  
 <img src="images/8.2.subnettingexample.jpg" alt="" width="39%" height="40%">
 A subnet mask is a 32-bit value that is used to divide an IP address into two parts, a network address and a host address. The subnet mask works in conjunction with the IP address to determine which 
 part of the address represents the network and which part represents the host. The subnet mask consists of a series of 1's followed by a series of 0's. The number of 1's in the subnet mask determines 
 how many bits are used for the network portion of the address, and the number of 0's determines how many bits are used for the host portion. For example, a subnet mask of 255.255.255.0 (or /24 in CIDR 
 notation) means that the first 24 bits of the IP address are used to identify the network, and the remaining 8 bits are used to identify the host. This allows the network administrator to create multiple 
 subnets within a larger network, each with its own unique network address.
-
-
+FLSM (Fixed-Length Subnet Mask), Fixed Length Subnetting is a technique used in computer networking to divide an IP address block into multiple subnets of the same size. In fixed length subnetting, each 
+subnet has the same number of hosts or addresses, which is predetermined before the subnetting process begins. This technique is also known as FLSM (Fixed-Length Subnet Mask) or traditional subnetting.
+VLSM (Variable Length Subnet Masking) is a technique used in subnetting where the subnet mask used for a network can vary in length, allowing for more efficient use of IP address space. This is also 
+called subnetting a subnet. 
+Example, current IP addressing is 121.37.10.0/26 and we need to subnet this network with 30 hosts on first subnet, 20 on second subnet, 10 on third subnet, 2 on three other subnet. please list the 
+subnet IP range in FLSM method
+<img src="images/8.3.subnettingexampleforFLSMVLSM.jpg" alt="" width="29%" height="40%">     <img src="images/8.4.subnettingexampleforFLSMVLSMdata.jpg" alt="" width="59%" height="40%">
+My subnet mask is /25 , is it possible to assign a device with the IP of 192.168.1.130. No, The network address for your subnet would be 192.168.1.0, with a broadcast address of 192.168.1.127. Therefore, 
+the range of available host addresses for your subnet would be from 192.168.1.1 to 192.168.1.126. Since 192.168.1.130 is outside of this range, it cannot be assigned to a device on your network without 
+changing the subnet mask to include a larger range of available host addresses. If you need to use the IP address 192.168.1.130, you would need to change the subnet mask to at least /24 or lower, which 
+would provide a range of 256 available host addresses.
+After the netmask 255.255.255.0, there are several possible netmasks that can be used to define the network and host portions of an IP address. Some examples include:
+    255.255.255.128: defines a network with 128 hosts, where the first 25 bits of the IP address are used to define the network portion, and the remaining 7 bits are used to define the host portion.
+    255.255.255.192: defines a network with 64 hosts, where the first 26 bits of the IP address are used to define the network portion, and the remaining 6 bits are used to define the host portion.
+    255.255.255.224: defines a network with 32 hosts, where the first 27 bits of the IP address are used to define the network portion, and the remaining 5 bits are used to define the host portion.
+    255.255.255.240: defines a network with 16 hosts, where the first 28 bits of the IP address are used to define the network portion, and the remaining 4 bits are used to define the host portion.
+    255.255.255.248: defines a network with 8 hosts, where the first 29 bits of the IP address are used to define the network portion, and the remaining 3 bits are used to define the host portion.
+    255.255.255.252: defines a network with 2 hosts, where the first 30 bits of the IP address are used to define the network portion, and the remaining 2 bits are used to define the host portion.
+Each octet can have value from 0 to 255. If a network mask is 255.255.248.0 and given IP addresses are 192.168.40.10 or 192.168.41.10 then what are the network IDs 
+    In 192.168.40.10 the network bit is 192.168.40 and host bit is .10 
+    In 192.168.41.10 the network bit is 192.168.40 and host bit is 1.10 
+<b id="id_troubleshooting_ip_addressing_details" style="color: rgb(0, 0, 0); text-decoration: none;">Troubleshooting IP Addressing</b>
+Here are some basic network troubleshooting steps you can follow:
+    Check Physical Connections: Make sure all cables are plugged in properly and that the device is connected to the right port.
+    Check Network Settings: Verify that the device has the correct IP address, subnet mask, default gateway, and DNS server settings.
+    Ping Test: Use the ping command to test connectivity to other devices on the network. Ping the IP address of the device you are trying to connect to and see if you get a response.
+        Pinging the loopback address(ping 127.0.0.1), this is the diagnostic, if you get a successful ping, your IP stack is considered to be initialized. If it fails, then you have an IP stack 
+        failure and need to reinstall TCP/IP on the host.
+        Pinging local host IP, if that’s successful, your Network Interface Card (NIC) is functioning. If it fails, there is a problem with the NIC. Success here doesn’t mean that a cable is 
+        plugged into the NIC, only that the IP protocol stack on the host can communicate to the NIC (via the LAN driver).
+        Pinging the default gateway (router), if the ping works, it means that the NIC is plugged into the network and can communicate on the local network. If it fails, you have a local physical 
+        network problem that could be anywhere from the NIC to the router.
+        Pinging a remote server. if that works, then you know that you have IP communication between the local host and the remote server
+    Check Firewall Settings: If you have a firewall enabled, make sure that it is not blocking the traffic you need to pass.
+    Check for Network Congestion: Run a network performance test to see if there is any congestion or packet loss on the network.
+    Check DNS Settings: Ensure that DNS is working correctly by pinging a domain name and seeing if it resolves to an IP address.
+    Reboot: Sometimes the simplest solution is to reboot the device, as this can clear any temporary issues.
+    Update Firmware and Drivers: Check for updates to firmware and drivers for the device you are troubleshooting.
+Ping is a command-line tool that sends a small packet of data to a specific IP address or domain name and waits for a response. The tool measures the time it takes for the packet to travel from 
+the sender to the receiver and back again. If a response is received, the tool reports the response time and whether the packet was successfully received. Ping is useful for testing network 
+connectivity and identifying network latency or packet loss issues.
+Traceroute is another command-line tool that is used to trace the path that packets take from the sender to the receiver. Traceroute sends packets with increasing time-to-live (TTL) values to the 
+destination IP address. As the packets travel through each router in the path, the router decrements the TTL value and sends an error message back to the sender when the TTL reaches zero. The sender 
+uses these error messages to identify each router in the path and measure the time it takes for packets to travel between each router. Traceroute can be useful for identifying network bottlenecks 
+and routing issues.
+<b id="id_network_address_translation_details" style="color: rgb(0, 0, 0); text-decoration: none;">Network Address Translation (NAT)</b>
+NAT allows many private IP addresses to be represented by a small number of public IP addresses, thus slowing down IP address depletion. Typically NAT is configured on the border router (Corporate 
+router)
+<img src="images/8.5.NATconfiguration.jpg" alt="" width="29%" height="40%">
+There are three types of Network Address Translation (NAT):
+Static NAT: One to One, Static NAT maps a single, public IP address to a single, private IP address. It's commonly used for servers that need to be accessible from the Internet, such as web servers or email 
+servers. With static NAT, the public IP address is permanently assigned to the private IP address, and incoming traffic is always directed to that IP address.
+<img src="images/8.6.1.StaticNAT.jpg" alt="" width="19%" height="40%">
+Dynamic NAT: Many to Many, Dynamic NAT maps a pool of public IP addresses to a pool of private IP addresses. When a private IP address requests access to the Internet, it is assigned an available public 
+IP address from the pool. This is useful for networks with a large number of devices, as it allows them to share a smaller pool of public IP addresses.
+<img src="images/8.6.2.DynamicNAT.jpg" alt="" width="19%" height="40%">
+Port Address Translation (PAT): Many to One with ports, Port Address Translation, also known as Network Address and Port Translation (NAPT), is a variation of dynamic NAT that maps multiple private IP 
+addresses to a single, public IP address by using different ports. With PAT, each private IP address is assigned a unique port number, which is combined with the public IP address to create a unique 
+identifier for incoming traffic. PAT is commonly used in home and small business networks where only one public IP address is available.
+<img src="images/8.6.3.PortNAT.jpg" alt="" width="19%" height="40%">
+In the context of Network Address Translation (NAT), there are four terms commonly used to describe different types of IP addresses involved in the translation process. These terms are:
+    Inside local: This is the IP address of a device on your internal network that you want to communicate with devices on the internet.
+    Inside global: This is the IP address that the device on your internal network uses to communicate with devices on the internet. It is assigned by the router or NAT device that connects your internal 
+    network to the internet.
+    Outside local: This is the IP address of a device on the internet that you want to communicate with from your internal network.
+    Outside global: This is the IP address that the device on the internet uses to communicate with devices on your internal network. It is assigned by the router or NAT device that connects your internal 
+    network to the internet.
+    <img src="images/8.7.1.NATNames.jpg" alt="" width="29%" height="40%">      <img src="images/8.7.2.NATNames.jpg" alt="" width="29%" height="40%">     
+<b id="id_ip_routing_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP Routing</b>
 
 <b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
-<img src="images/xxxx.xxxx.xxxx.xxxx.jpg" alt="" width="49%" height="40%">
+https://media.oiipdf.com/pdf/214dd702-0ee6-4e47-b336-fce0d95934a5.pdf <b>reffered book online</b>
+<img src="images/xxxx.xxxx.xxxx.xxxx.jpg" alt="" width="49%" height="40%"> 
 <b id="id_last_details"></b>
 <hr>
 </pre>
