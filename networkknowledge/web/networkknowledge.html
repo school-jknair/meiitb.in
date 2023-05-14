@@ -23,6 +23,7 @@
             <b><a href="#id_ip_subnetting_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP subnetting, troubleshooting IP</a></b> 
             <b><a href="#id_troubleshooting_ip_addressing_details" style="color: rgb(0, 0, 0); text-decoration: none;">Troubleshooting IP Addressing</a></b> 
             <b><a href="#id_ip_routing_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP Routing</a></b> 
+            <b><a href="#id_routing_protocols_details" style="color: rgb(0, 0, 0); text-decoration: none;">Routing Protocols</a></b> 
             <b><a href="#id_last_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach end of the document   ######</a></b>      <b id="id_top_details"></b> 
           </td>
       </tr>
@@ -1353,6 +1354,113 @@ In the context of Network Address Translation (NAT), there are four terms common
     network to the internet.
     <img src="images/8.7.1.NATNames.jpg" alt="" width="29%" height="40%">      <img src="images/8.7.2.NATNames.jpg" alt="" width="29%" height="40%">     
 <b id="id_ip_routing_details" style="color: rgb(0, 0, 0); text-decoration: none;">IP Routing</b>
+IP routing refers to the process of forwarding data packets from one network to another network based on their IP addresses. In simple terms, it is the mechanism by which data is transmitted between 
+different networks or subnets. IP routing is facilitated by routers, which are network devices that are specifically designed to forward data packets between different networks. When a data packet is 
+sent from a device on one network to a device on another network, it is first forwarded to the router that is connected to the sending device's network. The router then examines the packet's destination 
+IP address and consults its routing table to determine the best path for the packet to take to reach its destination network. The routing table contains information about the various networks that the 
+router is connected to, as well as the routes that the router can take to reach those networks. The router uses this information to determine the best path for the packet, and then forwards it to the 
+next router or device on that path. This process is repeated until the packet reaches its final destination.
+When a device on a network needs to send data to another device, it consults its routing table to determine the best path to reach the destination. Each device on a network maintains its own routing 
+table, which contains information about the networks it is directly connected to, as well as any other networks it can reach through routing protocols or static routes. Here's an example of a routing 
+table that could exist on a local machine with IP address 192.168.1.5, which is trying to send data to Google.com (whose IP address is 172.217.168.174):
+<img src="images/9.1.routingtableexample.jpg" alt="" width="29%" height="40%">
+Routing table on local machine
+    First entry indicates that any traffic intended for the 192.168.1.0 network (which includes the local machine itself) should be sent directly to the eth0 interface.
+    Second entry indicates that any traffic that is not intended for the local network (represented by the 0.0.0.0 destination and subnet mask) should be forwarded to the default gateway with IP 
+    address 192.168.1.1, which is the router that connects the local network to the Internet.
+Routing table on router
+    First entry indicates that any traffic intended for the 192.168.1.0 network (which includes the source machine with IP address 192.168.1.5) should be sent directly to the router's eth0 interface.
+    Second entry indicates that any traffic that is not intended for the local network (represented by the 0.0.0.0 destination and subnet mask) should be forwarded to the default gateway with IP 
+    address 203.0.113.1, which would be the next router in the path to Google.com.
+    Third entry is a specific route for the destination IP address 172.217.168.174, which is Google.com's IP address. This route indicates that any traffic intended for that specific IP address should 
+    be sent to the next hop with IP address 203.0.113.254, which could be an Internet Service Provider (ISP) router that is closer to the Google.com network.
+Routing protocols and Routed protocols are both important concepts in computer networking, but they refer to different things.
+    Routing protocols, are used by routers to determine the best path for that data to take between networks. Routers used this protocol to exchange information about network topology and make 
+    decisions about how to forward data between networks. Routing protocols enable routers to communicate with each other and share information about available routes to different destinations 
+    on the network. Examples includes 
+        Border Gateway Protocol (BGP)
+        Open Shortest Path First (OSPF)
+        Routing Information Protocol (RIP)
+    Routed protocols are used to transmit data between devices on a network. These protocols determine how data is encapsulated, transmitted, and delivered between devices. Examples includes 
+        Internet Protocol (IP)
+        AppleTalk
+        Novell's Internetwork Packet Exchange (IPX)
+The IP Routing Process
+    A packet is created on the host
+        Internet Control Message Protocol (ICMP) creates an echo request payload (which is just the alphabet in the data field)
+        ICMP hands that payload to IP, which then creates a packet. This packet contains an 
+            IP source address
+            IP destination address
+            Protocol field with '01h'. This 1 byte field indicates the protocol associated with the data carried in the IP packet, it can contain 
+                01h: ICMP (Internet Control Message Protocol)
+                06h: TCP (Transmission Control Protocol)
+                11h: UDP (User Datagram Protocol)
+                2Ch: IPv6 (Internet Protocol version 6)
+                58h: ICMPv6 (Internet Control Message Protocol version 6)
+            The packet number of each packet has two identifying numbers 
+                First indicate, how many packets a piece of information was split into
+                Second indicates the place of the individual packet as a part of the complete information
+    The packet is forwarded
+        After the packet is created, IP determines whether the destination IP address is on the local network or a remote one.
+        Because IP has discovered that this is a remote request, the packet needs to be sent to the default gateway so the packet can be routed to the correct remote network. The Address Resolution Protocol
+        (ARP) cache of the host is checked to see whether the IP address of the default gateway has already been resolved to a hardware address
+            If it has, the packet is then free to be handed to the Data Link layer for framing. (The hardware-destination address is also handed down with that packet.) 
+            If it isn’t already in the ARP cache of the host, an ARP broadcast is sent out onto the local network to search for the hardware address of 172.16.10.1. The router responds to that request 
+            and provides the hardware address of Ethernet 0,and the host caches this address.
+        After the packet and destination hardware address have been handed to the Data Link layer, the LAN driver is used to provide media access via the type of LAN being used (in this example, it’s 
+        Ethernet). A frame is then generated, encapsulating the packet with control information like
+            Hardware address of destination
+            Hardware address of source
+            Ether-Type field that describes the Network layer protocol and the values include
+                0800 (0x0800): IPv4 protocol
+                0806 (0x0806): Address Resolution Protocol (ARP)
+                86DD (0x86DD): IPv6 protocol
+                8100 (0x8100): VLAN-tagged frame (IEEE 802.1Q)
+            Ether-Type field that describes the Network layer protocol that handed the packet to the Data Link layer—in this instance, IP
+            A Frame Check Sequence (FCS) field that houses the result of the cyclic redundancy check (CRC)
+            <img src="images/9.2.FrameFormat.jpg" alt="" width="49%" height="40%"> 
+        When the frame is completed, it’s handed down to the Physical layer to be placed onto the physical medium one bit at a time. In this example, the physical medium is twisted-pair wire
+    The router receives the packet
+        Every device within the collision domain receives these bits and builds the frame. They each run a CRC and check the answer in the FCS field. If the answers don’t match, the frame is discarded. But
+        if the CRC matches, then the hardware-destination address is checked to see if it matches too (in this example, it’s the router’s interface, Ethernet 0). If it’s a match, then the Ether-Type field 
+        is checked to find the protocol used at the Network layer.
+        The packet is pulled from the frame, and what is left of the frame is discarded. The packet is then handed to the protocol listed in the Ether-Type field—it’s given to IP.
+    The router routes the packet
+        IP receives the packet and checks the IP destination address. Because the packet’s destination address doesn’t match any of the addresses configured on the receiving router, the router will look up the 
+        destination IP network address in its routing table. The routing table must have an entry for the network 172.16.20.0
+            If the router doesn't find an entry for the destination network in its table, packet will be discarded immediately and an ICMP message will be sent back to the originating device with a destination-
+            network-unreachable message.
+            If the router does find an entry for the destination network in its table, the packet is switched to the exit interface — in this example, interface Ethernet 1. The router packet-switches the packet 
+            to the Ethernet 1 buffer.
+        Now that the Packet is in the Ethernet 1 buffer, IP needs to know the hardware address of the destination host and first checks the ARP cache. If the hardware address of Host_B has already been 
+        resolved and is in the router’s ARP cache, then the packet and the hardware address are handed down to the Data Link layer to be framed and the frame is handed to the Physical layer to be sent out 
+        on the physical medium one bit at a time.        
+    Finally, the remote host receives the packet
+        Host_B receives the frame and immediately runs a CRC. If the result matches what’s in the FCS field, the hardware-destination address is then checked. If the host finds a match, the Ether-Type 
+        field is then checked to determine the protocol that the packet should be handed to at the Network layer—IP, in this example.
+        At the Network layer, IP receives the packet and checks the IP destination address. Because there’s finally a match made, the Protocol field is checked to find out whom the payload should be given 
+        to. The payload is handed to ICMP, which understands that this is an echo request. ICMP responds to this by immediately discarding the packet and generating a new payload as an echo reply.
+    The destination host becomes a source host
+    Time for the router to route another packet
+    The original source host, now the destination host, receives the reply packet
+    <img src="images/9.3.networkcommunicationdatatodata.jpg" alt="" width="39%" height="40%"> 
+Different methods of routing, These methods determine how network devices determine the path for forwarding network traffic. Some of the commonly used methods of routing include:
+        Static Routing: involves manually configuring the routing table of each network device with specific routes to reach various destinations. Administrators manually define the paths that network 
+        traffic should take, and these routes remain unchanged unless modified manually. Static routing is suitable for small networks with a simple and stable topology.
+        Dynamic Routing: utilizes routing protocols to automate the process of determining routes. Network devices exchange routing information to calculate and update their routing tables 
+        dynamically. Dynamic routing protocols, such as RIP, OSPF, and BGP, are commonly used to facilitate this information exchange. Dynamic routing is suitable for larger networks with complex topologies
+        that are subject to frequent changes.
+        Default Routing: is a method where a router is configured to send all network traffic with no specific matching route to a default gateway. The default gateway serves as a catch-all route for 
+        traffic that doesn't match any other routes in the routing table. Default routing is often used in situations where a router needs to forward traffic to destinations outside of its local network.
+        Policy-Based Routing: allows the network administrator to define routing decisions based on specific criteria or policies. With PBR, traffic can be directed along different
+        paths based on factors like source IP address, destination IP address, port numbers, protocol types, etc. This method provides greater control over routing decisions and can be used for implementing 
+        load balancing, traffic prioritization, or traffic engineering.
+        Adaptive Routing: is a method where network devices dynamically adjust the routes based on real-time information about the network conditions. This approach allows routers to make 
+        routing decisions based on factors such as congestion, link quality, or network performance metrics. Adaptive routing algorithms aim to optimize traffic flow and improve network efficiency.
+        Hybrid Routing: combines elements of both static and dynamic routing methods. In a hybrid routing approach, static routes are used for certain destinations or network segments, while 
+        dynamic routing protocols are utilized for other parts of the network. This method offers a balance between stability and flexibility, allowing for manual control over specific routes while 
+        benefiting from dynamic route updates in other areas. 
+<b id="id_routing_protocols_details" style="color: rgb(0, 0, 0); text-decoration: none;">Routing Protocols</b>        
 
 <b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
 https://media.oiipdf.com/pdf/214dd702-0ee6-4e47-b336-fce0d95934a5.pdf <b>reffered book online</b>
