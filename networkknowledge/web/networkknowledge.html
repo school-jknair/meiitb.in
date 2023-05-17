@@ -1461,6 +1461,54 @@ Different methods of routing, These methods determine how network devices determ
         dynamic routing protocols are utilized for other parts of the network. This method offers a balance between stability and flexibility, allowing for manual control over specific routes while 
         benefiting from dynamic route updates in other areas. 
 <b id="id_routing_protocols_details" style="color: rgb(0, 0, 0); text-decoration: none;">Routing Protocols</b>        
+A routing protocol is a set of rules and algorithms that routers use to exchange information and make decisions about the best paths for forwarding network traffic. It enables routers to dynamically learn 
+and update routing tables, which contain information about network destinations and the paths to reach them. Routing protocols serve the following purposes:
+    Discovering and sharing network topology: Routing protocols enable routers to discover and exchange information about neighboring routers, network links, and their statuses. This information helps 
+    routers build a map of the network topology.
+    Exchanging routing information: Routing protocols allow routers to exchange information about reachable network destinations and the associated metrics or costs. This information helps routers determine 
+    the optimal paths for forwarding traffic.
+    Calculating best paths: Routing protocols employ algorithms to calculate the best paths for network traffic based on factors like link costs, network congestion, or other metrics. These calculations 
+    take into account the information gathered from neighboring routers.
+    Updating routing tables: Routing protocols facilitate the regular updating of routing tables on routers. When changes occur in the network, such as link failures, new connections, or network 
+    reconfigurations, routing protocols update the routing tables to reflect the current network topology and available paths.
+An Autonomous System (AS) is a collection of connected IP networks that operate under a single administrative entity or organization like ISP, governments or companies. It is a fundamental concept 
+in Internet routing and represents a group of IP networks that are governed by a single set of routing policies and managed by a single organization. Each AS has a unique ID called AS number(ASN). It 
+is estimated that 100,000 ASNs are used globally. The two types of routing protocols commonly used in internetworks are:
+    Interior Gateway Protocols (IGPs): are routing protocols used for exchanging routing information within an autonomous system (AS) or network. IGPs are designed to determine the best paths for network 
+    traffic within a single organization or network domain. IGPs are typically used within a specific administrative boundary and are not intended for routing between different autonomous systems. Examples 
+    of Interior Gateway Protocols include:  
+        Routing Information Protocol (RIP)
+        Open Shortest Path First (OSPF)
+        Intermediate System to Intermediate System (IS-IS)
+        Enhanced Interior Gateway Routing Protocol (EIGRP) (Cisco proprietary)
+    Exterior Gateway Protocols (EGPs): are routing protocols used for exchanging routing information between different autonomous systems (ASes) or networks. EGPs are designed to handle routing between 
+    distinct organizations or networks and enable the exchange of routing information across autonomous system boundaries. The primary Exterior Gateway Protocol is:
+        Border Gateway Protocol (BGP)
+Administrative distance is a value or metric used in routing protocols to determine the reliability or trustworthiness of routing information from different sources when multiple routes to a destination 
+exist. It is a way to prioritize or rank the sources of routing information to select the most preferred route. A lower administrative distance value indicates a more reliable or preferred source of 
+routing information, while a higher value indicates a less reliable or less preferred source. When a router receives routing updates or advertisements from multiple sources (such as different routing 
+protocols or neighboring routers), it uses the administrative distance to choose the best route to a destination. The router selects the route with the lowest administrative distance as the preferred 
+route and installs it in its routing table for forwarding network traffic. Here are some common default administrative distance values for routing protocols:
+    Directly connected networks: 0
+    Static routes: 1
+    Enhanced Interior Gateway Routing Protocol (EIGRP): 90
+    Open Shortest Path First (OSPF): 110
+    Routing Information Protocol (RIP): 120
+    External BGP (eBGP): 20
+    Internal BGP (iBGP): 200
+Classes of routing protocols are important because they provide a framework for understanding and categorizing different routing protocols based on their operational principles, behavior, and 
+characteristics. The three main classes of routing protocols are:
+    Distance Vector Routing Protocols, measure the distance by the number of routers a packet has to pass; one router counts as one hop. Some distance-vector protocols also take into account network 
+    latency and other factors that influence traffic on a given route.  RIP, RIPv2, and IGRP are distance-vector routing protocols. These protocols send the entire routing table to all directly 
+    connected neighbors.
+    <img src="images/10.1.distancevectorroutingtable.jpg" alt="" width="29%" height="40%"> 
+    Link State Routing Protocols, also called shortest-path-first protocols, operate by exchanging information about the state of the network links with other routers in the network. Each router 
+    builds a complete map or topology of the network by collecting link state information from all routers. With this information, routers calculate the best paths to reach network destinations. Examples 
+    of link state routing protocols include Open Shortest Path First (OSPF) and Intermediate System to Intermediate System (IS-IS).
+    Hybrid Routing Protocols, combine elements of both Distance Vector and Link State protocols, taking advantage of their strengths. They use a combination of distance information and link state 
+    information to make routing decisions. Hybrid protocols aim to strike a balance between convergence speed, scalability, and simplicity. Examples of hybrid routing protocols include Enhanced Interior 
+    Gateway Routing Protocol (EIGRP) and Border Gateway Protocol (BGP).
+Distance Vector Routing Protocols
 
 <b><a href="#id_top_details" style="color: rgb(0, 0, 0); text-decoration: none;">######   reach start of the document   ######</a></b>  
 https://media.oiipdf.com/pdf/214dd702-0ee6-4e47-b336-fce0d95934a5.pdf <b>reffered book online</b>
